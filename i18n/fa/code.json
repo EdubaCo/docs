@@ -1,0 +1,72 @@
+{
+  "homepage.cta": {
+    "message": "خواندن مستندات",
+    "description": "Homepage call-to-action button"
+  },
+  "homepage.intro": {
+    "message": "به مستندات پلتفرم Eduba خوش آمدید. از {introLink} شروع کنید یا به {gettingStartedLink} بروید.",
+    "description": "Homepage introduction paragraph"
+  },
+  "homepage.intro.link": {
+    "message": "مقدمه"
+  },
+  "homepage.gettingStarted.link": {
+    "message": "شروع به کار"
+  },
+  "articleFeedback.prompt": {
+    "message": "اشتباهی پیدا کردید؟ درخواست تغییر دهید.",
+    "description": "Prompt above the article feedback control"
+  },
+  "articleFeedback.trigger": {
+    "message": "درخواست تغییر",
+    "description": "Button that opens the article feedback form"
+  },
+  "articleFeedback.heading": {
+    "message": "درخواست تغییر یا گزارش اشتباه",
+    "description": "Heading of the opened article feedback form"
+  },
+  "articleFeedback.messageLabel": {
+    "message": "چه چیزی را باید اصلاح کنیم؟",
+    "description": "Label for the feedback message field"
+  },
+  "articleFeedback.messagePlaceholder": {
+    "message": "اشتباه یا تغییری که می‌خواهید را شرح دهید…",
+    "description": "Placeholder for the feedback message field"
+  },
+  "articleFeedback.contactLabel": {
+    "message": "راه تماس (اختیاری)",
+    "description": "Label for the optional contact field"
+  },
+  "articleFeedback.contactPlaceholder": {
+    "message": "ایمیل یا شناسه، اگر مایل به دریافت پاسخ هستید",
+    "description": "Placeholder for the optional contact field"
+  },
+  "articleFeedback.submit": {
+    "message": "ارسال بازخورد",
+    "description": "Submit button of the article feedback form"
+  },
+  "articleFeedback.submitting": {
+    "message": "در حال ارسال…",
+    "description": "Submit button label while the feedback request is in flight"
+  },
+  "articleFeedback.cancel": {
+    "message": "انصراف",
+    "description": "Button that closes the article feedback form"
+  },
+  "articleFeedback.success": {
+    "message": "متشکریم! بازخورد شما به تیم ما رسید.",
+    "description": "Success message after submitting feedback"
+  },
+  "articleFeedback.error": {
+    "message": "مشکلی پیش آمد. لطفاً دوباره تلاش کنید.",
+    "description": "Error message when submitting feedback fails"
+  },
+  "articleFeedback.retry": {
+    "message": "دوباره تلاش کنید",
+    "description": "Submit button label after a failed submission"
+  },
+  "articleFeedback.required": {
+    "message": "لطفاً یک پیام وارد کنید.",
+    "description": "Validation error when the feedback message is empty"
+  }
+}

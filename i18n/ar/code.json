@@ -1,0 +1,72 @@
+{
+  "homepage.cta": {
+    "message": "اقرأ الوثائق",
+    "description": "Homepage call-to-action button"
+  },
+  "homepage.intro": {
+    "message": "مرحبًا بك في وثائق منصة Eduba. ابدأ من {introLink} أو انتقل إلى {gettingStartedLink}.",
+    "description": "Homepage introduction paragraph"
+  },
+  "homepage.intro.link": {
+    "message": "المقدمة"
+  },
+  "homepage.gettingStarted.link": {
+    "message": "البدء"
+  },
+  "articleFeedback.prompt": {
+    "message": "وجدت خطأً؟ اطلب تغييرًا.",
+    "description": "Prompt above the article feedback control"
+  },
+  "articleFeedback.trigger": {
+    "message": "اطلب تغييرًا",
+    "description": "Button that opens the article feedback form"
+  },
+  "articleFeedback.heading": {
+    "message": "اطلب تغييرًا أو أبلغ عن خطأ",
+    "description": "Heading of the opened article feedback form"
+  },
+  "articleFeedback.messageLabel": {
+    "message": "ما الذي يجب أن نصلحه؟",
+    "description": "Label for the feedback message field"
+  },
+  "articleFeedback.messagePlaceholder": {
+    "message": "صف الخطأ أو التغيير الذي تريده…",
+    "description": "Placeholder for the feedback message field"
+  },
+  "articleFeedback.contactLabel": {
+    "message": "وسيلة التواصل (اختياري)",
+    "description": "Label for the optional contact field"
+  },
+  "articleFeedback.contactPlaceholder": {
+    "message": "البريد الإلكتروني أو المعرّف، إن أردت ردًا",
+    "description": "Placeholder for the optional contact field"
+  },
+  "articleFeedback.submit": {
+    "message": "إرسال الملاحظات",
+    "description": "Submit button of the article feedback form"
+  },
+  "articleFeedback.submitting": {
+    "message": "جارٍ الإرسال…",
+    "description": "Submit button label while the feedback request is in flight"
+  },
+  "articleFeedback.cancel": {
+    "message": "إلغاء",
+    "description": "Button that closes the article feedback form"
+  },
+  "articleFeedback.success": {
+    "message": "شكرًا! وصلت ملاحظاتك إلى فريقنا.",
+    "description": "Success message after submitting feedback"
+  },
+  "articleFeedback.error": {
+    "message": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "description": "Error message when submitting feedback fails"
+  },
+  "articleFeedback.retry": {
+    "message": "حاول مرة أخرى",
+    "description": "Submit button label after a failed submission"
+  },
+  "articleFeedback.required": {
+    "message": "يرجى إدخال رسالة.",
+    "description": "Validation error when the feedback message is empty"
+  }
+}
