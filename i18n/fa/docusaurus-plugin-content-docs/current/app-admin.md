@@ -1,40 +1,34 @@
 ---
 id: app-admin
 slug: /app-admin
-title: App admin
-sidebar_label: App admin
+title: مدیر پلتفرم
+sidebar_label: مدیر پلتفرم
 sidebar_position: 15
-description: The back-office for the people who operate the Eduba deployment itself.
+description: بک‌آفیس مخصوص کسانی که خود سرویس Eduba را اداره می‌کنند.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# مدیر پلتفرم
+
+**مدیر پلتفرم** بک‌آفیس کسانی است که خود سرویس Eduba را اداره می‌کنند: راه‌اندازی
+فضاهای کاری، رسیدگی به بازخورد مستندات و کارهای دیگرِ اپراتور پلتفرم. این با مدیریتِ
+*فضای کاری* فرق دارد: مدیر فضای کاری یک سازمان را تنظیم می‌کند، ولی مدیر پلتفرم کل
+نصب را اداره می‌کند.
+
+:::note مخاطب جداگانه
+مدیر پلتفرم در یک بک‌آفیس جدا با ورود مخصوص خودش کار می‌کند (ADR-0058 و ADR-0069) و
+جزو منوی هیچ فضای کاری نیست. کنترل «درخواست تغییر / گزارش اشتباه» در هر صفحهٔ
+مستندات، به همین صندوق بازخوردِ مدیر پلتفرم می‌رسد (ADR-0014، اصلاحیهٔ C).
 :::
 
-# App admin
+## اینجا چه چیزهایی می‌یابید
 
-**App admin** is the back-office for the people who operate the Eduba deployment
-itself — provisioning tenants, triaging documentation feedback, and other
-platform-operator tasks. It is distinct from *tenant* administration: a tenant
-admin configures one organization, while an app admin runs the whole
-installation.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::note Separate audience
-App admin lives in a separate back-office with its own sign-in (ADR-0058,
-ADR-0069). It is not part of any single tenant's navigation. The "request a
-change / report a mistake" control on every docs page feeds the app-admin
-feedback inbox described here (ADR-0014 Amendment C).
-:::
+- راه‌اندازی فضای کاری و چرخهٔ حیات آن.
+- صندوق بازخورد مستندات و روش رسیدگی به آن.
+- تنظیمات عملیاتی کل پلتفرم.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Tenant provisioning and lifecycle.
-- The documentation-feedback inbox and triage flow.
-- Platform-wide operational settings.
-
-## Related
-
-- [Settings](./settings.md) — tenant-level configuration (a different audience).
-- [Getting started](./getting-started.md) — orientation to the platform overall.
+- [تنظیمات](./settings.md) — تنظیمات سطح فضای کاری (مخاطبی متفاوت).
+- [شروع کار](./getting-started.md) — آشنایی با کل پلتفرم.

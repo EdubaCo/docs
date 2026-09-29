@@ -1,89 +1,84 @@
 ---
 id: task-detail
 slug: /task-detail
-title: Task detail — working a task
-sidebar_label: Task detail
+title: جزئیات وظیفه — انجام یک وظیفه
+sidebar_label: جزئیات وظیفه
 sidebar_position: 3.5
-description: The screen where you actually work a task — the workflow stepper, the Overview / Activity / Files / Comments tabs, and how to fill in and submit your step.
+description: صفحه‌ای که در آن واقعاً روی وظیفه کار می‌کنید — نوار مراحل گردش‌کار، زبانه‌های نمای کلی، فعالیت، فایل‌ها و نظرها، و نحوهٔ پر کردن و ثبت مرحلهٔ خودتان.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# جزئیات وظیفه — انجام یک وظیفه
 
-# Task detail — working a task
+**جزئیات وظیفه** صفحه‌ای است که با باز کردن یک وظیفه از [کارهای من](./my-work.md)،
+یک [پروژه](./projects.md) یا یک اعلان به آن می‌رسید. کارهای من می‌گوید *چه
+چیزی* منتظر شماست؛ این صفحه جایی است که آن را *انجام می‌دهید*. هرچه برای یک
+مرحله از گردش‌کار لازم دارید — سابقه، فایل‌ها، گفت‌وگو و فرمی که ثبت می‌کنید —
+همین‌جاست.
 
-**Task detail** is the screen you land on when you open a task from
-[My Work](./my-work.md), a [project](./projects.md), or a notification. My Work
-tells you *what* is waiting for you; this screen is where you actually *do* it.
-Everything you need for one step of a workflow — the history, the files, the
-conversation, and the form you submit — lives here.
+## سربرگ
 
-## The header
+بالای صفحه نشان می‌دهد روی کدام وظیفه‌اید و این وظیفه کجای کار قرار دارد:
 
-The top of the screen tells you which task you are on and where it sits:
-
-| Element | Meaning |
+| بخش | معنی |
 | --- | --- |
-| **Breadcrumb** | The trail back to My Work or the task's project. |
-| **Task name** | What the step is asking for. |
-| **Workflow** | The workflow this task's run follows. |
-| **Status** | Whether the task is still active or already finished. |
-| **Due / SLA** | When the step is due; overdue and at-risk tasks are flagged. |
-| **Assignment** | Who the task is assigned to right now. |
+| **مسیر صفحه** | راه بازگشت به کارهای من یا پروژهٔ وظیفه. |
+| **نام وظیفه** | آنچه این مرحله از شما می‌خواهد. |
+| **گردش‌کار** | گردش‌کاری که اجرای این وظیفه از آن پیروی می‌کند. |
+| **وضعیت** | اینکه وظیفه هنوز فعال است یا تمام شده. |
+| **سررسید / SLA** | زمان سررسید مرحله؛ وظیفه‌های دیرکرده و در معرض دیرکرد علامت می‌خورند. |
+| **واگذاری** | وظیفه در حال حاضر به چه کسی سپرده شده است. |
 
-You can copy a direct link to the task, or open the underlying run, from the
-header's actions. As everywhere in Eduba, **you only see the actions your
-permissions allow** ([policy rules](./policy.md), ADR-0005).
+از منوی اقدام‌های سربرگ می‌توانید لینک مستقیم وظیفه را کپی کنید یا اجرای
+مربوط به آن را باز کنید. مثل همه‌جای Eduba، **فقط اقدام‌هایی را می‌بینید که
+مجوزهایتان اجازه می‌دهد** ([قوانین دسترسی](./policy.md)، ADR-0005).
 
-## The workflow stepper
+## نوار مراحل گردش‌کار
 
-Below the header, a compact stepper shows the whole run at a glance: which steps
-are done, which one is waiting, and how far along the run is. Expand it to see a
-vertical, per-step view with **who acted on each step and what they decided** —
-useful when you need to know why the task reached you in its current shape, and
-which step is *your turn*.
+زیر سربرگ، یک نوار فشرده کل اجرا را یک‌جا نشان می‌دهد: کدام مرحله‌ها انجام
+شده‌اند، کدام‌یک منتظر است و اجرا چقدر جلو رفته است. با بازکردنش نمای
+عمودیِ هر مرحله را می‌بینید، همراه با **اینکه چه کسی روی هر مرحله اقدام کرده و
+چه تصمیمی گرفته است**. این وقتی به کار می‌آید که بخواهید بدانید چرا وظیفه به
+این شکل به دست شما رسیده و کدام مرحله *نوبت شماست*.
 
-## The tabs
+## زبانه‌ها
 
-The body of the screen has four tabs:
+بدنهٔ صفحه چهار زبانه دارد:
 
-- **Overview** — your turn, the last thing that happened, the task description,
-  its details, and its documents. This is where you act.
-- **Activity** — one interleaved feed of the whole task: step completions,
-  system events, comments, and file changes, newest first. Filter it by
-  *Steps*, *Comments*, or *Files* when the feed gets long.
-- **Files** — every document on the task with its full version history:
-  who uploaded each revision and when. Documents handed off from the project
-  carry a lineage badge; documents revised during the run are marked as
-  modified.
-- **Comments** — the discussion thread for this task.
+- **نمای کلی** — نوبت شما، آخرین اتفاقی که افتاده، توضیح وظیفه، جزئیات آن و
+  مدارکش. اقدام شما از همین‌جا انجام می‌شود.
+- **فعالیت** — یک فید یکپارچه از کل وظیفه: تکمیل مرحله‌ها، رویدادهای سیستم،
+  نظرها و تغییرهای فایل‌ها، با جدیدترین در بالا. وقتی فید طولانی شد، آن را
+  بر اساس *مرحله‌ها*، *نظرها* یا *فایل‌ها* فیلتر کنید.
+- **فایل‌ها** — همهٔ مدارک وظیفه با تاریخچهٔ کامل نسخه‌هایشان: هر بازنگری را
+  چه کسی و چه زمانی بارگذاری کرده است. مدارکی که از پروژه منتقل شده‌اند نشان
+  «منشأ» دارند و مدارکی که در جریان اجرا بازنگری شده‌اند «ویرایش‌شده» علامت
+  می‌خورند.
+- **نظرها** — رشتهٔ گفت‌وگوی این وظیفه.
 
-## Your turn — filling in and submitting the step
+## نوبت شما — پر کردن و ثبت مرحله
 
-When the task is waiting on **you**, Overview leads with the *Your turn* action
-card. It contains the form the workflow's step defines — typically a decision
-(for example *approve*, *approve with minor comments*, or *reject*), a comment
-box, and optional attachments.
+وقتی وظیفه منتظر **شماست**، نمای کلی با کارت اقدامِ *نوبت شما* شروع می‌شود.
+این کارت همان فرمی را دارد که مرحلهٔ گردش‌کار تعریف کرده است: معمولاً یک
+تصمیم (مثلاً *تأیید*، *تأیید با نکته‌های جزئی* یا *رد*)، یک کادر برای نظر و
+پیوست‌های اختیاری.
 
-To complete the step:
+برای تکمیل مرحله:
 
-1. Read the digest of what happened last and check the files you need.
-2. Choose your decision and add a comment explaining it.
-3. Attach any files the next person will need.
-4. **Submit.**
+1. خلاصهٔ آخرین اتفاقات را بخوانید و فایل‌های موردنیازتان را بررسی کنید.
+2. تصمیمتان را انتخاب کنید و در نظری توضیح دهید چرا.
+3. فایل‌هایی را که نفر بعدی لازم دارد پیوست کنید.
+4. **ثبت** را بزنید.
 
-Eduba records your submission to the run's audit trail and advances the run to
-its next step. The task then shows a completion banner with the outcome instead
-of the action card.
+Eduba ثبت شما را در سابقهٔ ممیزی اجرا می‌نویسد و اجرا را به مرحلهٔ بعد می‌برد.
+از آن پس، به‌جای کارت اقدام، یک نوار تکمیل با نتیجه نمایش داده می‌شود.
 
-If the task is **not** waiting on you — someone else holds it, or the run has
-already finished — the same card is read-only. You can still read everything,
-comment, and follow the run's progress.
+اگر وظیفه منتظر شما **نیست** — یعنی دست کس دیگری است یا اجرا تمام شده — همان
+کارت فقط‌خواندنی است. باز هم می‌توانید همه‌چیز را بخوانید، نظر بگذارید و
+پیشرفت اجرا را دنبال کنید.
 
-## Related
+## مطالب مرتبط
 
-- [My Work / Task inbox](./my-work.md) — the inbox this screen is opened from.
-- [Your first task](./getting-started/your-first-task.md) — a guided
-  end-to-end pass.
-- [Projects](./projects.md) — the task in the context of the whole case.
+- [کارهای من / کارتابل وظایف](./my-work.md) — کارتابلی که این صفحه از آن باز می‌شود.
+- [اولین وظیفه‌تان](./getting-started/your-first-task.md) — یک مرور
+  گام‌به‌گام از ابتدا تا انتها.
+- [پروژه‌ها](./projects.md) — وظیفه در بستر کل پرونده.

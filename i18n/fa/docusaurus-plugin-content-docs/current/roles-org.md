@@ -1,84 +1,82 @@
 ---
 id: roles-org
 slug: /roles-org
-title: Roles and org chart
-sidebar_label: Roles & org chart
+title: نقش‌ها و چارت سازمانی
+sidebar_label: نقش‌ها و چارت سازمانی
 sidebar_position: 9
-description: Define roles, assign them to people, and model your organization structure.
+description: نقش‌ها را تعریف کنید، به افراد بدهید و ساختار سازمانتان را مدل کنید.
+sourceFiles:
+  - apps/web/src/features/settings/roles/RolesPage.tsx
+  - apps/web/src/features/settings/org-chart/OrgChartPage.tsx
+  - apps/web/src/features/settings/members/RoleMultiSelect.tsx
+sourceHash: d8a962be0fe3774f03ca00adc5e97851a771b183454c25488306313ea1b29dd3
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# نقش‌ها و چارت سازمانی
+
+**نقش‌ها** واحدی هستند که Eduba مجوزها را به آن می‌دهد و **چارت سازمانی** ساختار
+گزارش‌دهی‌ای را مدل می‌کند که نقش‌ها و مسیریابی می‌توانند به آن ارجاع بدهند. هر فضای
+کاری با چند نقش سیستمی ساخته می‌شود (`tenant_admin`، `workflow_admin`، `task_worker`،
+`run_watcher`)؛ مدیرها نقش‌های سفارشی برای سازمانشان می‌سازند و به کاربرها می‌دهند:
+مستقیم، از طریق انتخاب‌گر اعضا یا از طریق [گروه‌های کاربری](./groups.md).
+
+:::info مجوز لازم
+مدیریت نقش‌ها و چارت سازمانی کار مدیر فضای کاری است و به مجوز **`manageUsers`** نیاز
+دارد. [قوانین دسترسی](./policy.md) را ببینید.
 :::
 
-# Roles and org chart
+## صفحهٔ نقش‌ها
 
-**Roles** are the unit Eduba grants capabilities to, and the **org chart**
-models the reporting structure roles and routing can reference. A tenant ships
-with system roles (`tenant_admin`, `workflow_admin`, `task_worker`,
-`run_watcher`); admins create custom roles for their organization and assign
-them to users — directly, through the members picker, or through
-[user groups](./groups.md).
+**تنظیمات ← نقش‌ها** یک صفحهٔ دوپنلی است: فهرست نقش‌ها در سمت چپ، و **جدول
+دسترسی‌ها و سابقهٔ ممیزی** نقشِ انتخاب‌شده در سمت راست؛ پس یک نقش و مجوزهایی که
+می‌دهد در یک جا ویرایش می‌شود، نه دو جا. هرچه اینجا می‌بینید خواندن زندهٔ موتور قوانین
+دسترسی است (ADR-0005): جدول هیچ‌وقت دسترسی‌ها را سمت کلاینت حساب نمی‌کند و همان
+چیزی را نشان می‌دهد که موتور واقعاً ذخیره کرده، و هر نوشتن سمت سرور دوباره مجوزگیری
+و ممیزی می‌شود.
 
-:::info Permission
-Managing roles and the org chart is a tenant-admin task and requires the
-**`manageUsers`** capability. See [Policy rules](./policy.md).
-:::
+- **نقش‌های سیستمی** را نمی‌توان تغییر نام داد یا حذف کرد، ولی می‌توانید مجوزهایشان را
+  با قاعده‌های خودتان گسترش دهید.
+- **نقش‌های سفارشی** که می‌سازید یک نام یکتا و شبیه شناسه می‌گیرند (حروف کوچک،
+  عدد، `_` و `-`) و یک توضیح اختیاری. حذف نقشی که هنوز استفاده می‌شود، تا وقتی از
+  همه گرفته نشود رد می‌شود.
+- انتخاب یک نقش، **جدول دسترسی‌های** آن را بارگذاری می‌کند (برای خواندن و ویرایش آن
+  [قوانین دسترسی](./policy.md) را ببینید) و همچنین **سابقهٔ ممیزی** آن را: فهرست
+  زمانی رویدادهای `role.created` و `role.updated` و
+  `policy.ruleAdded` و `policy.ruleRemoved` برای آن نقش، تا ببینید چه کسی چه چیزی را
+  کی داده یا گرفته است.
 
-## The Roles screen
+## دادن نقش به افراد
 
-**Settings → Roles** is a single two-panel screen: the role list on the left,
-and the selected role's **permission matrix and audit trail** on the right —
-so a role and the capabilities it grants are edited in one place rather than
-two. Everything you see here is a live read of the policy engine (ADR-0005):
-the matrix never computes permissions client-side, it renders what the engine
-actually stores, and every write is re-authorized and audited server-side.
+هر عضو می‌تواند هر تعداد نقش داشته باشد. انتخاب‌گر نقش که در همهٔ بخش‌های تنظیمات
+استفاده می‌شود (دعوت عضو، ویرایش عضو موجود) یک منوی چندانتخابی است: دکمهٔ آن نقش‌های
+فعلی عضو را به شکل برچسب نشان می‌دهد و منوی آن فهرست تیک‌دار همهٔ نقش‌های فضای کاری
+است. با تیک زدن یا برداشتن، مجموعهٔ نقش‌های عضو دقیقاً برابر با چیزی می‌شود که تیک
+خورده؛ «افزودن» و «حذف» جداگانه‌ای وجود ندارد.
 
-- **System roles** cannot be renamed or deleted; their capabilities can still
-  be extended with your own rules.
-- **Custom roles** you create take a unique, token-like name (lowercase
-  letters, digits, `_`/`-`) and an optional description. Deleting a role that
-  is still in use is refused until it is unassigned.
-- Selecting a role loads its **permission matrix** — see
-  [Policy rules](./policy.md) for how to read and edit it — and its
-  **audit trail**: a chronological feed of `role.created`/`role.updated`,
-  `policy.ruleAdded`/`policy.ruleRemoved` events for that role, so you can see
-  who granted or revoked what and when.
+## ساختن چارت سازمانی
 
-## Assigning roles to people
+**تنظیمات ← چارت سازمانی** سازمان شما را به شکل یک درخت تک‌ریشه از **واحدهای
+سازمانی** (دپارتمان، تیم یا خط گزارش‌دهی) مدل می‌کند که هرکدام مجموعه‌ای از اعضا را
+دارد. می‌توانید واحد اصلی و زیرواحد بسازید، نام و نوع واحد را ویرایش کنید و اعضا را از
+طریق پنجرهٔ مدیریت اعضا به واحد بیاورید یا بیرون ببرید. ویرایشگر جابه‌جایی‌ها را سمت
+سرور بررسی می‌کند تا یک واحد هیچ‌وقت زیرمجموعهٔ خودش نشود؛ درخت همیشه سالم می‌ماند.
 
-A member can hold any number of roles. The role picker used throughout
-Settings (inviting a member, editing an existing one) is a multi-select
-dropdown: its trigger shows the member's current roles as chips, and its menu
-is a checklist of every role in the tenant. Toggling a checkbox replaces the
-member's full role set with exactly what is checked — there is no separate
-"add" vs. "remove" action.
+چارت سازمانی برای غیرمدیرها فقط‌خواندنی است. هر تغییر مثل مدیریت نقش‌ها به
+`manageUsers` وابسته است و ساختاری که می‌سازد در جاهای دیگر محصول به تفویض، ارجاع به
+سطح بالاتر و رده‌ٔ سازمانی کاربر خوراک می‌دهد.
 
-## Building the org chart
+## استفاده از نقش‌ها در مسیریابی گردش‌کار
 
-**Settings → Org chart** models your organization as a single-rooted tree of
-**org units** (department, team, or reporting line), each holding a set of
-member users. You can create root units and child units, edit a unit's name
-and type, and move members in and out of a unit through its manage-members
-dialog. The editor validates moves server-side so a unit can never become its
-own ancestor — the tree is always well-formed.
+نقش رایج‌ترین راه مسیریابی کار است: در انتخاب‌گر مسئولِ
+[طراح گردش‌کار](./workflow-designer.md) می‌توانید مسئول یک مرحله را **نقش** بگذارید تا
+وظیفه به همهٔ دارندگان آن نقش پیشنهاد شود تا یکی بردارد. نقش‌هایی هم که یک
+[بسته](./packs.md) همراه می‌آورد (مثلاً *کنترل‌کننده* و *تأییدکننده*) از همین راه به
+نقش‌های واقعی و قابل‌واگذاری فضای کاری شما تبدیل می‌شوند: هنگام فعال‌سازی بسته، آن‌ها را
+به نقشی که اینجا می‌سازید نگاشت می‌کنید.
 
-The org chart is read-only for non-admins. Every write is gated on
-`manageUsers` the same as role management, and the structure it builds feeds
-delegation, escalation, and a user's org tier elsewhere in the product.
+## مطالب مرتبط
 
-## Using roles in workflow routing
-
-A role is the most common way to route work: an authored step's assignee can
-be set to **role** in the [workflow designer](./workflow-designer.md)'s
-assignee picker, which offers the task to everyone holding that role until one
-of them claims it. This is also how a [pack](./packs.md)'s shipped roles (for
-example *Checker*, *Approver*) become real, assignable roles in your tenant —
-by mapping them to one you create here during pack activation.
-
-## Related
-
-- [Policy rules](./policy.md) — the capabilities granted to roles, and how to
-  read/edit the permission matrix.
-- [User groups](./groups.md) — assigning roles to many users at once.
-- [Pack management](./packs.md) — mapping a pack's roles onto your tenant's.
+- [قوانین دسترسی](./policy.md) — مجوزهایی که به نقش‌ها داده می‌شود و روش خواندن و
+  ویرایش جدول دسترسی‌ها.
+- [گروه‌های کاربری](./groups.md) — دادن نقش به چند کاربر یکجا.
+- [مدیریت بسته‌ها](./packs.md) — نگاشت نقش‌های یک بسته به نقش‌های فضای کاری شما.

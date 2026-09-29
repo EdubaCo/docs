@@ -1,74 +1,69 @@
 ---
 id: my-work
 slug: /my-work
-title: My Work / Task inbox
-sidebar_label: My Work
+title: کارهای من / کارتابل وظایف
+sidebar_label: کارهای من
 sidebar_position: 3
-description: Your personal task inbox — how tasks arrive, how to filter and prioritize them, and how to act.
+description: کارتابل شخصی شما؛ وظیفه‌ها چطور می‌رسند، چطور فیلتر و اولویت‌بندی‌شان کنید و چطور رویشان اقدام کنید.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# کارهای من / کارتابل وظایف
 
-# My Work / Task inbox
+**کارهای من** نقطهٔ شروع شما در Eduba است: کارتابلِ هرچه به شما سپرده شده، از همهٔ
+گردش‌کارها و پروژه‌ها. اگر در Eduba کار می‌کنید (و تقریباً همه می‌کنند)، این صفحه
+بیشترین استفاده را از شما می‌بیند.
 
-**My Work** is your home base in Eduba: the inbox of everything assigned to you,
-across every workflow and project. If you do work in Eduba — and almost everyone
-does — this is the screen you'll use most.
+## وظیفه‌ها چطور می‌رسند
 
-## How tasks arrive
+شما خودتان مورد کارتابل نمی‌سازید. وظیفه‌ها به این دلیل می‌آیند که یک **اجرا** به
+مرحله‌ای رسیده که به شما ارجاع می‌شود. یک مرحله به سه شکل می‌تواند شما را هدف بگیرد:
 
-You never create your own inbox items by hand. Tasks appear because a **run**
-reached a step that routes to you. Routing can target you in three ways:
+- **مستقیم**: مرحله اسم شما را آورده است.
+- **از طریق نقش**: مرحله نقشی را نام برده که شما دارید (مثلاً *کنترل‌کننده*) و وظیفه
+  به همهٔ دارندگان آن نقش پیشنهاد می‌شود تا یکی آن را بردارد.
+- **از طریق گروه**: مرحله یک [گروه کاربری](./groups.md) را نام برده که عضو آن هستید.
 
-- **Directly** — the step names you specifically.
-- **By role** — the step names a role you hold (for example *Checker*), and the
-  task is offered to everyone with that role until someone takes it.
-- **By group** — the step names a [user group](./groups.md) you belong to.
+با فیلترهای کارتابل بین *سپرده‌شده به من*، *نقش‌های من* و *گروه‌های من* جابه‌جا
+می‌شوید تا هم کارهای خودتان را ببینید و هم کارهایی را که می‌توانید بردارید.
 
-The inbox filters let you switch between *assigned to me*, *my roles*, and *my
-groups* so you can see both what is yours and what you could claim.
+## خواندن کارتابل
 
-## Reading the inbox
+هر ردیف یک وظیفه را خلاصه می‌کند:
 
-Each row summarizes a task:
-
-| Column | Meaning |
+| ستون | یعنی چه |
 | --- | --- |
-| **Title** | What the task is. |
-| **Run / Project** | The case and the [project](./projects.md) it belongs to. |
-| **Due / SLA** | When it is due; overdue and at-risk tasks are flagged. |
-| **Status** | Whether it is waiting for you, claimed, or in progress. |
+| **عنوان** | وظیفه چیست. |
+| **اجرا / پروژه** | پرونده و [پروژه‌ای](./projects.md) که وظیفه به آن تعلق دارد. |
+| **سررسید / SLA** | مهلت انجام؛ وظیفه‌های دارای تأخیر یا در معرض تأخیر علامت می‌خورند. |
+| **وضعیت** | منتظر شماست، برداشته شده یا در حال انجام است. |
 
-Sort by due date or SLA to work the most urgent items first.
+برای اینکه اول فوری‌ترین‌ها را انجام دهید، بر اساس سررسید یا SLA مرتب کنید.
 
-## Acting on a task
+## اقدام روی یک وظیفه
 
-Open a task to see its form, its context (attachments and run history), and the
-actions available to you. As everywhere in Eduba, **you only see the action
-buttons your permissions allow** (ADR-0005). Complete the form, choose an action,
-and Eduba records it to the run's audit trail and advances the run to its next
-step.
+وظیفه را باز کنید تا فرم، زمینه (پیوست‌ها و تاریخچهٔ اجرا) و اقدام‌هایی را که در
+اختیار دارید ببینید. مثل همه‌جای Eduba، **فقط دکمه‌هایی را می‌بینید که دسترسی‌هایتان
+اجازه می‌دهد** (ADR-0005). فرم را پر کنید، یک اقدام انتخاب کنید و Eduba آن را در
+سابقهٔ ممیزی اجرا ثبت می‌کند و اجرا را به مرحلهٔ بعد می‌برد.
 
-For a guided end-to-end pass, see
-[Your first task](./getting-started/your-first-task.md).
+برای یک مرور کامل قدم‌به‌قدم، [اولین وظیفه‌تان](./getting-started/your-first-task.md)
+را ببینید.
 
-## Claiming and releasing
+## برداشتن و رها کردن
 
-When a task is offered to a role or group rather than to you personally, you can
-**claim** it to make it yours, which removes it from your teammates' offered
-list. If you can't finish it, **release** it back so someone else can pick it up.
-This keeps shared queues moving without two people doing the same work.
+وقتی وظیفه‌ای برای یک نقش یا گروه پیشنهاد شده و نه برای شخص شما، می‌توانید آن را
+**بردارید** تا مال شما شود؛ در این صورت از فهرست پیشنهادیِ همکارانتان بیرون می‌رود.
+اگر نتوانستید تمامش کنید، آن را **رها کنید** تا کس دیگری بردارد. با این روش صف‌های
+مشترک روان می‌مانند و دو نفر یک کار را دوباره انجام نمی‌دهند.
 
-## Delegation
+## تفویض
 
-If you will be away, delegation can route your incoming tasks to a colleague for
-a period. Delegation is governed by the `manageDelegations` capability and
-configured in [Settings](./settings.md).
+اگر قرار است نباشید، با تفویض می‌توانید وظیفه‌های ورودی‌تان را برای مدتی به یکی از
+همکاران بسپارید. تفویض با مجوز `manageDelegations` کنترل می‌شود و در
+[تنظیمات](./settings.md) انجام می‌شود.
 
-## Related
+## مطالب مرتبط
 
-- [Getting started](./getting-started.md) — orientation and the core ideas.
-- [Creating work](./creating-work.md) — start the runs that produce tasks.
-- [Projects](./projects.md) — see your tasks in the context of the whole case.
+- [شروع کار](./getting-started.md) — آشنایی اولیه و ایده‌های اصلی.
+- [ایجاد کار](./creating-work.md) — شروع اجراهایی که وظیفه می‌سازند.
+- [پروژه‌ها](./projects.md) — وظیفه‌هایتان را در کنار کل پرونده ببینید.

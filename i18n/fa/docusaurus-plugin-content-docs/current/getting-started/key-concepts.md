@@ -1,85 +1,81 @@
 ---
 id: key-concepts
 slug: /getting-started/key-concepts
-title: Key concepts
-sidebar_label: Key concepts
-description: The vocabulary Eduba uses everywhere — tasks, runs, definitions, subflows, projects, roles, and packs.
+title: مفاهیم کلیدی
+sidebar_label: مفاهیم کلیدی
+description: واژه‌هایی که Eduba همه‌جا به کار می‌برد؛ وظیفه، اجرا، تعریف، زیرگردش، پروژه، نقش و بسته.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# مفاهیم کلیدی
 
-# Key concepts
+Eduba واژه‌نامهٔ کوچک و یکدستی دارد. وقتی این واژه‌ها جا بیفتند، بقیهٔ صفحه‌های محصول
+خودبه‌خود روشن می‌شوند. این صفحه واژه‌ها را تعریف می‌کند و نشان می‌دهد با هم چه
+رابطه‌ای دارند.
 
-Eduba has a small, consistent vocabulary. Once these terms click, every other
-screen in the product reads naturally. This page defines them and shows how they
-relate.
+## وظیفه و اجرا
 
-## Tasks and runs
+**وظیفه** کوچک‌ترین واحد کار است: یک کار که یک نفر (یا یک نقش) باید انجامش دهد،
+همراه با فیلدهای فرم، پیوست‌ها و زمینه‌ای که برای انجامش لازم است. وظیفه‌ها در
+کارتابل [کارهای من](../my-work.md) می‌آیند.
 
-A **task** is the atomic unit of work: one thing one person (or one role) needs
-to do, presented with the form fields, attachments, and context required to do
-it. Tasks land in your [My Work](../my-work.md) inbox.
-
-A **run** is one live execution of a workflow — the ordered set of tasks for a
-single case. Starting a run is what produces tasks. A purchase request, an
-onboarding case, an inspection: each is a run of its workflow.
+**اجرا** یک بار اجرای زندهٔ یک گردش‌کار است؛ یعنی وظیفه‌های یک پروندهٔ مشخص، به ترتیب.
+وظیفه‌ها از شروع یک اجرا ساخته می‌شوند. یک درخواست خرید، یک پروندهٔ جذب نیرو یا یک
+بازرسی، هرکدام یک اجرا از گردش‌کار خودش است.
 
 ```text
 Workflow definition  ──start──▶  Run  ──produces──▶  Tasks  ──▶  My Work inbox
    (the blueprint)              (one case)         (your work)
 ```
 
-## Definitions, versions, and subflows
+## تعریف، نسخه و زیرگردش
 
-A **workflow definition** is the reusable blueprint a run is created from. It is
-**versioned**: editing a definition produces a new version, and in-flight runs
-keep using the version they started on, so changing a process never disrupts
-work already underway. Definitions are built in the
-[Workflow designer](../workflow-designer.md).
+**تعریف گردش‌کار** الگوی قابل‌استفادهٔ مجددی است که اجرا از روی آن ساخته می‌شود.
+تعریف‌ها **نسخه‌دار** هستند: ویرایش یک تعریف، نسخهٔ جدیدی می‌سازد و اجراهای در حال
+انجام روی همان نسخه‌ای که با آن شروع شده‌اند ادامه می‌دهند؛ پس تغییر یک فرایند، کارِ
+در جریان را به هم نمی‌ریزد. تعریف‌ها در [طراح گردش‌کار](../workflow-designer.md)
+ساخته می‌شوند.
 
-A **subflow** is a reusable fragment — a sequence of steps you expect to use in
-many definitions (an approval chain, a notification pattern). You author subflows
-once and reference them from many workflows; see the
-[Subflow library](../subflow-library.md).
+**زیرگردش** تکه‌ای قابل‌استفادهٔ مجدد است؛ دنباله‌ای از مرحله‌ها که انتظار دارید در
+تعریف‌های مختلف به کارتان بیاید (مثلاً زنجیرهٔ تأیید یا الگوی اعلان). زیرگردش را یک
+بار می‌سازید و از گردش‌کارهای مختلف به آن ارجاع می‌دهید؛ به
+[کتابخانهٔ زیرگردش](../subflow-library.md) نگاه کنید.
 
-## Projects and portfolio
+## پروژه و سبد پروژه‌ها
 
-A **project** groups related runs and tasks so they can be tracked together,
-with a portfolio rollup across projects. Projects are how managers see status
-without opening every run. See [Projects](../projects.md).
+**پروژه** اجراها و وظیفه‌های مرتبط را کنار هم نگه می‌دارد تا با هم پیگیری شوند، و
+**سبد پروژه‌ها** وضعیت را در سطح همهٔ پروژه‌ها جمع‌بندی می‌کند. مدیرها با پروژه‌ها بدون
+باز کردن تک‌تک اجراها وضعیت را می‌بینند. [پروژه‌ها](../projects.md) را ببینید.
 
-## Roles, policy, and capabilities
+## نقش، قوانین دسترسی و مجوز
 
-Eduba's **policy engine** (ADR-0005) is the single authority for *who may do
-what*. Permissions are expressed as **capabilities** (for example
-`createTask`, `designWorkflow`) granted to **roles**, which are assigned to
-users — directly or through [user groups](../groups.md). The same engine:
+**موتور قوانین دسترسی** Eduba (ADR-0005) تنها مرجعی است که تعیین می‌کند *چه کسی چه
+کاری می‌تواند بکند*. دسترسی‌ها به شکل **مجوز** (مثلاً `createTask` و
+`designWorkflow`) تعریف می‌شوند، به **نقش‌ها** داده می‌شوند و نقش‌ها مستقیم یا از
+طریق [گروه‌های کاربری](../groups.md) به کاربرها می‌رسند. همین موتور:
 
-- decides which **action buttons** you see on a task,
-- decides which **navigation entries** appear for your tenant,
-- and decides which **docs pages and search results** this site shows you.
+- تعیین می‌کند کدام **دکمه‌های اقدام** را روی یک وظیفه ببینید،
+- تعیین می‌کند کدام **گزینه‌های منو** در فضای کاری‌تان بیایند،
+- و تعیین می‌کند این سایت کدام **صفحه‌های مستندات و نتیجه‌های جست‌وجو** را نشانتان
+  بدهد.
 
-That last point is why the documentation looks different for a task worker and a
-tenant admin. See [Policy rules](../policy.md) and
-[Roles and org chart](../roles-org.md).
+به همین دلیل مستندات برای یک مسئول وظیفه و یک مدیر فضای کاری فرق دارد.
+[قوانین دسترسی](../policy.md) و [نقش‌ها و چارت سازمانی](../roles-org.md) را ببینید.
 
-## Packs and standards
+## بسته و استاندارد
 
-A **pack** bundles workflows, blocks, and standards so an organization can
-bootstrap a whole domain by importing one artifact rather than building from
-scratch. See [Pack management](../packs.md).
+**بسته** گردش‌کارها، بلوک‌ها و استانداردها را در یک مجموعه می‌آورد تا سازمان بتواند با
+وارد کردن همین یک مجموعه، یک حوزهٔ کاری کامل را راه بیندازد و لازم نباشد از صفر
+بسازد. [مدیریت بسته‌ها](../packs.md) را ببینید.
 
-## How it fits together
+## همه چیز چطور به هم وصل می‌شود
 
-| You want to… | You work with… | Where |
+| می‌خواهید… | با این کار می‌کنید… | کجا |
 | --- | --- | --- |
-| Do work assigned to you | Tasks | [My Work](../my-work.md) |
-| Kick off a process | Runs | [Creating work](../creating-work.md) |
-| Define how a process flows | Definitions, subflows | [Workflow designer](../workflow-designer.md) |
-| Track many runs together | Projects | [Projects](../projects.md) |
-| Control who may do what | Roles, policy | [Policy rules](../policy.md) |
-| Bootstrap a domain | Packs | [Pack management](../packs.md) |
+| کارهای سپرده‌شده به خودتان را انجام دهید | وظیفه | [کارهای من](../my-work.md) |
+| یک فرایند را شروع کنید | اجرا | [ایجاد کار](../creating-work.md) |
+| مسیر پیشرفت یک فرایند را تعریف کنید | تعریف، زیرگردش | [طراح گردش‌کار](../workflow-designer.md) |
+| چند اجرا را با هم پیگیری کنید | پروژه | [پروژه‌ها](../projects.md) |
+| مشخص کنید چه کسی چه کاری بکند | نقش، قوانین دسترسی | [قوانین دسترسی](../policy.md) |
+| یک حوزهٔ کاری را سریع راه بیندازید | بسته | [مدیریت بسته‌ها](../packs.md) |
 
-Next: walk a task end-to-end in [Your first task](./your-first-task.md).
+قدم بعد: یک وظیفه را از اول تا آخر در [اولین وظیفه‌تان](./your-first-task.md) دنبال کنید.

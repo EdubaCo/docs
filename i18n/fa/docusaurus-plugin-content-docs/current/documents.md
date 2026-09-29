@@ -1,109 +1,106 @@
 ---
 id: documents
 slug: /documents
-title: Documents
-sidebar_label: Documents
+title: اسناد
+sidebar_label: اسناد
 sidebar_position: 10
-description: Upload, share, and track the files attached to your projects and tasks — folders, revisions, sharing, and attestation.
+description: فایل‌های پروژه‌ها و وظیفه‌هایتان را بارگذاری، به اشتراک بگذارید و پیگیری کنید؛ پوشه‌ها، بازنگری‌ها، اشتراک‌گذاری و تأیید صحت.
+sourceFiles:
+  - apps/web/src/features/documents/DocumentsPage.tsx
+  - apps/api/src/routes/documents.ts
+  - apps/api/src/routes/task-documents.ts
+sourceHash: 2b9b2c8dc482c8c1d2a8c0251932060fb62c4ee55d5ea541ee017fc2ef2b4fa2
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# اسناد
+
+صفحهٔ **اسناد** جای فایل‌های پروژه است: مشخصات فنی و نقشه‌هایی که به‌عنوان ورودی
+پروژه تحویل داده شده‌اند، فایل‌های کاری که یک وظیفه تولید می‌کند و مدارک تحویلیِ
+بسته‌بندی‌شده‌ای که یک اجرا تحویل می‌دهد. هر نوشتن یک **بازنگری** جدید و تغییرناپذیر
+می‌سازد و هیچ‌چیز رونویسی نمی‌شود؛ خواندن و نوشتن هم با [موتور قوانین دسترسی](./policy.md)
+کنترل می‌شود (ADR-0005 §4). پس آنچه اینجا می‌توانید ببینید و تغییر دهید همیشه با آنچه
+از داخل یک وظیفه می‌توانید ببینید و تغییر دهید یکی است.
+
+:::info مجوز لازم
+یک مجوز واحد برای این صفحه وجود ندارد؛ دسترسی برای هر سند جداگانه محاسبه می‌شود:
+بر اساس اینکه در پروژه یا وظیفه‌ای که سند به آن تعلق دارد چه نقشی دارید (عضو پروژه،
+یا سازندهٔ وظیفه، مسئول یا بازبین آن) و اینکه سند از مرحلهٔ **AFC** (تأییدشده برای
+ساخت، Approved For Construction) گذشته است یا نه؛ بعد از آن نوشتن روی سند قفل می‌شود.
+[قوانین دسترسی](./policy.md) را ببینید.
 :::
 
-# Documents
+## پوشه‌ها
 
-The **Documents** screen is where a project's files live: specs and drawings
-handed in as project inputs, the working files a task produces, and the
-packaged deliverables a run hands off. Every write creates a new, immutable
-**revision** — nothing is ever overwritten — and every read and write is
-gated by the [policy engine](./policy.md) (ADR-0005 §4), so what you can see
-and touch here always matches what you can see and touch from a task.
+اسناد در چهار نوع پوشه سازمان داده شده‌اند که با فیلتر پوشه در بالای صفحه بین آن‌ها
+جابه‌جا می‌شوید:
 
-:::info Permission
-There is no single capability that gates this screen — access is computed per
-document from your participation in the project or task it belongs to (a
-project member, or a task's creator/responsible/reviewer), plus whether the
-document has passed **AFC** (Approved For Construction), after which further
-writes are locked. See [Policy rules](./policy.md).
-:::
-
-## Folders
-
-Documents are organized into four folder kinds, switchable from the screen's
-folder filter:
-
-| Folder | What lives there |
+| پوشه | چه چیزهایی آنجاست |
 | --- | --- |
-| **Documents** | The default folder — project inputs and general files. |
-| **Attachments** | Supporting files attached along the way. |
-| **Deliverables** | Packaged, issued outputs — e.g. a run's transmittal package. |
-| **Shared** | Files exposed through a share link (see below). |
+| **اسناد** | پوشهٔ پیش‌فرض؛ ورودی‌های پروژه و فایل‌های عمومی. |
+| **پیوست‌ها** | فایل‌های پشتیبانی که در مسیر کار پیوست شده‌اند. |
+| **مدارک تحویلی** | خروجی‌های بسته‌بندی‌شده و صادرشده؛ مثلاً بستهٔ Transmittal یک اجرا. |
+| **اشتراکی** | فایل‌هایی که با لینک اشتراک‌گذاری در دسترس‌اند (پایین‌تر را ببینید). |
 
-The screen can be scoped to one project or shown tenant-wide, and a project's
-own task-scoped documents (the working files behind each of its tasks) list
-alongside its project-level inputs so issued deliverables stay visible without
-mixing working files into the project set.
+می‌توانید صفحه را به یک پروژه محدود کنید یا کل فضای کاری را ببینید؛ اسنادِ مخصوص
+وظیفه‌های یک پروژه (فایل‌های کاریِ پشت هر وظیفه) هم کنار ورودی‌های سطح پروژه فهرست
+می‌شوند، تا مدارک تحویلیِ صادرشده دیده شوند و فایل‌های کاری با مجموعهٔ پروژه قاطی
+نشوند.
 
-## Uploading and revisions
+## بارگذاری و بازنگری
 
-**+ Upload** creates a brand-new document at a chosen key; **New revision** on
-an existing row adds a new revision to it. Both use the same two-phase flow —
-request an upload handle, transfer the bytes, then finalize — and both
-affordances are hidden entirely for a document you may not write to, not
-merely disabled: what you see already reflects what the policy gate will
-allow, so there is no upload-then-403 surprise.
+**+ بارگذاری** یک سند کاملاً جدید در مسیری که انتخاب می‌کنید می‌سازد؛ **بازنگری
+جدید** روی یک ردیف موجود، بازنگری تازه‌ای به همان سند اضافه می‌کند. هر دو از یک روند
+دومرحله‌ای استفاده می‌کنند (درخواست مجوز بارگذاری، انتقال فایل، و بعد نهایی‌سازی) و
+برای سندی که اجازهٔ نوشتن رویش را ندارید، هر دو گزینه اصلاً نمایش داده نمی‌شوند، نه
+اینکه فقط غیرفعال باشند: آنچه می‌بینید همان چیزی است که موتور قوانین دسترسی اجازه
+می‌دهد؛ پس اتفاق ناخوشایندِ «بارگذاری کردم و خطای 403 گرفتم» پیش نمی‌آید.
 
-**Revision history** opens every finalized revision of a document, newest
-first, each tagged by its **source** — `upload` (a person uploaded it),
-`email` (arrived through inbound email), `attest` (see below), or `generated`
-(produced by the workflow) — with its author, date, and size. The current
-`latest` is marked; older revisions are download-only. Nothing here is ever
-edited or deleted — a correction is always a new revision.
+**تاریخچهٔ بازنگری‌ها** همهٔ بازنگری‌های نهایی‌شدهٔ یک سند را از جدید به قدیم نشان
+می‌دهد. هر بازنگری با **منبع** خودش برچسب خورده است: `upload` (یک نفر بارگذاری کرده)،
+`email` (از طریق ایمیل ورودی رسیده)، `attest` (پایین‌تر را ببینید) یا `generated`
+(گردش‌کار تولید کرده)، همراه با سازنده، تاریخ و اندازه. بازنگری فعلی (`latest`)
+مشخص شده و بازنگری‌های قدیمی‌تر فقط قابل دانلودند. هیچ‌چیز اینجا ویرایش یا حذف
+نمی‌شود؛ اصلاح همیشه یک بازنگری جدید است.
 
-## Task documents and lineage
+## اسناد وظیفه و خاستگاه
 
-A task's documents are its own copies, not references to the project's
-originals — editing a task's working file never touches the project input it
-was handed off from. A document handed off from the project into a task
-carries a **lineage badge** back to its source; one revised during the run is
-marked as modified. This is what lets ten tasks share the same project input
-and each end up with its own, independently-revised copy. Only the holder of
-a task's currently **open** step may add or revise that task's own documents
-— whatever role they hold — and that write access closes the moment their
-step is submitted and the wait moves on.
+اسناد یک وظیفه نسخه‌های خودِ آن وظیفه‌اند، نه ارجاع به اصل پروژه؛ پس ویرایش فایل
+کاریِ یک وظیفه هیچ‌وقت به ورودی پروژه‌ای که از آن تحویل گرفته شده دست نمی‌زند. سندی
+که از پروژه به یک وظیفه تحویل داده شده **نشان خاستگاه** دارد که به منبعش برمی‌گردد،
+و سندی که در جریان اجرا بازنگری شده «تغییرکرده» علامت می‌خورد. به همین دلیل ده وظیفه
+می‌توانند یک ورودی پروژه را داشته باشند و هرکدام نسخهٔ مستقل و جداگانه‌بازنگری‌شدهٔ
+خودش را داشته باشد. فقط کسی که مرحلهٔ **بازِ** فعلیِ یک وظیفه دست اوست می‌تواند به
+اسناد همان وظیفه اضافه یا در آن‌ها بازنگری کند (هر نقشی که داشته باشد)، و این دسترسی
+نوشتن به‌محض ارسال مرحله و رفتن اجرا به مرحلهٔ بعد بسته می‌شود.
 
-## Sharing
+## اشتراک‌گذاری
 
-**Share** mints a link to a document that expires after a chosen period,
-without requiring the recipient to have an Eduba account. A link can be
-revoked at any time, which immediately invalidates it. Share is only offered
-on a document you may already read.
+**اشتراک‌گذاری** لینکی برای یک سند می‌سازد که بعد از مدتی که انتخاب می‌کنید منقضی
+می‌شود و گیرنده لازم نیست حساب Eduba داشته باشد. لینک را هر وقت بخواهید می‌توانید لغو
+کنید و لغو، همان لحظه آن را بی‌اعتبار می‌کند. اشتراک‌گذاری فقط برای سندی است که خودتان
+اجازهٔ خواندنش را دارید.
 
-## Attestation
+## تأیید صحت
 
-**Attest** lets a participant re-affirm that a document's current latest bytes
-are still current — no new upload, just a lightweight confirmation. This
-records a new revision tagged `attest` with the confirming person as attester,
-which is how Eduba captures "user U confirmed latest input on date D" for
-inputs that arrive outside the platform (a customer's emailed drawing, for
-example) rather than through a direct upload.
+**تأیید صحت** به یکی از شرکت‌کنندگان اجازه می‌دهد دوباره تأیید کند که آخرین بایت‌های
+یک سند هنوز معتبرند؛ بدون بارگذاری جدید، فقط یک تأیید سبک. این کار یک بازنگری جدید با
+برچسب `attest` و نام تأییدکننده ثبت می‌کند، و Eduba از همین راه «کاربر U در تاریخ D
+آخرین ورودی را تأیید کرد» را برای ورودی‌هایی ثبت می‌کند که بیرون از پلتفرم می‌رسند
+(مثلاً نقشه‌ای که مشتری با ایمیل فرستاده) و مستقیم بارگذاری نمی‌شوند.
 
-## Storage
+## ذخیره‌سازی
 
-Where the bytes actually live is a tenant setting, not something this screen
-exposes: **Settings → Storage** lets a tenant admin point document storage at
-either Eduba's platform-managed bucket or their own S3-compatible endpoint
-("bring your own storage"). Either way, every document write still goes
-through the same storage policy gate and produces the same immutable revision
-history — switching storage backends changes where bytes are kept, not the
-access rules that govern them.
+اینکه فایل‌ها واقعاً کجا نگهداری شوند یک تنظیم فضای کاری است و این صفحه آن را نشان
+نمی‌دهد: **تنظیمات ← ذخیره‌سازی** به مدیر فضای کاری اجازه می‌دهد ذخیره‌سازی اسناد را
+روی باکت مدیریت‌شدهٔ خود Eduba بگذارد یا روی یک سرور سازگار با S3 که خودش دارد
+(«ذخیره‌سازی اختصاصی»). در هر دو حالت، هر نوشتنِ سند همچنان از همان دروازهٔ قوانین
+ذخیره‌سازی می‌گذرد و همان تاریخچهٔ بازنگریِ تغییرناپذیر را می‌سازد؛ عوض کردن
+ذخیره‌سازی فقط جای نگهداری فایل‌ها را عوض می‌کند، نه قوانین دسترسی به آن‌ها را.
 
-## Related
+## مطالب مرتبط
 
-- [Policy rules](./policy.md) — the read/write grants that decide what you can
-  open and change here.
-- [Task detail](./task-detail.md) — the Files tab, where a task's own
-  documents are worked day to day.
-- [Projects](./projects.md) — the project a document's inputs and
-  deliverables belong to.
+- [قوانین دسترسی](./policy.md) — اجازه‌های خواندن و نوشتن که تعیین می‌کنند اینجا چه
+  چیزی را باز و ویرایش کنید.
+- [جزئیات وظیفه](./task-detail.md) — زبانهٔ فایل‌ها، جایی که اسناد خودِ وظیفه روزمره
+  در آن کار می‌شود.
+- [پروژه‌ها](./projects.md) — پروژه‌ای که ورودی‌ها و مدارک تحویلی یک سند به آن تعلق دارد.

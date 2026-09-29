@@ -1,37 +1,32 @@
 ---
 id: groups
 slug: /groups
-title: User groups
-sidebar_label: User groups
+title: گروه‌های کاربری
+sidebar_label: گروه‌های کاربری
 sidebar_position: 10
-description: Organize users into groups for bulk role assignment and group-based task routing.
+description: کاربران را در گروه‌ها سازمان دهید تا نقش‌ها را یکجا بدهید و وظیفه‌ها را به گروه‌ها ارجاع دهید.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# گروه‌های کاربری
+
+**گروه‌های کاربری** کمک می‌کنند چند کاربر را یکجا مدیریت کنید. به یک گروه نقش بدهید تا
+همهٔ اعضایش آن را داشته باشند؛ یک مرحلهٔ گردش‌کار را به یک گروه ارجاع بدهید تا وظیفه به
+همهٔ اعضای آن پیشنهاد شود. با رشد سازمان، گروه‌ها مدیریت نقش‌ها و مسیریابی را قابل
+کنترل نگه می‌دارند.
+
+:::info مجوز لازم
+مدیریت گروه‌های کاربری کار مدیر فضای کاری است و به مجوز **`manageUsers`** نیاز دارد.
 :::
 
-# User groups
+## اینجا چه چیزهایی می‌یابید
 
-**User groups** let you manage many users together. Assign roles to a group and
-every member inherits them; route a workflow step to a group and the task is
-offered to all of its members. Groups keep role administration and routing
-manageable as the organization grows.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::info Permission
-Managing user groups is a tenant-admin task and requires the **`manageUsers`**
-capability.
-:::
+- ساخت گروه و مدیریت اعضای آن.
+- دادن نقش به یک گروه (و اینکه ارث‌بری نقش‌ها چطور تعیین می‌شود).
+- ارجاع مرحله‌های گردش‌کار به یک گروه و اینکه اعضا چطور آن وظیفه‌ها را برمی‌دارند.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Creating a group and managing its membership.
-- Assigning roles to a group (and how inheritance resolves).
-- Routing workflow steps to a group, and how members claim those tasks.
-
-## Related
-
-- [Roles and org chart](./roles-org.md) — the roles assigned through groups.
-- [My Work](./my-work.md) — claiming tasks offered to a group.
+- [نقش‌ها و چارت سازمانی](./roles-org.md) — نقش‌هایی که از طریق گروه‌ها داده می‌شوند.
+- [کارهای من](./my-work.md) — برداشتن وظیفه‌هایی که برای یک گروه پیشنهاد شده‌اند.

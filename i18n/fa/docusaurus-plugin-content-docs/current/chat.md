@@ -1,37 +1,33 @@
 ---
 id: chat
 slug: /chat
-title: Chat
-sidebar_label: Chat
+title: گفت‌وگو
+sidebar_label: گفت‌وگو
 sidebar_position: 12
-description: Conversations alongside your work — channels, direct messages, and links back to tasks and runs.
+description: گفت‌وگو در کنار کار؛ کانال‌ها، پیام‌های مستقیم و لینک به وظیفه‌ها و اجراها.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# گفت‌وگو
+
+**گفت‌وگو** مکالمه‌ها را کنار کاری می‌آورد که دربارهٔ آن هستند. دربارهٔ یک اجرا بحث
+کنید، همکارتان را روی یک وظیفه وارد ماجرا کنید یا برای یک پروژه کانال نگه دارید؛
+بدون اینکه Eduba را ترک کنید یا لینک به کارِ در دست را از دست بدهید.
+
+:::note دسترس‌پذیری
+گفت‌وگو ماژولی است که طرح فضای کاری آن را فعال می‌کند. اگر گفت‌وگو را در منو
+نمی‌بینید، طرح فضای کاری شما آن را شامل نمی‌شود (ADR-0059). وقتی فعال باشد، برای همهٔ
+کاربران فضای کاری در دسترس است.
 :::
 
-# Chat
+## اینجا چه چیزهایی می‌یابید
 
-**Chat** brings conversations next to the work they're about. Discuss a run,
-loop in a colleague on a task, or keep a channel for a project — without leaving
-Eduba or losing the link back to what you were doing.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::note Availability
-Chat is a module that a tenant's plan enables. If you don't see Chat in your
-navigation, your tenant's tier doesn't include it (ADR-0059). When enabled, Chat
-is available to all users in the tenant.
-:::
+- تفاوت کانال با پیام مستقیم.
+- اشاره به یک وظیفه، اجرا یا پروژه در پیام.
+- اعلان‌ها و ارتباطشان با کارتابل [کارهای من](./my-work.md).
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Channels vs. direct messages.
-- Referencing a task, run, or project in a message.
-- Notifications and how they relate to your [My Work](./my-work.md) inbox.
-
-## Related
-
-- [My Work](./my-work.md) — the work conversations often refer to.
-- [Projects](./projects.md) — keeping a channel per project.
+- [کارهای من](./my-work.md) — کارهایی که مکالمه‌ها معمولاً به آن‌ها اشاره دارند.
+- [پروژه‌ها](./projects.md) — نگه داشتن یک کانال برای هر پروژه.

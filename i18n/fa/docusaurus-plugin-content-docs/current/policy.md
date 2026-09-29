@@ -1,102 +1,96 @@
 ---
 id: policy
 slug: /policy
-title: Policy rules
-sidebar_label: Policy rules
+title: قوانین دسترسی
+sidebar_label: قوانین دسترسی
 sidebar_position: 8
-description: Configure the capability rules that decide who may do what across the tenant.
+description: قواعد مجوزها را تنظیم کنید؛ همان‌ها که تعیین می‌کنند در کل فضای کاری چه کسی چه کاری بکند.
+sourceFiles:
+  - apps/web/src/features/settings/roles/PermissionMatrix.tsx
+sourceHash: caacf721b0a775357924bb62fed3030b55e81b87b6fda64622343e6a535dd671
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# قوانین دسترسی
+
+**قوانین دسترسی** راهی است که مدیر فضای کاری با آن تعیین می‌کند چه کسی چه کاری
+بکند. هر قاعده یک **مجوز** (مثلاً `createTask` یا `designWorkflow`) را به یک **نقش**
+می‌دهد یا از آن می‌گیرد. موتور قوانین دسترسی که این قاعده‌ها را ارزیابی می‌کند
+(ADR-0005) تنها مرجع در همهٔ بخش‌هاست: دکمه‌های اقدام شما، منوی شما، اینکه کدام سند را
+می‌توانید باز کنید یا در آن بنویسید، و حتی اینکه این سایت راهنما کدام صفحه‌ها و
+نتیجه‌های جست‌وجو را نشانتان بدهد، همه را همین موتور تعیین می‌کند.
+
+:::info مجوز لازم
+مدیریت قوانین دسترسی کار مدیر فضای کاری است و به مجوز **`manageUsers`** نیاز دارد.
+[نقش‌ها و چارت سازمانی](./roles-org.md) را ببینید.
 :::
 
-# Policy rules
+## قوانین را کجا ویرایش می‌کنید
 
-**Policy rules** are how a tenant admin decides who may do what. Each rule
-grants or denies a **capability** (for example `createTask` or
-`designWorkflow`) to a **role**. The policy engine that evaluates these rules
-(ADR-0005) is the single authority used everywhere — it decides your action
-buttons, your navigation, which document you may open or write to, and even
-which docs pages and search results this help site shows you.
+قوانین دسترسی صفحهٔ جداگانه ندارند؛ داخل **تنظیمات ← [نقش‌ها](./roles-org.md)** هستند،
+به شکل **جدول دسترسی‌ها** در سمت راست نقشِ انتخاب‌شده: یک ردیف برای هر مجوز، که بر
+اساس حوزه (کاربران، تنظیمات، گردش‌کارها، پروژه‌ها، وظایف، کتابخانه) گروه‌بندی شده،
+و یک ستون برای اثر قاعده.
 
-:::info Permission
-Managing policy rules is a tenant-admin task and requires the **`manageUsers`**
-capability. See [Roles and org chart](./roles-org.md).
-:::
+## خواندن و ویرایش جدول
 
-## Where you edit rules
+هر خانهٔ مجوز یک کنترل سه‌حالته است:
 
-Policy rules are not a separate screen — they live inside
-**Settings → [Roles](./roles-org.md)**, as the **permission matrix** on the
-right of a selected role: one row per capability, grouped by domain (users,
-settings, workflows, projects, tasks, library), and one column for the rule's
-effect.
+- **مجاز**: اجازهٔ صریح.
+- **ممنوع**: ممنوعیت صریح که همیشه بر «مجاز» در هر لایهٔ دیگر برتری دارد (اول
+  «ممنوع» برنده است؛ پایین‌تر توضیح داده شده).
+- **—** (بدون قاعده): این نقش نه اجازه داده و نه منع کرده؛ وقتی هیچ قاعده‌ای پیدا نشود،
+  پیش‌فرض موتور «ممنوع» است.
 
-## Reading and editing the matrix
+تغییرات وقتی روی خانه‌ها کلیک می‌کنید فقط محلی نگه داشته می‌شوند و بعد با
+**ذخیره تغییرات** یکجا اعمال می‌شوند؛ جدول تفاوت‌ها را به‌صورت درخواست‌های
+اضافه/حذف روی موتور اصلی می‌فرستد و با هر کلیک چیزی نمی‌نویسد. حذف یک «مجاز» موجود
+خطر از دست رفتن دسترسی دارد و پیش از ارسال، تأیید می‌خواهد.
 
-Each capability cell is a three-state control:
+## ردیف‌های قفل‌شده: قوانین پایه و قوانین آمده با بسته
 
-- **Allow** — an explicit grant.
-- **Deny** — an explicit denial, which always wins over an allow at any other
-  layer (deny-wins, see below).
-- **—** (no rule) — neither granted nor denied by this role; the engine's
-  default with no matching rule is deny.
+بعضی ردیف‌ها **نماد قفل** دارند و از جدول قابل تغییر نیستند:
 
-Edits are staged locally as you click cells, then committed together with
-**Save changes** — the matrix batches the diff into add/remove calls against
-the live engine rather than writing on every click. Removing an existing
-*allow* is treated as a lock-out risk and asks for confirmation before it is
-sent.
+- **قوانین پایهٔ از پیش‌تعریف‌شده**: مجوزهایی که هر فضای کاری در ابتدا با آن‌ها ساخته
+  می‌شود (مثلاً `tenant_admin` که `manageUsers` و `manageTenantSettings` را دارد،
+  و `workflow_admin` که `designWorkflow` و `createTask` و `startRun` و بقیهٔ مجوزهای
+  طراحی گردش‌کار را دارد؛ این دو عمداً از هم جدا هستند، دلیلش در اصلاحیهٔ ۲۸ ژوئیهٔ ۲۰۲۶
+  بخش ۱ از ADR-0005 آمده است).
+- **قوانین آمده با بسته**: `defaultRules`ای که یک [بسته](./packs.md) هنگام وارد شدن
+  اضافه کرده است. این‌ها را بسته آورده و دستی داده نشده‌اند؛ برای تغییرشان باید بسته را
+  به‌روز کنید یا بردارید، نه اینکه یک خانه را دستی ویرایش کنید.
 
-## Locked rows: baseline and pack-applied rules
+همچنان می‌توانید کنار یک ردیف قفل‌شده، قاعدهٔ **خودتان** را اضافه کنید، از جمله یک
+«ممنوع» محدودتر روی همان مجوز که طبق اولویت «ممنوع» باز هم برنده است.
 
-Some rows carry a **lock icon** and cannot be toggled from the matrix:
+## اولویت «ممنوع» چطور کار می‌کند
 
-- **Seeded baseline rules** — the capability grants every tenant is
-  provisioned with out of the box (for example `tenant_admin` holding
-  `manageUsers`/`manageTenantSettings`, `workflow_admin` holding
-  `designWorkflow`/`createTask`/`startRun` and the rest of the design-time
-  workflow set — the two are a deliberate, disjoint split; see ADR-0005 §1's
-  2026-07-28 amendment for why).
-- **Pack-applied rules** — the `defaultRules` a [pack](./packs.md) added on
-  import. These came from the pack, not a manual grant, so changing them means
-  updating or removing the pack rather than hand-editing a cell.
+موتور مجموعه‌ای ثابت از لایه‌ها را به ترتیب ارزیابی می‌کند: پلتفرم، سازمان، مجوز
+گردش‌کار، زمینهٔ اجرا، منبع و مشخصات بلوک، و **اولین «ممنوع» صریح در هر لایه‌ای برنده
+است**، حتی اگر لایه‌های دیگر اجازه داده باشند. درخواستی که از همهٔ لایه‌ها بدون
+«ممنوع» رد شود مجاز است، و درخواستی که هیچ قاعده‌ای برایش پیدا نشود به‌طور پیش‌فرض
+ممنوع است. برای همین مدیر همیشه می‌تواند یک محدودیت باریک‌تر بنویسد (مثلاً «این یک
+نقش را ممنوع کن، حتی اگر بسته به‌طور کلی به آن اجازه داده») بدون اینکه لازم باشد
+اجازهٔ کلی‌تر را دست بزند.
 
-You can still add your **own** rule alongside a locked one — including a
-narrower deny over the same capability, which still wins per deny-precedence.
+جدا از قوانین مخصوص نقش، موتور قوانین باریک‌تری هم در سطح **منبع** و **اجرا** دارد که
+جدول به‌صورت ردیف قابل‌تغییر نشان نمی‌دهد؛ مثلاً مسئول یک وظیفه فقط تا وقتی
+مرحله‌اش باز است می‌تواند در اسناد همان وظیفه بنویسد، صرف‌نظر از نقش‌هایی که دارد.
+این‌ها وجود دارند تا یک واقعیتِ ساختاری («این وظیفهٔ *شما* است، همین حالا») بتواند
+بدون گسترش دادن یک مجوز نقش که همه‌جا اعمال می‌شود، اقدامی را مجاز کند. مدل کامل در
+ADR-0005 است.
 
-## How deny precedence works
+## سابقهٔ ممیزی
 
-The engine evaluates a fixed set of layers in order — platform, tenant org,
-workflow capability, run context, resource, block manifest — and **the first
-explicit deny at any layer wins**, regardless of allows at other layers. A
-request that clears every layer with no deny is allowed; a request matched by
-no rule at all is denied by default. This is why an admin can always author a
-narrower restriction (for example "deny this one role even though a pack
-granted it broadly") without having to touch the broader grant itself.
+هر ارزیابی قوانین برای یک اقدام حساس به‌شکل یک رویداد ممیزی تغییرناپذیر ثبت می‌شود؛
+«ممنوع»ها همیشه ثبت می‌شوند و «مجاز» برای اقدام‌های حساس (انتشار یک تعریف، تأییدها،
+افزودن افزونه) هم همیشه ثبت می‌شود. تغییرات قاعده‌های هر نقش
+(`policy.ruleAdded` و `policy.ruleRemoved`) در سابقهٔ ممیزی همان نقش در صفحهٔ نقش‌ها،
+کنار رویدادهای ساخت و به‌روزرسانی نقش دیده می‌شوند.
 
-Beyond role-scoped rules, the engine also seeds narrower **resource-** and
-**run-scoped** grants the matrix does not show as toggleable rows — for
-example, a task's own responsible may write that task's own documents only
-while their step is open, independent of any role they hold. These exist so a
-structural fact ("this is *your* task, right now") can authorize an action
-without widening a role grant that would apply everywhere. See ADR-0005 for
-the full model.
+## مطالب مرتبط
 
-## The audit trail
-
-Every policy evaluation for a sensitive action is recorded as an immutable
-audit event — denies are always logged, and allows for sensitive actions
-(publishing a definition, approvals, plugin attachment) are always logged too.
-Per-role rule changes (`policy.ruleAdded`/`policy.ruleRemoved`) appear in that
-role's audit trail on the Roles screen, alongside role create/update events.
-
-## Related
-
-- [Roles and org chart](./roles-org.md) — the roles these rules apply to, and
-  where the matrix lives.
-- [User groups](./groups.md) — assigning roles in bulk.
-- [Pack management](./packs.md) — how a pack's rules land as locked grants.
-- [Key concepts](./getting-started/key-concepts.md) — capabilities and the
-  policy engine.
+- [نقش‌ها و چارت سازمانی](./roles-org.md) — نقش‌هایی که این قاعده‌ها برایشان اعمال
+  می‌شود و جایی که جدول در آن قرار دارد.
+- [گروه‌های کاربری](./groups.md) — دادن نقش به‌صورت گروهی.
+- [مدیریت بسته‌ها](./packs.md) — قاعده‌های یک بسته چطور به شکل مجوز قفل‌شده می‌آیند.
+- [مفاهیم کلیدی](./getting-started/key-concepts.md) — مجوزها و موتور قوانین دسترسی.

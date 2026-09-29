@@ -1,121 +1,126 @@
 ---
 id: workflow-designer
 slug: /workflow-designer
-title: Workflow designer
-sidebar_label: Workflow designer
+title: طراح گردش‌کار
+sidebar_label: طراح گردش‌کار
 sidebar_position: 6
-description: Design, version, and publish the workflow definitions that runs are created from.
+description: تعریف‌های گردش‌کاری را که اجراها از روی آن‌ها ساخته می‌شوند طراحی کنید، نسخه‌بندی کنید و منتشر کنید.
+sourceFiles:
+  - packages/blocks/src/human-decision.ts
+  - packages/workflow-modeler/src/react/AssigneeField.tsx
+  - packages/workflow-modeler/src/react/WaitTimerConfig.tsx
+  - packages/workflow-modeler/src/react/PropertiesPanel.tsx
+sourceHash: 267b928a6f8db428a5cee5e9ee84a6f60acf5c4cea90c00ae0c23ffd29ac0bc4
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# طراح گردش‌کار
+
+**طراح گردش‌کار** جایی است که مدیران گردش‌کار تعریف‌هایی را می‌سازند که هر اجرا
+بر پایهٔ آن‌ها پیش می‌رود. Eduba آنچه شما طراحی می‌کنید به BPMN 2.0 واقعی
+تبدیل می‌کند و روی موتور Flowable تعبیه‌شده اجرا می‌کند (ADR-0048). بوم طراحی
+انشعابی از مدلر bpmn.io است، با پالت بلوک‌های Eduba و پنل ویژگی‌هایی که از
+مانیفست بلوک ساخته می‌شود. مرحله‌ها را روی بوم می‌چینید، فرم و مسئول و
+قوانین هر مرحله را تنظیم می‌کنید و سپس یک نسخه را **منتشر** می‌کنید تا اجراهای
+تازه از روی آن ساخته شوند.
+
+:::info مجوز
+طراحی به قابلیت **`designWorkflow`** نیاز دارد (مدیر گردش‌کار). انتشار
+علاوه بر آن از `publishDefinition` هم استفاده می‌کند. [نقش‌ها و چارت سازمانی](./roles-org.md)
+را ببینید.
 :::
 
-# Workflow designer
+## بوم طراحی
 
-The **workflow designer** is where workflow admins build the definitions that
-drive every run. Eduba compiles what you author to real BPMN 2.0 and runs it on
-an embedded Flowable engine (ADR-0048) — the canvas is a fork of the bpmn.io
-modeler with a Eduba block palette and a manifest-driven properties panel. You
-lay out steps, configure each step's form, assignee, and rules, then **publish**
-a version that new runs are created from.
+بلوک‌ها را از پالت روی بوم بکشید و مثل هر ویرایشگر BPMN با جریان‌های
+ترتیبی و دروازه‌ها به هم وصل کنید. هر بلوکِ غیرانسانی به یک service task
+تبدیل می‌شود که یک worker نوشته‌شده با TypeScript (`BlockRuntime`) آن را اجرا
+می‌کند. بلوکی از دستهٔ `human` به یک user task واقعی BPMN تبدیل می‌شود و
+بدون هیچ سیم‌کشی اضافه در کارتابل [کارهای من](./my-work.md) مسئولش ظاهر
+می‌شود. با انتخاب هر عنصر، **پنل ویژگی‌ها** باز می‌شود و برای هر فیلد
+تنظیمات بلوک، طبق مانیفستش (`config.schema`) یک ورودی نشان می‌دهد: متن، عدد،
+بولی، فهرست گزینه‌ها و یک انتخابگر مسئول که با دایرکتوری سازمان کار می‌کند
+(در ادامه توضیح داده شده).
 
-:::info Permission
-The designer requires the **`designWorkflow`** capability (workflow admin).
-Publishing additionally uses `publishDefinition`. See
-[Roles and org chart](./roles-org.md).
-:::
+## واگذاری کار به یک نقش
 
-## The canvas
+هر فیلد قالب عنصر از نوع `assignee`، از جمله تنظیم `assignee` در بلوک `human`،
+به‌صورت یک انتخابگر با شش زبانه نمایش داده می‌شود: **نقش**، **کاربر**، **گروه**،
+**پویا**، **قاعده** و **پیشرفته**.
 
-Drag blocks from the palette onto the canvas and connect them with sequence
-flows and gateways, exactly as in any BPMN editor. Every non-human block
-compiles to a service task backed by a TypeScript worker (`BlockRuntime`); a
-`human`-category block compiles to a real BPMN user task, so it shows up in the
-assignee's [My Work](./my-work.md) inbox with no extra wiring. Selecting an
-element opens the **properties panel**, which renders a config field per the
-block's manifest (`config.schema`) — text, numbers, booleans, enums, and a
-directory-aware assignee picker, described below.
+- **نقش** در نقش‌های سازمان جست‌وجو می‌کند و با انتخاب، مقدار
+  `{ type: 'role', roleId }` را می‌نویسد. این حالت رایج مرحله‌ای است که باید
+  به *هر کسی که آن نقش را دارد* (مثلاً همهٔ `checker`ها) پیشنهاد شود، نه یک
+  فرد مشخص. موتور در لحظهٔ ساخت توکن انتظار، نقش را از طریق موتور قوانین دسترسی
+  به کاربران نامزد تبدیل می‌کند (ADR-0005 §3).
+- **کاربر** و **گروه** همین‌طور کار می‌کنند و از دایرکتوریِ قابل‌جست‌وجو،
+  `{ type: 'user', userId }` یا `{ type: 'group', groupId }` را می‌نویسند.
+- **پویا** یک مسیر منبع می‌گیرد (مثلاً `n3.outputs.reviewerUserId`) تا مسئول در
+  زمان اجرا از خروجی یک مرحلهٔ بالادستی تعیین شود.
+- **قاعده** به یک `ruleRef` از قوانین دسترسی ارجاع می‌دهد که موتور قوانین آن را
+  تعیین می‌کند.
+- **پیشرفته** یک راه جایگزین با JSON خام است، برای مشخصهٔ ترکیبی (`any` یا
+  `all` از موارد بالا) یا مقداری که خودتان تایپ می‌کنید. هیچ‌چیزی که
+  تعریف‌های قدیمی‌تر نوشته‌اند از بین نمی‌رود و به‌محض اینکه از هر زبانهٔ دیگر
+  یک زبانه را انتخاب کنید، مقدار ذخیره‌شده به شکل استاندارد شیء ارتقا می‌یابد.
 
-## Assigning work to a role
+مقدار انتخاب‌شده یک `AssigneeSpec` است (ADR-0002 §1b)، همان شکلی که هر بلوک
+انتظارِ انسانی می‌پذیرد. بنابراین چه مرحله در گردش‌کار والد باشد و چه در بدنهٔ
+یک زیرگردشِ تأییدشده (ADR-0076)، رفتارش یکسان است.
 
-Any element-template field of type `assignee` — including a `human` block's
-`assignee` config — renders as a segmented picker with six tabs: **role**,
-**user**, **group**, **dynamic**, **rule**, and **advanced**.
+## SLA و ارجاع بالاتر در مرحلهٔ تصمیم
 
-- **Role** searches the tenant's roles and, on selection, writes
-  `{ type: 'role', roleId }`. This is the common case for a step that should be
-  offered to *whoever holds a role* (for example every `checker`) rather than a
-  specific person — the engine resolves the role to candidate users through the
-  policy engine at wait-token creation (ADR-0005 §3).
-- **User** and **group** work the same way, writing `{ type: 'user', userId }`
-  or `{ type: 'group', groupId }` from a searchable directory.
-- **Dynamic** takes a source path (for example `n3.outputs.reviewerUserId`) so
-  the assignee is resolved from an upstream step's output at run time.
-- **Rule** references a policy `ruleRef` the policy engine resolves.
-- **Advanced** is a raw-JSON fallback for a composite spec (`any`/`all` of the
-  above) or a hand-typed value — nothing an older definition wrote is ever lost,
-  and picking a tab from any other tab upgrades the stored value to the
-  canonical object shape the moment you touch it.
+بلوک `human.decision` — بلوک عمومی پشت یک مرحلهٔ تصمیم‌گیری (مثلاً استفاده
+همان‌طور که هست / بازکاری / اسقاط در MRB، یا تأیید / رد / تعویق در CCB) —
+در تنظیماتش یک مهلت SLA و یک نردبان ارجاع بالاتر اختیاری دارد، در کنار
+`outcomes` یا همان نتیجه‌هایی که تصمیم‌گیرنده از میانشان انتخاب می‌کند:
 
-The chosen spec is an `AssigneeSpec` (ADR-0002 §1b), the same shape every
-human-wait block accepts, so it behaves identically whether the step sits in a
-parent workflow or inside a certified subflow's body (ADR-0076).
+- **`slaAt`** — مهلت مطلق به قالب ISO-8601، یا **`slaHours`** — بودجهٔ نسبی
+  بر حسب ساعت، از لحظه‌ای که انتظار شروع می‌شود. اگر هر دو تنظیم شده باشند،
+  `slaAt` اولویت دارد.
+- **`escalation.steps`** — فهرستی مرتب از پله‌های `{ offsetMs, assignee }`. هر
+  پله مشخص می‌کند چه مدت پیش از مهلت فعال می‌شود و با یک `AssigneeSpec` (همان
+  انتخابگر بالا) معلوم می‌کند کار دوباره به چه کسی می‌رسد. ارجاع بالاتر فقط
+  وقتی معنی دارد که گره مهلت هم داشته باشد.
 
-## SLA and escalation on a decision step
+**در وضعیت فعلی، این فیلدها در پنل ویژگی‌ها به‌صورت ورودی متن یا JSON ساده
+نمایش داده می‌شوند** و هنوز ویرایشگر اختصاصی پله‌های نردبان، با افزودن و حذف
+ردیف، وجود ندارد. طراح `slaHours` را به‌صورت عدد وارد می‌کند و برای ارجاع
+بالاتر، آرایهٔ `steps` را به‌صورت JSON ویرایش می‌کند. منطق آن سمت موتور
+کاملاً پیاده شده است (مهلت به یک timer boundary event در BPMN تبدیل می‌شود و
+ارجاع بالاتر به یک listener که `AssigneeSpec` را دوباره تعیین می‌کند، طبق
+نگاشت مفهوم به BPMN در ADR-0048). فقط سطح طراحی هنوز صیقل نخورده است. این را
+رفتار واقعی و فعلی بدانید، نه پیش‌نمایشی از یک رابط نردبانیِ آینده.
 
-The `human.decision` block — the generic block behind an authored decision step
-(for example an MRB's use-as-is / rework / scrap, or a CCB's approve / reject /
-defer) — carries an optional SLA deadline and escalation ladder in its config,
-alongside the `outcomes` the resolver chooses from:
+**آن را با دو کنترل هم‌نام یا شبیه، اما نامرتبط اشتباه نگیرید:**
 
-- **`slaAt`** — an absolute ISO-8601 deadline, or **`slaHours`** — a relative
-  budget in hours from when the wait opens. `slaAt` takes precedence when both
-  are set.
-- **`escalation.steps`** — an ordered list of `{ offsetMs, assignee }` rungs.
-  Each rung names how long before the deadline it fires and an `AssigneeSpec`
-  (the same picker described above) for who it re-resolves to. Escalation is
-  only meaningful when the node also has a deadline.
+- فیلد «ساعت» در **کنترل انتظار** (یک `timeDuration` ساده در BPMN) یک تأخیر
+  بی‌قیدوشرط است، بدون مسئول و بدون نردبان؛ SLA نیست.
+- **ارجاع به مدیر** روی یک مرحلهٔ *ناموفق* (بازرس اجرا یا بنر مرحلهٔ ناموفق در
+  جزئیات وظیفه، ADR-0078) این است که فردِ گیرکرده، بعد از اینکه مشکلی پیش
+  آمده، کار را به یک مدیر می‌سپارد. این با تنظیم SLA که طراح می‌نویسد ربطی
+  ندارد و از طراح هم قابل تنظیم نیست.
 
-**As it stands today, these fields render as plain text/JSON inputs in the
-properties panel** — there is no dedicated ladder-rung editor with add/remove
-rows yet. An author sets `slaHours` as a number and, for escalation, edits the
-`steps` array as JSON. The semantics are fully implemented on the engine side
-(the deadline compiles to a BPMN timer boundary event and escalation to a
-listener that re-resolves the `AssigneeSpec`, per ADR-0048's concept→BPMN
-mapping) — only the authoring surface is unpolished. Treat this as the current,
-real behavior rather than a preview of a future ladder UI.
+## نسخه‌بندی و انتشار
 
-**Do not confuse this with two similarly-named but unrelated controls:**
+ویرایش یک تعریف هیچ‌وقت کارهای در جریان را تغییر نمی‌دهد: تعریف
+**نسخه‌بندی** می‌شود و هر انتشار یک بازنگری تغییرناپذیر تازه می‌سازد. هر اجرا
+در تمام عمرش با نسخه‌ای که با آن شروع شده ادامه می‌دهد؛ یعنی زنجیرهٔ تأییدِ
+در جریان از تغییری که طراح یک ساعت بعد می‌دهد اثر نمی‌گیرد. فقط نسخهٔ
+منتشرشده قابل شروع است و پیش‌نویس‌ها فقط در طراح دیده می‌شوند.
 
-- The **Wait control**'s single "hours" field (a plain BPMN `timeDuration`) is
-  an unconditional delay with no assignee and no ladder — it is not an SLA.
-- **Escalate** on a *failed* step (the run inspector / Task Detail's failed-step
-  banner, ADR-0078) is a blocked person's hand-off to an administrator after
-  something has already gone wrong. It has nothing to do with designer-authored
-  SLA config and cannot be set from the designer.
+## استفادهٔ مجدد از قطعه‌ها
 
-## Versioning and publishing
+مرحله‌ای که انتظار دارید در چند تعریف تکرار شود — مثل یک زنجیرهٔ تأیید یا یک
+الگوی اطلاع‌رسانی — جایش در [کتابخانهٔ زیرگردش](./subflow-library.md) است، به‌عنوان
+قطعهٔ قابل‌استفادهٔ مجدد، نه اینکه روی هر بوم دوباره کشیده شود. بدنهٔ یک
+زیرگردشِ تأییدشده خودش می‌تواند بلوک `human` داشته باشد. طراح و موتور با آن
+دقیقاً مثل مرحلهٔ انسانی در گراف والد رفتار می‌کنند (ADR-0076)، با یک محدودیت
+فعلی: هر بدنه به ازای هر نمونهٔ زیرگردش حداکثر یک انتظار انسانیِ در جریان را
+پشتیبانی می‌کند.
 
-Editing a definition never changes work already in flight: a definition is
-**versioned**, and each publish produces a new immutable revision. A run keeps
-using the version it started on for its entire lifetime — an in-flight approval
-chain is unaffected by a designer change made an hour later. Only a published
-version can be started; drafts are visible only in the designer.
+## مطالب مرتبط
 
-## Reusing fragments
-
-A step you expect to repeat across definitions — an approval chain, a
-notification pattern — belongs in the [Subflow library](./subflow-library.md)
-as a reusable fragment instead of being redrawn on every canvas. A certified
-subflow's body may itself contain `human` blocks; the designer and the engine
-handle that the same way as a parent-graph human step (ADR-0076), with the
-one current limitation that a body supports at most one in-flight human wait
-per subflow instance.
-
-## Related
-
-- [Subflow library](./subflow-library.md) — reusable fragments for your definitions.
-- [Key concepts](./getting-started/key-concepts.md) — definitions, versions, and runs.
-- [Creating work](./creating-work.md) — starting runs from what you publish.
-- [Roles and org chart](./roles-org.md) — the roles an assignee picker searches.
+- [کتابخانهٔ زیرگردش](./subflow-library.md) — قطعه‌های قابل‌استفادهٔ مجدد برای تعریف‌هایتان.
+- [مفاهیم کلیدی](./getting-started/key-concepts.md) — تعریف‌ها، نسخه‌ها و اجراها.
+- [ایجاد کار](./creating-work.md) — شروع اجرا از روی آنچه منتشر می‌کنید.
+- [نقش‌ها و چارت سازمانی](./roles-org.md) — نقش‌هایی که انتخابگر مسئول در آن‌ها جست‌وجو می‌کند.

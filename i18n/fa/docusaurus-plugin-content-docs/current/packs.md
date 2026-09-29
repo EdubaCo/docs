@@ -1,103 +1,101 @@
 ---
 id: packs
 slug: /packs
-title: Pack management
-sidebar_label: Pack management
+title: مدیریت بسته‌ها
+sidebar_label: مدیریت بسته‌ها
 sidebar_position: 11
-description: Import and manage packs — bundles of workflows, blocks, and standards that bootstrap a domain.
+description: بسته‌ها را وارد و مدیریت کنید؛ مجموعه‌هایی از گردش‌کار، بلوک و استاندارد که یک حوزهٔ کاری را سریع راه می‌اندازند.
+sourceFiles:
+  - apps/web/src/features/packs/PackImportFlow.tsx
+  - apps/web/src/features/packs/PackActivationModal.tsx
+sourceHash: 164bfa10039635b7321a3fc82157b0d3616113d4cc094c73cb211451fde7ac59
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# مدیریت بسته‌ها
+
+**بسته** (ADR-0006) مجموعه‌ای نسخه‌دار و امضاشده است که تعریف زیرگردش‌ها،
+مشخصات بلوک‌ها، تعریف نقش‌ها و قوانین دسترسی پیش‌فرض را با هم می‌آورد، تا فضای کاری
+بتواند با وارد کردن همین یک مجموعه یک حوزهٔ کاری کامل را راه بیندازد و لازم نباشد همه‌چیز
+را از صفر بسازد. `engmanager-parity-v0`، اولین بسته‌ای که Eduba می‌دهد، یک
+راه‌اندازی کامل برای مدیریت تغییرات مهندسی است: زیرگردش‌ها، بلوک‌ها، نقش‌هایی مثل
+*کنترل‌کننده* و *تأییدکننده* و قوانین دسترسی اولیه، به‌علاوهٔ دو گردش‌کار گواهی‌شده که
+مستقیم در طراح بارگذاری می‌شوند.
+
+:::info مجوز لازم
+وارد کردن بسته به مجوز **`importPack`** نیاز دارد؛ پیوست و مدیریت استانداردهایی که
+بسته می‌آورد با `attachStandard` و `manageStandards` انجام می‌شود. مدیریت بسته کار
+مدیر فضای کاری است و نقش `workflow_admin` آن را دارد.
 :::
 
-# Pack management
+## وارد کردن یک بسته
 
-A **pack** (ADR-0006) is a versioned, signed bundle that ships subflow
-definitions, block manifests, role definitions, and default policy rules
-together, so a tenant can bootstrap a whole domain by importing one artifact
-instead of building everything from scratch. `engmanager-parity-v0` — the
-first pack Eduba ships — is a complete engineering-change-management setup:
-subflows, blocks, roles like *Checker* and *Approver*, and starter policy
-rules, plus two certified, designer-loadable workflows out of the box.
+وارد کردن یک راهنمای کوتاه چندمرحله‌ای دارد:
 
-:::info Permission
-Importing packs requires the **`importPack`** capability; attaching and managing
-the standards they carry uses `attachStandard` and `manageStandards`. Pack
-management is a tenant-admin task, held by the `workflow_admin` role.
-:::
+1. **بارگذاری** فایل امضاشدهٔ بسته (یک فایل `pack.json`) و انتخاب حالت وارد کردن:
+   - **استفاده از نسخهٔ گواهی‌شده**: فضای کاری مستقیم به تعریف‌های ناشر ارجاع می‌دهد و
+     ارتقاها بعداً به‌صورت به‌روزرسانی بسته می‌رسند.
+   - **کپی اختصاصی در کتابخانهٔ سازمان**: هر زیرگردشی که بسته می‌آورد به‌صورت یک تعریف
+     متعلق به سازمان کپی می‌شود و مدیر آن را جداگانه مدیریت می‌کند.
+2. **پیش‌نمایش** (اجرای آزمایشی): پلتفرم امضای ناشر را بررسی می‌کند و پیش از نوشتن هر
+   چیزی نشان می‌دهد وارد کردن چه می‌کند: قوانین دسترسی‌ای که اضافه می‌شوند، آن‌هایی که
+   نادیده گرفته می‌شوند (از قبل هستند) یا نامعتبرند، و نقش‌هایی که بسته می‌آورد.
+3. **وارد کردن** پیش‌نمایش را اعمال می‌کند: `defaultRules` بسته به قوانین دسترسی فضای
+   کاری اضافه می‌شود (قاعده‌های موجود هرگز رونویسی نمی‌شوند) و بسته به یک *بستهٔ نصب‌شده*
+   تبدیل می‌شود که منتظر فعال‌سازی است.
 
-## Importing a pack
+## تکمیل راه‌اندازی: نگاشت نقش‌ها و تعارض‌ها
 
-Importing walks a short wizard:
+بستهٔ واردشده تا وقتی **فعال** نشود قابل استفاده نیست. فعال‌سازی مرحلهٔ دوم است؛ یا
+بلافاصله بعد از وارد کردن، یا بعداً از گزینهٔ «تکمیل راه‌اندازی» خود بسته، اگر وارد شده
+ولی کامل نشده باشد:
 
-1. **Upload** the pack's signed artifact (a `pack.json` file) and choose an
-   import mode:
-   - **Use certified** — the tenant references the vendor's definitions
-     directly; upgrades arrive later as a pack update.
-   - **Fork to tenant library** — every subflow the pack ships is copied as a
-     tenant-owned definition the admin manages independently.
-2. **Preview** (a dry run): the platform verifies the vendor signature and
-   shows what importing will do before anything is written — the policy rules
-   that will be added, any that are skipped (already present) or invalid, and
-   the roles the pack ships.
-3. **Import** commits the preview: the pack's `defaultRules` are applied to the
-   tenant's policy store additively (existing rules are never overwritten), and
-   the pack becomes an *installed pack* awaiting activation.
+- **نگاشت نقش‌ها.** هر نقشی که بسته می‌آورد (مثلاً `checker` و `approver`) باید به یک
+  نقش یا گروه موجود در فضای کاری نگاشت شود تا قوانین مربوط به نقش و واگذاری‌های
+  مبتنی بر نقش بسته اثر کنند. مدیری که `manageUsers` دارد می‌تواند همهٔ نقش‌های
+  نگاشت‌نشده را با یک اقدام **خودکار بسازد و نگاشت کند**، یا هرکدام را با انتخاب‌گر
+  جداگانه نگاشت کند. نقش *الزامی* تا نگاشت نشود فعال‌سازی را متوقف می‌کند؛ نقش
+  *اختیاری* نگاشت‌نشده مانع فعال‌سازی نیست، اما قوانین و واگذاری‌هایش بی‌سروصدا
+  غیرفعال می‌مانند تا نگاشت شود، و پنجره تا زمانی که این مشکل حل نشده هشدار آن را نشان
+  می‌دهد.
+- **رفع تعارض.** اگر بستهٔ نصب‌شدهٔ دیگری بلوکی با همان `blockTypeId` از ناشر دیگر یا
+  نسخهٔ ناسازگار داشته باشد، فعال‌سازی متوقف می‌شود تا مدیر مشخص کند نسخهٔ کدام
+  بستهٔ نصب‌شده بماند.
 
-## Finishing setup: role mapping and conflicts
+وقتی همهٔ نقش‌های الزامی نگاشت شدند و تعارضی باقی نماند، **فعال‌سازی** نصب را فعال
+می‌کند و بلوک‌ها، زیرگردش‌ها و گردش‌کارهای آن در پالت [طراح گردش‌کار](./workflow-designer.md)
+در دسترس می‌شوند.
 
-An imported pack is not yet usable until it is **activated**. Activation is a
-second step — either right after import, or later from the pack's own "Finish
-setup" action if it was imported but never finished:
+## قوانین آمده با بسته در قوانین دسترسی چطور دیده می‌شوند
 
-- **Role mapping.** Every role the pack ships (for example `checker`,
-  `approver`) needs mapping to an existing tenant role or group before the
-  pack's role-scoped rules and role-based work assignments take effect. An
-  admin with `manageUsers` can **auto-create and map** every unmapped role in
-  one action, or map each individually via a picker. A *required* role blocks
-  activation until mapped; an *optional* role left unmapped does not block
-  activation, but its rules and assignments stay silently inert until it is —
-  the modal keeps a visible warning for this until it's resolved.
-- **Conflict resolution.** If another installed pack already ships a block with
-  the same `blockTypeId` from a different publisher or an incompatible
-  version, activation is blocked until the admin picks which installed pack's
-  version wins.
+هر قاعده‌ای که `defaultRules` یک بسته اضافه کند علامت **قفل‌شده** می‌گیرد: این ردیف‌ها
+در جدول دسترسی‌های [قوانین دسترسی](./policy.md) با نماد قفل دیده می‌شوند و از همان‌جا
+قابل تغییر نیستند؛ این‌ها را بسته آورده و دستی داده نشده‌اند، پس برای تغییرشان باید بسته
+را به‌روز کنید یا بردارید، نه اینکه یک خانه را دستی ویرایش کنید. فضای کاری همچنان
+آزاد است قاعده‌های *خودش* را کنار قاعده‌های بسته اضافه کند، از جمله یک «ممنوع»
+باریک‌تر (اولویت «ممنوع» در ADR-0005).
 
-Once every required role is mapped and no blocking conflict remains, **Activate**
-flips the install to active and its blocks, subflows, and workflows become
-available in the [workflow designer](./workflow-designer.md) palette.
+## به‌روزرسانی و برداشتن بسته‌ها
 
-## How pack-applied rules show in policy
+هر نسخهٔ بسته یک فهرست تغییرات دارد که تغییرات ناسازگار را نام می‌برد (بلوک‌های
+حذف‌شده، درگاه‌های تغییرنام‌یافته). پلتفرم یک ماتریس سازگاری از ترکیب‌های «نسخهٔ
+بسته × نسخهٔ بلوک» که با هم آزمایش شده‌اند نگه می‌دارد، و وقتی نسخهٔ جدیدتری از یک
+بسته باشد و ارتقا به یک اقدام مهاجرت تعریف نیاز داشته باشد، به فضای کاری خبر می‌دهد.
+چند بسته را می‌توان هم‌زمان نصب کرد؛ پلتفرم تعارض `blockTypeId` بین آن‌ها را هنگام
+وارد کردن یا فعال‌سازی پیدا می‌کند، نه هنگام اجرا.
 
-Every policy rule a pack's `defaultRules` add carries a **locked** marker:
-those rows appear in [Policy rules](./policy.md)'s permission matrix with a
-lock icon and cannot be toggled from there — they came from the pack, not from
-a manual grant, so editing them means updating or removing the pack rather
-than hand-editing a cell. A tenant remains free to add its *own* rules
-alongside a pack's, including a narrower deny (ADR-0005's deny-wins).
+## طرح‌های تجاری
 
-## Updating and removing packs
+وارد کردن بسته با طرح تجاری فضای کاری هم ارتباط دارد (ADR-0006 §4): فضاهای کاری طرح
+مقدماتی می‌توانند از کتابخانهٔ بسته‌ها وارد کنند، ولی نمی‌توانند زیرگردش سفارشی بسازند
+یا کپی اختصاصی بگیرند؛ طرح حرفه‌ای کتابخانهٔ کامل، زیرگردش‌های سازمان و کپی گرفتن را
+اضافه می‌کند؛ طرح سازمانی سقف گردش‌کار منتشرشده را برمی‌دارد و بلوک‌های SDK سفارشی را
+مجاز می‌کند. هر درخواست ساخت یا انتشاری که از سقف طرح بگذرد با خطای
+`tier_limit_exceeded` رد می‌شود؛ اجراهایی که در جریان‌اند، حتی بعد از تنزل طرح،
+همیشه تا آخر ادامه می‌دهند.
 
-Each pack version ships a changelog naming breaking changes (removed blocks,
-renamed ports). The platform tracks a compatibility matrix of pack version ×
-block version combinations that have been tested together, and a tenant is
-notified when a newer pack version is available and whether upgrading needs a
-definition migration action. Multiple packs may be installed at once; the
-platform detects `blockTypeId` conflicts between them at import/activation
-time rather than at run time.
+## مطالب مرتبط
 
-## Commercial tiers
-
-A pack import also interacts with the tenant's commercial tier (ADR-0006 §4):
-Starter tenants may import from the pack library but not fork or author custom
-subflows; Professional adds the full library, tenant subflows, and forking;
-Enterprise removes the published-workflow cap and allows custom SDK blocks. A
-create/publish call that would exceed the tier's cap fails with `tier_limit_exceeded`;
-runs already in flight always complete regardless of a later downgrade.
-
-## Related
-
-- [Policy rules](./policy.md) — pack-applied rules show here as locked grants.
-- [Workflow designer](./workflow-designer.md) — using the workflows a pack provides.
-- [Roles and org chart](./roles-org.md) — mapping a pack's roles to your tenant.
+- [قوانین دسترسی](./policy.md) — قاعده‌های آمده با بسته اینجا به شکل مجوزهای قفل‌شده
+  دیده می‌شوند.
+- [طراح گردش‌کار](./workflow-designer.md) — استفاده از گردش‌کارهایی که بسته می‌دهد.
+- [نقش‌ها و چارت سازمانی](./roles-org.md) — نگاشت نقش‌های بسته به نقش‌های فضای کاری شما.

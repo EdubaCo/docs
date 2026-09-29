@@ -1,40 +1,35 @@
 ---
 id: creating-work
 slug: /creating-work
-title: Creating tasks and product runs
-sidebar_label: Creating work
+title: ساخت وظیفه و اجرای محصول
+sidebar_label: ایجاد کار
 sidebar_position: 4
-description: How to start runs and create tasks — the entry points that put work into people's inboxes.
+description: چطور اجرا شروع کنید و وظیفه بسازید؛ راه‌هایی که کار را به کارتابل افراد می‌رسانند.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# ساخت وظیفه و اجرای محصول
+
+این بخش توضیح می‌دهد کار چطور *وارد* Eduba می‌شود: شروع یک **اجرا** از یک گردش‌کار
+منتشرشده و ساخت وظیفه‌های مستقل. شروع یک اجرا همان چیزی است که وظیفه‌ها را می‌سازد و
+به کارتابل [کارهای من](./my-work.md) همه می‌رساند.
+
+:::info مجوز لازم
+ساخت کار به مجوز **`createTask`** نیاز دارد (و برای اجرای محصول، مجوز مربوط به شروع
+اجرا). اگر اقدام‌هایی را که اینجا توضیح داده شده نمی‌بینید، یعنی نقش شما هنوز این
+مجوزها را ندارد؛ [نقش‌ها و چارت سازمانی](./roles-org.md) را ببینید.
 :::
 
-# Creating tasks and product runs
+## اینجا چه چیزهایی می‌یابید
 
-This section covers how work *enters* Eduba: starting a **run** of a published
-workflow, and creating ad-hoc tasks. Starting a run is what produces the tasks
-that land in everyone's [My Work](./my-work.md) inbox.
+این صفحه هنوز کامل نیست و راهنماهای دقیق‌تر در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::info Permission
-Creating work requires the **`createTask`** capability (and, for product runs,
-the related run-start capability). If you don't see the actions described here,
-your role doesn't grant them yet — see [Roles and org chart](./roles-org.md).
-:::
+- شروع یک اجرا از یک تعریف گردش‌کار منتشرشده.
+- وارد کردن ورودی‌ها و پیوست‌های اولیهٔ اجرا.
+- ساخت وظیفه‌های مستقل، بیرون از گردش‌کار.
+- انتخاب پروژهٔ مناسب برای کار جدید.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed walkthroughs are being authored. Planned
-content:
-
-- Starting a run from a published workflow definition.
-- Supplying the run's initial inputs and attachments.
-- Creating standalone tasks outside a workflow.
-- Choosing the right project for the new work.
-
-## Related
-
-- [Getting started](./getting-started.md) — the core concepts behind runs and tasks.
-- [Your first task](./getting-started/your-first-task.md) — acting on the work this creates.
-- [Workflow designer](./workflow-designer.md) — defining the workflows you run.
+- [شروع کار](./getting-started.md) — مفاهیم پشت اجرا و وظیفه.
+- [اولین وظیفه‌تان](./getting-started/your-first-task.md) — انجام کارهایی که این‌جا ساخته می‌شوند.
+- [طراح گردش‌کار](./workflow-designer.md) — تعریف گردش‌کارهایی که اجرا می‌کنید.

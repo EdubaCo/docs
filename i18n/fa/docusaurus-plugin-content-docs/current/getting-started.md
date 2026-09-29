@@ -1,87 +1,81 @@
 ---
 id: getting-started
 slug: /getting-started
-title: Getting started
-sidebar_label: Overview
+title: شروع کار
+sidebar_label: نمای کلی
 sidebar_position: 2
-description: A first walkthrough of Eduba — what it is, how work flows through it, and where to go next.
+description: اولین مرور Eduba؛ چیست، کار چطور در آن جریان پیدا می‌کند و بعد از این کجا بروید.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# شروع کار
 
-# Getting started
+به **Eduba** خوش آمدید؛ پلتفرمی که روی سرور خودتان اجرا می‌شود و کار سازمان را به
+شکل فرایندهای قاعده‌مند و تکرارپذیر پیش می‌برد. چه وظیفه‌ای را که در کارتابلتان
+نشسته انجام بدهید، چه گردش‌کاری را که پشت آن است طراحی کنید، چه کل فضای کاری را
+مدیریت کنید، این راهنما شما را با محیط آشنا می‌کند.
 
-Welcome to **Eduba**, a self-hosted platform for running your organization's
-work as governed, repeatable processes. Whether you are completing a task that
-landed in your inbox, designing the workflow behind it, or administering the
-whole tenant, this guide gets you oriented.
+اگر فقط یک صفحه بخوانید، همین صفحه را بخوانید؛ چند ایده‌ای را توضیح می‌دهد که بقیهٔ
+مستندات روی آن‌ها بنا شده است.
 
-If you only read one page, read this one — it explains the handful of ideas the
-rest of the documentation builds on.
+## Eduba به چه دردی می‌خورد
 
-## What Eduba is for
+بیشتر سازمان‌ها با ترکیبی از فرم، فایل اکسل، گفت‌وگوهای پیام‌رسان و دانستنی‌های
+سینه‌به‌سینه کار می‌کنند. Eduba جای این‌ها **گردش‌کار** می‌گذارد: تعریفی صریح و نسخه‌دار
+از اینکه یک کار از ابتدا تا انتها چطور پیش می‌رود، در هر مرحله چه کسی اقدام می‌کند و
+چه قوانینی اعمال می‌شود. وقتی یک گردش‌کار اجرا می‌شود، Eduba وظیفه‌ها را می‌سازد، به
+افراد درست می‌رساند، هر اقدام را ثبت می‌کند و در تمام مسیر قوانین شما را رعایت می‌کند.
 
-Most organizations run on a mix of forms, spreadsheets, chat threads, and
-tribal knowledge. Eduba replaces that with **workflows**: explicit, versioned
-definitions of how a piece of work moves from start to finish, who acts at each
-step, and what rules apply. When a workflow runs, Eduba creates the tasks,
-routes them to the right people, records every action, and enforces your
-policies along the way.
+سه چیز را با هم دارید:
 
-You get three things at once:
+- **یک کارتابل** برای همه — [کارهای من](./my-work.md) را ببینید.
+- **یک طراح** برای کسانی که مسیر پیشرفت کار را تعریف می‌کنند — به
+  [طراح گردش‌کار](./workflow-designer.md) مراجعه کنید.
+- **یک سابقهٔ ممیزی و لایهٔ قوانین دسترسی** تا سازمان بتواند به نتیجه اعتماد کند —
+  [قوانین دسترسی](./policy.md) را ببینید.
 
-- **A task inbox** for everyone — see [My Work](./my-work.md).
-- **A designer** for the people who define how work should flow — see
-  [Workflow designer](./workflow-designer.md).
-- **An audit trail and policy layer** so the organization can trust the
-  result — see [Policy rules](./policy.md).
+## ایده‌های اصلی
 
-## The core ideas
+چند مفهوم در همهٔ بخش‌های Eduba تکرار می‌شود. فعلاً مرورشان کنید؛ صفحهٔ
+[مفاهیم کلیدی](./getting-started/key-concepts.md) بیشتر واردشان می‌شود.
 
-A few concepts recur everywhere in Eduba. Skim them now; the dedicated
-[Key concepts](./getting-started/key-concepts.md) page goes deeper.
-
-| Concept | What it means |
+| مفهوم | یعنی چه |
 | --- | --- |
-| **Task** | A single unit of work assigned to a person or role, with everything they need to act. |
-| **Run** | One live execution of a workflow — the tasks for a particular case, in order. |
-| **Workflow definition** | The reusable, versioned blueprint a run is created from. |
-| **Subflow** | A reusable fragment of a workflow you can drop into many definitions. |
-| **Project** | A grouping of related runs and tasks, with its own view and portfolio rollup. |
-| **Role & policy** | Who may do what — resolved by the policy engine, the same one the docs and UI obey. |
-| **Pack** | A bundle of workflows, blocks, and standards you can import to bootstrap a domain. |
+| **وظیفه** | یک واحد کار که به یک نفر یا یک نقش سپرده شده و هرچه برای انجامش لازم است همراهش هست. |
+| **اجرا** | یک بار اجرای زندهٔ یک گردش‌کار؛ وظیفه‌های یک پروندهٔ مشخص، به ترتیب. |
+| **تعریف گردش‌کار** | الگوی قابل‌استفادهٔ مجدد و نسخه‌داری که اجرا از روی آن ساخته می‌شود. |
+| **زیرگردش** | تکه‌ای از گردش‌کار که می‌توانید در تعریف‌های مختلف بگذارید. |
+| **پروژه** | مجموعه‌ای از اجراها و وظیفه‌های مرتبط، با نمای مخصوص خودش و خلاصهٔ سبد پروژه‌ها. |
+| **نقش و قوانین دسترسی** | چه کسی چه کاری می‌تواند بکند؛ موتور قوانین دسترسی تعیین می‌کند، همان موتوری که مستندات و رابط کاربری هم از آن پیروی می‌کنند. |
+| **بسته** | مجموعه‌ای از گردش‌کارها، بلوک‌ها و استانداردها که برای راه‌اندازی سریع یک حوزهٔ کاری وارد می‌کنید. |
 
-## Your first five minutes
+## پنج دقیقهٔ اول
 
-1. **Sign in** to your tenant and land on **My Work**. Any tasks already
-   assigned to you appear in the inbox.
-2. **Open a task** to see its form, attachments, and the action buttons
-   available to you (the buttons you see depend on your permissions).
-3. **Complete the task** — Eduba records the action and advances the run to its
-   next step automatically.
-4. **Browse Projects** to see the bigger picture: which runs are in flight and
-   where they stand.
-5. **Open the help panel** (the `?` button) on any screen for documentation
-   scoped to where you are.
+1. **وارد فضای کاری‌تان شوید** و به **کارهای من** بروید. وظیفه‌هایی که به شما سپرده
+   شده باشد در کارتابل دیده می‌شود.
+2. **یک وظیفه را باز کنید** تا فرم، پیوست‌ها و دکمه‌های اقدام را ببینید (دکمه‌هایی که
+   می‌بینید به دسترسی‌های شما بستگی دارد).
+3. **وظیفه را انجام دهید.** Eduba اقدام را ثبت می‌کند و اجرا را خودکار به مرحلهٔ بعد
+   می‌برد.
+4. **سری به پروژه‌ها بزنید** تا تصویر بزرگ‌تر را ببینید: کدام اجراها در جریان‌اند و در
+   چه مرحله‌ای هستند.
+5. **پنل راهنما را باز کنید** (دکمهٔ `?`) در هر صفحه‌ای که هستید تا مستنداتِ همان
+   صفحه را ببینید.
 
-When you are ready to go end-to-end, follow
-[Your first task](./getting-started/your-first-task.md).
+وقتی آمادهٔ یک مرور کامل بودید، [اولین وظیفه‌تان](./getting-started/your-first-task.md)
+را دنبال کنید.
 
-## Where to go next
+## بعد از این کجا بروید
 
-- New to the day-to-day? Start with [My Work](./my-work.md).
-- Need to create work for others? See [Creating work](./creating-work.md).
-- Designing how work flows? See the [Workflow designer](./workflow-designer.md)
-  and the [Subflow library](./subflow-library.md).
-- Administering the tenant? See [Policy rules](./policy.md),
-  [Roles and org chart](./roles-org.md), [User groups](./groups.md),
-  [Pack management](./packs.md), and [Settings](./settings.md).
+- تازه کار را شروع کرده‌اید؟ از [کارهای من](./my-work.md) شروع کنید.
+- باید برای دیگران کار بسازید؟ [ایجاد کار](./creating-work.md) را ببینید.
+- مسیر پیشرفت کار را طراحی می‌کنید؟ به [طراح گردش‌کار](./workflow-designer.md) و
+  [کتابخانهٔ زیرگردش](./subflow-library.md) سر بزنید.
+- فضای کاری را مدیریت می‌کنید؟ [قوانین دسترسی](./policy.md)،
+  [نقش‌ها و چارت سازمانی](./roles-org.md)، [گروه‌های کاربری](./groups.md)،
+  [مدیریت بسته‌ها](./packs.md) و [تنظیمات](./settings.md) را ببینید.
 
-:::note Documentation is filtered to you
-You only see documentation for features you have access to. The same policy
-engine that decides what you can do in the app (ADR-0005) decides which docs
-pages and search results you see — so this site looks different depending on
-your role.
+:::note مستندات مخصوص شما فیلتر می‌شود
+فقط مستنداتِ قابلیت‌هایی را می‌بینید که به آن‌ها دسترسی دارید. همان موتور قوانین دسترسی
+که تعیین می‌کند در برنامه چه کاری می‌توانید بکنید (ADR-0005)، مشخص می‌کند کدام
+صفحه‌ها و نتیجه‌های جست‌وجو را ببینید؛ پس این سایت بسته به نقش شما فرق می‌کند.
 :::
