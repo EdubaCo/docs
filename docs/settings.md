@@ -25,7 +25,7 @@ sections require the matching admin capabilities (for example
 
 This page is a skeleton; detailed content is being authored. Planned content:
 
-- Personal preferences: language (EN/AR/FA, including RTL), notifications, display.
+- Personal preferences: language (EN/FA, including RTL), notifications, display.
 - Delegation setup (`manageDelegations`).
 - Email ingestion (`manageEmailIngest`).
 - Tenant branding and other admin-only configuration.

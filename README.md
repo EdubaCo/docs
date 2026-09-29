@@ -7,7 +7,7 @@ the content is consumed back by the Eduba monorepo as a git submodule at `apps/d
 
 ```
 docs/               # English source pages
-i18n/ar/            # Arabic translations
+i18n/ar/            # Arabic translations (disabled, kept for re-enabling)
 i18n/fa/            # Persian translations
 ```
 
