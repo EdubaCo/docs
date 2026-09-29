@@ -1,37 +1,33 @@
 ---
 id: subflow-library
 slug: /subflow-library
-title: Subflow library
-sidebar_label: Subflow library
+title: کتابخانهٔ زیرگردش
+sidebar_label: کتابخانهٔ زیرگردش
 sidebar_position: 7
-description: Author and reuse subflows — workflow fragments referenced from many definitions.
+description: زیرگردش بسازید و دوباره استفاده کنید؛ تکه‌هایی از گردش‌کار که در تعریف‌های مختلف به آن‌ها ارجاع داده می‌شود.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# کتابخانهٔ زیرگردش
+
+**کتابخانهٔ زیرگردش** جای نگهداری تکه‌های قابل‌استفادهٔ مجدد گردش‌کار است. یک الگو را
+یک بار می‌سازید (مثلاً زنجیرهٔ تأیید، ارجاع به سطح بالاتر یا دنبالهٔ استاندارد اعلان‌ها)
+و به‌جای ساختن دوبارهٔ آن، از [تعریف گردش‌کارهای](./workflow-designer.md) مختلف به آن
+ارجاع می‌دهید.
+
+:::info مجوز لازم
+کتابخانهٔ زیرگردش بخشی از بخش مدیریت گردش‌کار است و به مجوز **`designWorkflow`**
+نیاز دارد. [نقش‌ها و چارت سازمانی](./roles-org.md) را ببینید.
 :::
 
-# Subflow library
+## اینجا چه چیزهایی می‌یابید
 
-The **subflow library** holds reusable workflow fragments. Author a pattern once
-— an approval chain, an escalation, a standard notification sequence — and
-reference it from many [workflow definitions](./workflow-designer.md) instead of
-rebuilding it each time.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::info Permission
-The subflow library is part of the workflow admin surface and requires the
-**`designWorkflow`** capability. See [Roles and org chart](./roles-org.md).
-:::
+- ساخت زیرگردش و تعریف ورودی‌ها و خروجی‌هایش.
+- ارجاع به یک زیرگردش از یک تعریف گردش‌کار.
+- نسخه‌بندی زیرگردش‌ها و اینکه تعریف‌های ارجاع‌دهنده تغییرات را چطور می‌گیرند.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Creating a subflow and defining its inputs and outputs.
-- Referencing a subflow from a workflow definition.
-- Versioning subflows and how referencing definitions pick up changes.
-
-## Related
-
-- [Workflow designer](./workflow-designer.md) — where subflows are referenced.
-- [Key concepts](./getting-started/key-concepts.md) — subflows in context.
+- [طراح گردش‌کار](./workflow-designer.md) — جایی که به زیرگردش‌ها ارجاع داده می‌شود.
+- [مفاهیم کلیدی](./getting-started/key-concepts.md) — زیرگردش‌ها در کنار بقیهٔ مفاهیم.

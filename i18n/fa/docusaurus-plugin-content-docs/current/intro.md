@@ -1,48 +1,44 @@
 ---
 id: intro
 slug: /intro
-title: Introduction
+title: مقدمه
 sidebar_position: 1
-description: Welcome to the Eduba platform documentation — what's here and where to start.
+description: به مستندات پلتفرم Eduba خوش آمدید؛ ببینید اینجا چه چیزهایی هست و از کجا شروع کنید.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# مستندات Eduba
 
-# Eduba documentation
+به مستندات پلتفرم Eduba خوش آمدید. این سایت، مرجع کامل محصول است (ADR-0014):
+یک سایت [Docusaurus](https://docusaurus.io) که روی سرور خودتان اجرا می‌شود و با
+Markdown نوشته می‌شود. مستندات به دو زبان انگلیسی و فارسی (با پشتیبانی از
+راست‌به‌چپ) در دسترس است و با هر نسخهٔ جدید دوباره ساخته می‌شود.
 
-Welcome to the Eduba platform documentation. This site is the platform-wide
-product reference (ADR-0014): a self-hosted [Docusaurus](https://docusaurus.io)
-site authored in Markdown, available in English, Arabic, and Persian (with RTL),
-and rebuilt on every release.
+**تازه شروع کرده‌اید؟ از [شروع کار](./getting-started.md) شروع کنید.** آنجا
+می‌خوانید Eduba چیست، چند ایدهٔ اصلی که بقیهٔ مطالب روی آن‌ها بنا شده‌اند کدام‌اند،
+و قدم‌به‌قدم [اولین وظیفه‌تان](./getting-started/your-first-task.md) را انجام می‌دهید.
 
-**New here? Start with [Getting started](./getting-started.md).** It explains
-what Eduba is, the handful of core ideas everything else builds on, and walks you
-through completing [your first task](./getting-started/your-first-task.md).
+## این مستندات چطور سازمان‌دهی شده‌اند
 
-## How this documentation is organized
+ساختار مستندات از ساختار خود محصول پیروی می‌کند (ADR-0014 §2). هر بخش با یکی از
+قسمت‌های برنامه مطابقت دارد:
 
-The documentation follows the product's information architecture
-(ADR-0014 §2). Each area maps to part of the app:
+- **[شروع کار](./getting-started.md)** — آشنایی اولیه و
+  [مفاهیم کلیدی](./getting-started/key-concepts.md).
+- **[کارهای من](./my-work.md)** — کارتابل وظایف شما.
+- **[ایجاد کار](./creating-work.md)** — شروع اجرا و ساخت وظیفه.
+- **[پروژه‌ها](./projects.md)** — دسته‌بندی و پیگیری کارهای مرتبط.
+- **[طراح گردش‌کار](./workflow-designer.md)** و
+  **[کتابخانهٔ زیرگردش](./subflow-library.md)** — تعیین مسیر پیشرفت کار.
+- **[قوانین دسترسی](./policy.md)**، **[نقش‌ها و چارت سازمانی](./roles-org.md)**،
+  **[گروه‌های کاربری](./groups.md)** و **[مدیریت بسته‌ها](./packs.md)** — مدیریت
+  فضای کاری.
+- **[گفت‌وگو](./chat.md)** و **[دستیار هوش مصنوعی](./ai.md)** — همکاری و کمک هوشمند.
+- **[تنظیمات](./settings.md)** — تنظیمات فضای کاری و ترجیحات شخصی.
+- **[مدیر پلتفرم](./app-admin.md)** — اداره کردن خود سرویس.
 
-- **[Getting started](./getting-started.md)** — orientation and
-  [key concepts](./getting-started/key-concepts.md).
-- **[My Work](./my-work.md)** — your task inbox.
-- **[Creating work](./creating-work.md)** — starting runs and tasks.
-- **[Projects](./projects.md)** — grouping and tracking related work.
-- **[Workflow designer](./workflow-designer.md)** and
-  **[Subflow library](./subflow-library.md)** — defining how work flows.
-- **[Policy rules](./policy.md)**, **[Roles and org chart](./roles-org.md)**,
-  **[User groups](./groups.md)**, and **[Pack management](./packs.md)** —
-  administering the tenant.
-- **[Chat](./chat.md)** and **[AI assistant](./ai.md)** — collaboration and
-  assistance.
-- **[Settings](./settings.md)** — tenant configuration and personal preferences.
-- **[App admin](./app-admin.md)** — operating the deployment itself.
-
-:::note You see only what you can access
-Documentation is role-filtered (ADR-0014 §2): the same policy engine that governs
-the app (ADR-0005) decides which pages and search results this site shows you.
-Pages for features you can't access won't appear in your navigation or search.
+:::note فقط چیزهایی را می‌بینید که به آن‌ها دسترسی دارید
+مستندات بر اساس نقش شما فیلتر می‌شود (ADR-0014 §2): همان موتور قوانین دسترسی که
+کارهای برنامه را کنترل می‌کند (ADR-0005) تعیین می‌کند این سایت کدام صفحه‌ها و
+نتیجه‌های جست‌وجو را به شما نشان دهد. صفحه‌های مربوط به قابلیت‌هایی که دسترسی‌شان را
+ندارید، در منو و جست‌وجوی شما نمی‌آیند.
 :::

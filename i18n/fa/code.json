@@ -14,7 +14,7 @@
     "message": "شروع به کار"
   },
   "articleFeedback.prompt": {
-    "message": "اشتباهی پیدا کردید؟ درخواست تغییر دهید.",
+    "message": "اشتباهی دیدید؟ درخواست تغییر بدهید.",
     "description": "Prompt above the article feedback control"
   },
   "articleFeedback.trigger": {
@@ -30,7 +30,7 @@
     "description": "Label for the feedback message field"
   },
   "articleFeedback.messagePlaceholder": {
-    "message": "اشتباه یا تغییری که می‌خواهید را شرح دهید…",
+    "message": "اشتباه یا تغییر موردنظرتان را شرح دهید…",
     "description": "Placeholder for the feedback message field"
   },
   "articleFeedback.contactLabel": {
@@ -38,7 +38,7 @@
     "description": "Label for the optional contact field"
   },
   "articleFeedback.contactPlaceholder": {
-    "message": "ایمیل یا شناسه، اگر مایل به دریافت پاسخ هستید",
+    "message": "ایمیل یا شناسه، اگر می‌خواهید پاسخ بگیرید",
     "description": "Placeholder for the optional contact field"
   },
   "articleFeedback.submit": {
@@ -62,7 +62,7 @@
     "description": "Error message when submitting feedback fails"
   },
   "articleFeedback.retry": {
-    "message": "دوباره تلاش کنید",
+    "message": "تلاش دوباره",
     "description": "Submit button label after a failed submission"
   },
   "articleFeedback.required": {

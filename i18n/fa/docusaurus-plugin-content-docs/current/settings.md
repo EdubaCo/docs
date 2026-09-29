@@ -1,40 +1,35 @@
 ---
 id: settings
 slug: /settings
-title: Settings
-sidebar_label: Settings
+title: تنظیمات
+sidebar_label: تنظیمات
 sidebar_position: 14
-description: Tenant configuration for admins and personal preferences for every user.
+description: تنظیمات فضای کاری برای مدیرها و ترجیحات شخصی برای همهٔ کاربران.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# تنظیمات
+
+**تنظیمات** دو مخاطب دارد. مدیرهای فضای کاری، فضای کاری را تنظیم می‌کنند: هویت
+بصری، یکپارچه‌سازی‌ها، تفویض، دریافت ایمیل و موارد دیگر. هر کاربر هم مجموعه‌ای از
+**ترجیحات** را برای خودش مدیریت می‌کند: زبان، اعلان‌ها و گزینه‌های نمایش شخصی.
+
+:::info مجوز لازم
+ماژول **`settings`** جزو هستهٔ کنترل و ممیزی است و در همهٔ طرح‌ها هست؛ پس بخش ترجیحات
+برای همهٔ کاربران باز است. بخش‌های تنظیمات کل فضای کاری به مجوزهای مدیریتی مربوطه نیاز
+دارند (مثلاً `manageDelegations` و `manageEmailIngest`).
 :::
 
-# Settings
+## اینجا چه چیزهایی می‌یابید
 
-**Settings** has two audiences. Tenant admins configure the tenant — branding,
-integrations, delegations, email ingestion, and more. Every user manages a
-**preference subset** for themselves — language, notifications, and personal
-display options.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::info Permission
-The **`settings`** module is part of the governance core, available in every
-tier — so the preference subset is open to all users. Tenant-wide configuration
-sections require the matching admin capabilities (for example
-`manageDelegations`, `manageEmailIngest`).
-:::
+- ترجیحات شخصی: زبان (انگلیسی و فارسی، شامل راست‌به‌چپ)، اعلان‌ها و نمایش.
+- تنظیم تفویض (`manageDelegations`).
+- دریافت ایمیل (`manageEmailIngest`).
+- هویت بصری فضای کاری و بقیهٔ تنظیمات ویژهٔ مدیران.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Personal preferences: language (EN/AR/FA, including RTL), notifications, display.
-- Delegation setup (`manageDelegations`).
-- Email ingestion (`manageEmailIngest`).
-- Tenant branding and other admin-only configuration.
-
-## Related
-
-- [My Work](./my-work.md) — delegation routes your inbox while you're away.
-- [Roles and org chart](./roles-org.md) — who can change tenant-wide settings.
+- [کارهای من](./my-work.md) — تفویض، کارتابل شما را در زمان غیبت مسیریابی می‌کند.
+- [نقش‌ها و چارت سازمانی](./roles-org.md) — چه کسی می‌تواند تنظیمات کل فضای کاری را
+  عوض کند.

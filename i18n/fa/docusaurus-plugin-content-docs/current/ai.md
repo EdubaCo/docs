@@ -1,39 +1,36 @@
 ---
 id: ai
 slug: /ai
-title: AI assistant
-sidebar_label: AI assistant
+title: دستیار هوش مصنوعی
+sidebar_label: دستیار هوش مصنوعی
 sidebar_position: 13
-description: The Eduba AI assistant — help with your work, grounded in your tenant's data and documentation.
+description: دستیار هوش مصنوعی Eduba؛ کمک برای کارهایتان، بر پایهٔ داده‌ها و مستندات فضای کاری شما.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
+# دستیار هوش مصنوعی
+
+**دستیار هوش مصنوعی** در انجام کارها داخل Eduba کمکتان می‌کند: به سؤال‌ها جواب
+می‌دهد، متن پیش‌نویس می‌کند و در حد دسترسی‌های شما به‌جای شما اقدام می‌کند. جواب‌هایش
+بر پایهٔ داده‌های فضای کاری شما و همین مستندات است (که از یک سرویس مستندات
+خودمیزبان خوانده می‌شود، ADR-0070)؛ پس پاسخ‌ها دربارهٔ Eduba *خودتان* است، نه توصیه‌های
+کلی.
+
+:::info دسترس‌پذیری
+هوش مصنوعی **بسته به طرح** فعال می‌شود (ADR-0060): در طرح‌های پولی فعال است و در طرح
+ابتدایی خاموش، و به مجوز **`ai`** نیاز دارد. اگر دستیار را نمی‌بینید، طرح فضای کاری شما
+آن را شامل نمی‌شود.
 :::
 
-# AI assistant
+## اینجا چه چیزهایی می‌یابید
 
-The **AI assistant** helps you get work done inside Eduba — answering questions,
-drafting content, and acting on your behalf within the limits of your
-permissions. It is grounded in your tenant's data and in this documentation
-(consumed through a self-hosted documentation service, ADR-0070), so its answers
-reflect *your* Eduba, not generic advice.
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-:::info Availability
-AI is **plan-gated** (ADR-0060): it ships enabled on the paid tiers and is off on
-the entry tier, so it requires the **`ai`** capability. If you don't see the
-assistant, your tenant's plan doesn't include it.
-:::
+- باز کردن دستیار و پرسیدن دربارهٔ کارهایتان.
+- اینکه دستیار چطور دسترسی‌های شما را رعایت می‌کند (فقط کارهایی را می‌تواند بکند که
+  خودتان می‌توانید).
+- اینکه تکیه بر مستندات چطور پاسخ‌ها را مخصوص فضای کاری شما نگه می‌دارد.
 
-## What you'll find here
+## مطالب مرتبط
 
-This page is a skeleton; detailed content is being authored. Planned content:
-
-- Opening the assistant and asking about your work.
-- How the assistant respects your permissions (it can only do what you can do).
-- How documentation grounding keeps answers specific to your tenant.
-
-## Related
-
-- [Getting started](./getting-started.md) — the concepts the assistant reasons over.
-- [Settings](./settings.md) — managing AI preferences where available.
+- [شروع کار](./getting-started.md) — مفاهیمی که دستیار روی آن‌ها استدلال می‌کند.
+- [تنظیمات](./settings.md) — مدیریت ترجیحات هوش مصنوعی، هرجا که در دسترس باشد.

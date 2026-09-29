@@ -1,34 +1,29 @@
 ---
 id: projects
 slug: /projects
-title: Projects and portfolio
-sidebar_label: Projects
+title: پروژه‌ها و سبد پروژه‌ها
+sidebar_label: پروژه‌ها
 sidebar_position: 5
-description: Group related runs and tasks into projects and see status across a portfolio.
+description: اجراها و وظیفه‌های مرتبط را در پروژه‌ها دسته‌بندی کنید و وضعیت کل سبد پروژه‌ها را ببینید.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# پروژه‌ها و سبد پروژه‌ها
 
-# Projects and portfolio
+**پروژه** اجراها و وظیفه‌های مرتبط را کنار هم نگه می‌دارد تا با هم برنامه‌ریزی و
+پیگیری شوند و **سبد پروژه‌ها** وضعیت را در سطح همهٔ پروژه‌ها جمع‌بندی می‌کند. با
+همین مدیرها و همکاران تصویر بزرگ‌تر را می‌بینند و لازم نیست تک‌تک اجراها را باز کنند.
 
-A **project** groups related runs and tasks so they can be planned and tracked
-together, with a **portfolio** view that rolls status up across projects. This is
-how managers and contributors see the bigger picture without opening every
-individual run.
+## اینجا چه چیزهایی می‌یابید
 
-## What you'll find here
+این صفحه هنوز کامل نیست و مطالب آن در حال نوشتن است. مطالب برنامه‌ریزی‌شده:
 
-This page is a skeleton; detailed content is being authored. Planned content:
+- ساخت پروژه و اضافه کردن اجراها به آن.
+- نمای برد و خط زمانی پروژه.
+- خلاصهٔ سبد پروژه‌ها.
+- اینکه عضویت در پروژه چطور با مسیریابی وظیفه‌ها ارتباط دارد.
 
-- Creating a project and adding runs to it.
-- The project board and timeline views.
-- The portfolio rollup across projects.
-- How project membership interacts with task routing.
+## مطالب مرتبط
 
-## Related
-
-- [My Work](./my-work.md) — your tasks within these projects.
-- [Creating work](./creating-work.md) — starting the runs a project tracks.
-- [Getting started](./getting-started.md) — where projects fit among the core ideas.
+- [کارهای من](./my-work.md) — وظیفه‌هایتان در همین پروژه‌ها.
+- [ایجاد کار](./creating-work.md) — شروع اجراهایی که یک پروژه دنبال می‌کند.
+- [شروع کار](./getting-started.md) — جای پروژه‌ها در میان ایده‌های اصلی.

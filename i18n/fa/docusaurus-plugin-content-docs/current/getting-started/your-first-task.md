@@ -1,79 +1,72 @@
 ---
 id: your-first-task
 slug: /getting-started/your-first-task
-title: Your first task
-sidebar_label: Your first task
-description: A step-by-step walkthrough of finding, opening, and completing your first task in Eduba.
+title: اولین وظیفه‌تان
+sidebar_label: اولین وظیفه‌تان
+description: راهنمای قدم‌به‌قدم برای پیدا کردن، باز کردن و انجام دادن اولین وظیفه در Eduba.
 ---
 
-:::note ترجمه در حال انجام
-این صفحه هنوز ترجمه نشده است، بنابراین محتوای آن به انگلیسی نمایش داده می‌شود. ترجمهٔ کامل در مرحله‌ای بعد افزوده می‌شود (ADR-0014 §6).
-:::
+# اولین وظیفه‌تان
 
-# Your first task
+این راهنما شما را از ورود به سیستم تا انجام یک وظیفه و دیدن پیشرفت اجرا می‌برد.
+فرض بر این است که یک گردش‌کار در فضای کاری‌تان منتشر شده و دست‌کم یک وظیفه به شما
+سپرده شده (یا خواهد شد). اگر هنوز چیزی به شما سپرده نشده، برای شروع یک اجرا
+[ایجاد کار](../creating-work.md) را ببینید یا از مدیر گردش‌کار بخواهید یک تعریف منتشر کند.
 
-This walkthrough takes you from signing in to completing a task and seeing the
-run advance. It assumes a workflow has already been published in your tenant and
-that at least one task is (or will be) assigned to you. If nothing is assigned
-yet, see [Creating work](../creating-work.md) to start a run, or ask a workflow
-admin to publish a definition.
+## ۱. وظیفه را پیدا کنید
 
-## 1. Find the task
+بعد از ورود به **کارهای من** می‌رسید. کارتابل وظیفه‌هایی را که به شما سپرده شده فهرست
+می‌کند، جدیدترین‌ها اول. هر ردیف عنوان وظیفه، اجرایی که به آن تعلق دارد و سررسید یا
+وضعیت SLA را نشان می‌دهد.
 
-After signing in you land on **My Work**. Your inbox lists the tasks assigned to
-you, newest first. Each row shows the task title, the run it belongs to, and its
-due date or SLA status.
+اگر منتظر وظیفه‌ای هستید و آن را نمی‌بینید:
 
-If you expect a task and don't see it:
+- فیلترهای کارتابل را بررسی کنید (سپرده‌شده به من، نقش‌های من یا گروه‌های من).
+- مطمئن شوید اجرا واقعاً به مرحلهٔ شما رسیده؛ اجرا فقط وقتی وظیفه می‌سازد که
+  گردش‌کار به آن مرحله برسد.
 
-- Check the inbox filters (assigned to me vs. my roles vs. my groups).
-- Confirm the run has actually reached your step — a run only creates a task
-  when its workflow advances to that step.
+برای آشنایی کامل با کارتابل، [کارهای من](../my-work.md) را ببینید.
 
-See [My Work](../my-work.md) for the full inbox tour.
+## ۲. باز کنید و بخوانید
 
-## 2. Open and read it
+روی وظیفه کلیک کنید تا باز شود. صفحهٔ وظیفه سه بخش دارد:
 
-Click the task to open it. A task screen has three parts:
+- **فرم**: فیلدهایی که باید بررسی یا پر کنید.
+- **زمینه**: پیوست‌ها، مرحله‌های قبلی و تاریخچهٔ اجرا، تا ببینید پرونده چطور به اینجا
+  رسیده است.
+- **اقدام‌ها**: دکمه‌هایی که می‌توانید استفاده کنید. *فقط اقدام‌هایی را می‌بینید که
+  دسترسی‌هایتان اجازه می‌دهد* (ADR-0005)؛ پس دو نفر ممکن است یک وظیفه را باز کنند و
+  دکمه‌های متفاوتی ببینند.
 
-- **The form** — the fields you need to review or fill in.
-- **Context** — attachments, prior steps, and the run history so you can see how
-  the case got here.
-- **Actions** — the buttons you may use. *You only see the actions your
-  permissions allow* (ADR-0005), so two people can open the same task and see
-  different buttons.
+## ۳. اقدام کنید
 
-## 3. Act
+فیلدهای الزامی را پر کنید و بعد یک اقدام انتخاب کنید؛ مثلاً **تأیید**، **رد** یا
+**ارسال**. Eduba پیش از پذیرفتن، ورودی شما را با قواعد آن مرحله می‌سنجد و پیام‌های
+خطا دقیق و قابل‌اقدام‌اند، نه کلی (مثلاً «SLA باید بین ۱ تا ۷۲۰ ساعت باشد»).
 
-Fill in any required fields, then choose an action — for example **Approve**,
-**Reject**, or **Submit**. Eduba validates your input against the step's rules
-before accepting it; validation messages are specific and actionable (for
-example, "SLA must be between 1 and 720 hours") rather than generic.
+وقتی تأیید کنید:
 
-When you confirm:
+1. Eduba **اقدام را ثبت می‌کند** در سابقهٔ ممیزیِ تغییرناپذیر اجرا (چه کسی، چه کاری،
+   چه زمانی).
+2. اجرا **به مرحلهٔ بعد می‌رود**.
+3. وظیفهٔ آن مرحله **ساخته می‌شود و به نفر بعدی می‌رسد**؛ ممکن است دوباره خودتان
+   باشید، یکی از همکارانتان، یا هیچ‌کس (اگر اجرا تمام شود).
 
-1. Eduba **records the action** to the run's immutable audit trail (who, what,
-   when).
-2. The run **advances** to its next step.
-3. That step's task is **created and routed** to whoever acts next — which may be
-   you again, a teammate, or no one (if the run completes).
+## ۴. نتیجه را ببینید
 
-## 4. See the result
+به **کارهای من** برگردید: وظیفهٔ انجام‌شده از کارتابل شما بیرون می‌رود. به
+[پروژه‌ها](../projects.md) بروید تا پیشرفت اجرا را در کنار بقیهٔ کارها ببینید و
+بدانید کجای مجموعه ایستاده است.
 
-Return to **My Work**: the completed task leaves your inbox. Open
-[Projects](../projects.md) to watch the run move forward in context, and to see
-where it sits among related work.
+## چه اتفاقی افتاد
 
-## What just happened
+شما یک مرحله از یک **اجرا** را انجام دادید؛ اجرا یک بار اجرای یک **تعریف گردش‌کار**
+است. تعریف تعیین کرد چه فرمی ببینید، چه اقدام‌هایی در دسترس باشد و اجرا بعد از آن
+کجا برود؛ و همهٔ این‌ها را مدیر گردش‌کار در [طراح گردش‌کار](../workflow-designer.md)
+تنظیم کرده بود.
 
-You completed one step of a **run**, which is one execution of a **workflow
-definition**. The definition decided what form you saw, which actions were
-available, and where the run went next — all of which a workflow admin
-configured in the [Workflow designer](../workflow-designer.md).
+## قدم‌های بعدی
 
-## Next steps
-
-- Learn the vocabulary in depth: [Key concepts](./key-concepts.md).
-- Start a run yourself: [Creating work](../creating-work.md).
-- Understand why your action buttons are what they are:
-  [Policy rules](../policy.md).
+- واژه‌ها را کامل‌تر یاد بگیرید: [مفاهیم کلیدی](./key-concepts.md).
+- خودتان یک اجرا شروع کنید: [ایجاد کار](../creating-work.md).
+- بفهمید چرا دکمه‌های اقدام شما همین‌هاست: [قوانین دسترسی](../policy.md).
