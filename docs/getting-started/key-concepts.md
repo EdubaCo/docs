@@ -48,18 +48,7 @@ without opening every run. See [Projects](../projects.md).
 
 ## Roles, policy, and capabilities
 
-Eduba's **policy engine** (ADR-0005) is the single authority for *who may do
-what*. Permissions are expressed as **capabilities** (for example
-`createTask`, `designWorkflow`) granted to **roles**, which are assigned to
-users — directly or through [user groups](../groups.md). The same engine:
-
-- decides which **action buttons** you see on a task,
-- decides which **navigation entries** appear for your tenant,
-- and decides which **docs pages and search results** this site shows you.
-
-That last point is why the documentation looks different for a task worker and a
-tenant admin. See [Policy rules](../policy.md) and
-[Roles and org chart](../roles-org.md).
+Eduba uses **capabilities** (for example `createTask` and `designWorkflow`) and policy rules to control access. Roles grant capabilities to users. A user group is a separate collection of members that can be used for assignment; group membership does not automatically grant role permissions. Available actions depend on your permissions and the current work. See [Policy rules](../policy.md), [Roles and org chart](../roles-org.md), and [User groups](../groups.md).
 
 ## Packs and standards
 
