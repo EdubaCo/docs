@@ -28,6 +28,16 @@ Publishing additionally uses `publishDefinition`. See
 [Roles and org chart](./roles-org.md).
 :::
 
+## Build and publish a workflow
+
+1. Open **Workflows**, choose **New workflow**, enter its name, and create it to open the designer.
+2. Add steps from the palette and connect them in the order the process should follow. Select each step to configure its properties, including its assignee where needed.
+3. Save and use **Validate**. Inspect each error or warning, navigate to the affected element, and correct the configuration or connections.
+4. Select **Publish** and confirm. Publishing validates the current diagram and creates a new immutable revision. If validation fails, fix the reported problems and retry.
+5. To change a published workflow, choose **Edit** to start a new draft. Existing runs continue with their original revision; publish the new draft for future runs.
+
+For a reusable fragment, create a published [subflow](./subflow-library.md) and map its inputs in the parent workflow. The [AI assistant](./ai.md) can propose a draft, but review and publication remain your responsibility.
+
 ## The canvas
 
 Drag blocks from the palette onto the canvas and connect them with sequence
@@ -42,8 +52,7 @@ directory-aware assignee picker, described below.
 ## Assigning work to a role
 
 Any element-template field of type `assignee` — including a `human` block's
-`assignee` config — renders as a segmented picker with six tabs: **role**,
-**user**, **group**, **dynamic**, **rule**, and **advanced**.
+`assignee` config — offers choices including **role**, **user**, **group**, **dynamic**, **rule**, and **advanced**. Depending on the field, task-specific choices can also route a step to the task’s responsible person, reviewer, creator, or project manager.
 
 - **Role** searches the tenant's roles and, on selection, writes
   `{ type: 'role', roleId }`. This is the common case for a step that should be
