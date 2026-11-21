@@ -75,9 +75,6 @@ When you are ready to go end-to-end, follow
   [Roles and org chart](./roles-org.md), [User groups](./groups.md),
   [Pack management](./packs.md), and [Settings](./settings.md).
 
-:::note Documentation is filtered to you
-You only see documentation for features you have access to. The same policy
-engine that decides what you can do in the app (ADR-0005) decides which docs
-pages and search results you see — so this site looks different depending on
-your role.
+:::note Documentation and access
+The documentation site serves pages publicly. In-app help filters its links according to your capabilities; seeing a page does not grant the permissions required to use the feature.
 :::
