@@ -48,12 +48,12 @@ A few concepts recur everywhere in Eduba. Skim them now; the dedicated
 | Concept | What it means |
 | --- | --- |
 | **Task** | A single unit of work assigned to a person or role, with everything they need to act. |
-| **Run** | One live execution of a workflow — the tasks for a particular case, in order. |
+| **Run** | One execution of a workflow, whose steps advance according to its rules. |
 | **Workflow definition** | The reusable, versioned blueprint a run is created from. |
 | **Subflow** | A reusable fragment of a workflow you can drop into many definitions. |
 | **Project** | A grouping of related runs and tasks, with its own view and portfolio rollup. |
-| **Role & policy** | Who may do what — resolved by the policy engine, the same one the docs and UI obey. |
-| **Pack** | A bundle of workflows, blocks, and standards you can import to bootstrap a domain. |
+| **Role & policy** | Who may do what in the app, as determined by roles and policy. |
+| **Pack** | A bundle of reusable workflow content that can include roles and policy rules. |
 
 ## Your first five minutes
 
@@ -61,8 +61,7 @@ A few concepts recur everywhere in Eduba. Skim them now; the dedicated
    assigned to you appear in the inbox.
 2. **Open a task** to see its form, attachments, and the action buttons
    available to you (the buttons you see depend on your permissions).
-3. **Complete the task** — Eduba records the action and advances the run to its
-   next step automatically.
+3. **Complete your step** — Eduba records the action and advances the run; the task may have more steps.
 4. **Browse Projects** to see the bigger picture: which runs are in flight and
    where they stand.
 5. **Open the help panel** (the `?` button) on any screen for documentation
