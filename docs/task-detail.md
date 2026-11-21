@@ -70,8 +70,7 @@ To complete the step:
 4. **Submit.**
 
 Eduba records your submission to the run's audit trail and advances the run to
-its next step. The task then shows a completion banner with the outcome instead
-of the action card.
+its next step. The task may continue through additional steps; a completion banner appears when the task finishes.
 
 If the task is **not** waiting on you — someone else holds it, or the run has
 already finished — the same card is read-only. You can still read everything,
