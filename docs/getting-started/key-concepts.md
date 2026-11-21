@@ -14,18 +14,9 @@ relate.
 
 ## Tasks and runs
 
-A **task** is the atomic unit of work: one thing one person (or one role) needs
-to do, presented with the form fields, attachments, and context required to do
-it. Tasks land in your [My Work](../my-work.md) inbox.
+A **task** is a unit of work with its own details and documents. Creating a task from a published workflow starts its governing **run**. The run executes the workflow's steps; a step waiting for you can appear in [My Work](../my-work.md). A task may go through several steps before it is complete.
 
-A **run** is one live execution of a workflow — the ordered set of tasks for a
-single case. Starting a run is what produces tasks. A purchase request, an
-onboarding case, an inspection: each is a run of its workflow.
-
-```text
-Workflow definition  ──start──▶  Run  ──produces──▶  Tasks  ──▶  My Work inbox
-   (the blueprint)              (one case)         (your work)
-```
+A **run** is one execution of a workflow. A project can group related tasks and product runs. Reopening an eligible task starts a fresh run while the task retains its identity and documents.
 
 ## Definitions, versions, and subflows
 
