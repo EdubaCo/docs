@@ -21,6 +21,10 @@ rest of the documentation builds on.
 
 Open your organization's workspace address, or use the workspace finder and enter your company identifier or work email. Sign in with your work email and password, or your organization's SSO if it is configured. If you received an invitation, follow its link to set your password. Use the password recovery link on the sign-in page if needed; ask your workspace administrator for a new invitation if the link has expired.
 
+## Set up a new workspace
+
+A new workspace administrator may see a setup checklist. It links to branding, inviting people and organizing the org chart, and adding a workflow through the designer or a pack. You can defer a step and return to the relevant settings later. Publish a suitable workflow before creating work from it. See [Settings](./settings.md), [Packs](./packs.md), and [Workflow designer](./workflow-designer.md).
+
 ## What Eduba is for
 
 Most organizations run on a mix of forms, spreadsheets, chat threads, and
