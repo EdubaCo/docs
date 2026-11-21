@@ -4,33 +4,27 @@ slug: /settings
 title: Settings
 sidebar_label: Settings
 sidebar_position: 14
-description: Tenant configuration for admins and personal preferences for every user.
+description: Personal preferences and workspace administration.
 ---
 
 # Settings
 
-**Settings** has two audiences. Tenant admins configure the tenant — branding,
-integrations, delegations, email ingestion, and more. Every user manages a
-**preference subset** for themselves — language, notifications, and personal
-display options.
+**Settings** contains personal preferences and workspace administration. The sections and actions you can use depend on your permissions, plan, and workspace configuration. Platform operators use a separate [back office](./app-admin.md).
 
-:::info Permission
-The **`settings`** module is part of the governance core, available in every
-tier — so the preference subset is open to all users. Tenant-wide configuration
-sections require the matching admin capabilities (for example
-`manageDelegations`, `manageEmailIngest`).
-:::
+## Personal preferences
 
-## What you'll find here
+- Under **Display**, choose a theme, density, accent color, and font for your view. Under **Language & region**, choose the interface language; its reading direction follows the language.
+- Under **Notifications**, choose how each event reaches you: in the app, in the app and by email, or muted.
+- Under **Away & delegation**, choose a colleague, the roles to delegate, and a start and end time. During that period the delegate receives the permissions granted by those roles. Revoke a delegation early if needed.
 
-This page is a skeleton; detailed content is being authored. Planned content:
+## Workspace administration
 
-- Personal preferences: language (EN/FA, including RTL), notifications, display.
-- Delegation setup (`manageDelegations`).
-- Email ingestion (`manageEmailIngest`).
-- Tenant branding and other admin-only configuration.
+Administrators can update the workspace name and branding, invite and manage members, configure roles, groups and the org chart, and administer delegations. See [Roles and org chart](./roles-org.md) and [User groups](./groups.md). Managing other people's delegations requires `manageDelegations`; self-service delegation is available for your own roles.
 
-## Related
+Under **Security**, authorized administrators can configure password and session policy, multi-factor authentication, and SSO; audit and security-event pages provide event lists and export. Check the SSO configuration and administrator fallback before enforcing SSO for everyone.
 
-- [My Work](./my-work.md) — delegation routes your inbox while you're away.
-- [Roles and org chart](./roles-org.md) — who can change tenant-wide settings.
+Under **Storage & backups**, an authorized administrator can configure supported object storage. **Database connector** manages a supported external PostgreSQL connection and requires `manageDbConnector`. Availability depends on the plan and workspace configuration. Back up before changing databases; follow the on-screen connection validation and resolve any error before relying on a new connector.
+
+**Plan & usage** shows subscription limits and usage. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, the inbound email queue provides retry and dismiss actions to authorized operators.
+
+If a setting is missing or read-only, ask a workspace administrator to check your capability and plan. Save changes on each settings page and check for an error message if the save fails.
