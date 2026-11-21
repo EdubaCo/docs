@@ -17,14 +17,20 @@ whole tenant, this guide gets you oriented.
 If you only read one page, read this one — it explains the handful of ideas the
 rest of the documentation builds on.
 
+## Sign in to your workspace
+
+Open your organization's workspace address, or use the workspace finder and enter your company identifier or work email. Sign in with your work email and password, or your organization's SSO if it is configured. If you received an invitation, follow its link to set your password. Use the password recovery link on the sign-in page if needed; ask your workspace administrator for a new invitation if the link has expired.
+
+## Set up a new workspace
+
+A new workspace administrator may see a setup checklist. It links to branding, inviting people and organizing the org chart, and adding a workflow through the designer or a pack. You can defer a step and return to the relevant settings later. Publish a suitable workflow before creating work from it. See [Settings](./settings.md), [Packs](./packs.md), and [Workflow designer](./workflow-designer.md).
+
 ## What Eduba is for
 
 Most organizations run on a mix of forms, spreadsheets, chat threads, and
 tribal knowledge. Eduba replaces that with **workflows**: explicit, versioned
 definitions of how a piece of work moves from start to finish, who acts at each
-step, and what rules apply. When a workflow runs, Eduba creates the tasks,
-routes them to the right people, records every action, and enforces your
-policies along the way.
+step, and what rules apply. A task created from a published workflow starts a run, which routes its steps and records activity according to the configured rules.
 
 You get three things at once:
 
@@ -42,12 +48,12 @@ A few concepts recur everywhere in Eduba. Skim them now; the dedicated
 | Concept | What it means |
 | --- | --- |
 | **Task** | A single unit of work assigned to a person or role, with everything they need to act. |
-| **Run** | One live execution of a workflow — the tasks for a particular case, in order. |
+| **Run** | One execution of a workflow, whose steps advance according to its rules. |
 | **Workflow definition** | The reusable, versioned blueprint a run is created from. |
 | **Subflow** | A reusable fragment of a workflow you can drop into many definitions. |
 | **Project** | A grouping of related runs and tasks, with its own view and portfolio rollup. |
-| **Role & policy** | Who may do what — resolved by the policy engine, the same one the docs and UI obey. |
-| **Pack** | A bundle of workflows, blocks, and standards you can import to bootstrap a domain. |
+| **Role & policy** | Who may do what in the app, as determined by roles and policy. |
+| **Pack** | A bundle of reusable workflow content that can include roles and policy rules. |
 
 ## Your first five minutes
 
@@ -55,8 +61,7 @@ A few concepts recur everywhere in Eduba. Skim them now; the dedicated
    assigned to you appear in the inbox.
 2. **Open a task** to see its form, attachments, and the action buttons
    available to you (the buttons you see depend on your permissions).
-3. **Complete the task** — Eduba records the action and advances the run to its
-   next step automatically.
+3. **Complete your step** — Eduba records the action and advances the run; the task may have more steps.
 4. **Browse Projects** to see the bigger picture: which runs are in flight and
    where they stand.
 5. **Open the help panel** (the `?` button) on any screen for documentation
@@ -75,9 +80,6 @@ When you are ready to go end-to-end, follow
   [Roles and org chart](./roles-org.md), [User groups](./groups.md),
   [Pack management](./packs.md), and [Settings](./settings.md).
 
-:::note Documentation is filtered to you
-You only see documentation for features you have access to. The same policy
-engine that decides what you can do in the app (ADR-0005) decides which docs
-pages and search results you see — so this site looks different depending on
-your role.
+:::note Documentation and access
+The documentation site serves pages publicly. In-app help filters its links according to your capabilities; seeing a page does not grant the permissions required to use the feature.
 :::

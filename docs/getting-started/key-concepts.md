@@ -14,18 +14,9 @@ relate.
 
 ## Tasks and runs
 
-A **task** is the atomic unit of work: one thing one person (or one role) needs
-to do, presented with the form fields, attachments, and context required to do
-it. Tasks land in your [My Work](../my-work.md) inbox.
+A **task** is a unit of work with its own details and documents. Creating a task from a published workflow starts its governing **run**. The run executes the workflow's steps; a step waiting for you can appear in [My Work](../my-work.md). A task may go through several steps before it is complete.
 
-A **run** is one live execution of a workflow — the ordered set of tasks for a
-single case. Starting a run is what produces tasks. A purchase request, an
-onboarding case, an inspection: each is a run of its workflow.
-
-```text
-Workflow definition  ──start──▶  Run  ──produces──▶  Tasks  ──▶  My Work inbox
-   (the blueprint)              (one case)         (your work)
-```
+A **run** is one execution of a workflow. A project can group related tasks and product runs. Reopening an eligible task starts a fresh run while the task retains its identity and documents.
 
 ## Definitions, versions, and subflows
 
@@ -48,24 +39,11 @@ without opening every run. See [Projects](../projects.md).
 
 ## Roles, policy, and capabilities
 
-Eduba's **policy engine** (ADR-0005) is the single authority for *who may do
-what*. Permissions are expressed as **capabilities** (for example
-`createTask`, `designWorkflow`) granted to **roles**, which are assigned to
-users — directly or through [user groups](../groups.md). The same engine:
-
-- decides which **action buttons** you see on a task,
-- decides which **navigation entries** appear for your tenant,
-- and decides which **docs pages and search results** this site shows you.
-
-That last point is why the documentation looks different for a task worker and a
-tenant admin. See [Policy rules](../policy.md) and
-[Roles and org chart](../roles-org.md).
+Eduba uses **capabilities** (for example `createTask` and `designWorkflow`) and policy rules to control access. Roles grant capabilities to users. A user group is a separate collection of members that can be used for assignment; group membership does not automatically grant role permissions. Available actions depend on your permissions and the current work. See [Policy rules](../policy.md), [Roles and org chart](../roles-org.md), and [User groups](../groups.md).
 
 ## Packs and standards
 
-A **pack** bundles workflows, blocks, and standards so an organization can
-bootstrap a whole domain by importing one artifact rather than building from
-scratch. See [Pack management](../packs.md).
+A **pack** bundles reusable workflow content and can include roles and policy rules. See [Pack management](../packs.md).
 
 ## How it fits together
 

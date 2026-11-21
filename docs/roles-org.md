@@ -18,8 +18,7 @@ sourceHash: d8a962be0fe3774f03ca00adc5e97851a771b183454c25488306313ea1b29dd3
 models the reporting structure roles and routing can reference. A tenant ships
 with system roles (`tenant_admin`, `workflow_admin`, `task_worker`,
 `run_watcher`); admins create custom roles for their organization and assign
-them to users — directly, through the members picker, or through
-[user groups](./groups.md).
+them to users through the members picker. [User groups](./groups.md) are separate assignment pools; membership does not grant roles.
 
 :::info Permission
 Managing roles and the org chart is a tenant-admin task and requires the
@@ -64,8 +63,8 @@ and type, and move members in and out of a unit through its manage-members
 dialog. The editor validates moves server-side so a unit can never become its
 own ancestor — the tree is always well-formed.
 
-The org chart is read-only for non-admins. Every write is gated on
-`manageUsers` the same as role management, and the structure it builds feeds
+Access to the org chart is permission-controlled, and changes require
+`manageUsers`. Its reporting structure feeds
 delegation, escalation, and a user's org tier elsewhere in the product.
 
 ## Using roles in workflow routing
@@ -81,5 +80,5 @@ by mapping them to one you create here during pack activation.
 
 - [Policy rules](./policy.md) — the capabilities granted to roles, and how to
   read/edit the permission matrix.
-- [User groups](./groups.md) — assigning roles to many users at once.
+- [User groups](./groups.md) — managing groups for work assignment.
 - [Pack management](./packs.md) — mapping a pack's roles onto your tenant's.

@@ -37,8 +37,6 @@ The documentation follows the product's information architecture
 - **[Settings](./settings.md)** — tenant configuration and personal preferences.
 - **[App admin](./app-admin.md)** — operating the deployment itself.
 
-:::note You see only what you can access
-Documentation is role-filtered (ADR-0014 §2): the same policy engine that governs
-the app (ADR-0005) decides which pages and search results this site shows you.
-Pages for features you can't access won't appear in your navigation or search.
+:::note Documentation and access
+The documentation site serves pages publicly. In-app help filters its links according to your capabilities; seeing a page does not grant the permissions required to use the feature.
 :::

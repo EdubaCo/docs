@@ -4,33 +4,21 @@ slug: /creating-work
 title: Creating tasks and product runs
 sidebar_label: Creating work
 sidebar_position: 4
-description: How to start runs and create tasks — the entry points that put work into people's inboxes.
+description: Start a task from a published workflow and assign its work.
 ---
 
 # Creating tasks and product runs
 
-This section covers how work *enters* Eduba: starting a **run** of a published
-workflow, and creating ad-hoc tasks. Starting a run is what produces the tasks
-that land in everyone's [My Work](./my-work.md) inbox.
+Creating a task starts its governing workflow run. You need the `createTask` and `startRun` capabilities and an available published workflow. An administrator can help if either permission or a suitable workflow is missing.
 
-:::info Permission
-Creating work requires the **`createTask`** capability (and, for product runs,
-the related run-start capability). If you don't see the actions described here,
-your role doesn't grant them yet — see [Roles and org chart](./roles-org.md).
-:::
+## Create a task
 
-## What you'll find here
+1. In **My Work**, select **New task**. You can also start from a project's task tab; in that case the project is already selected.
+2. Choose a published workflow and continue.
+3. Enter the task name and select its project. Add the due date, priority, description, and other available details as needed. You can choose project documents to hand off as task-scoped copies.
+4. Optionally select a responsible person and reviewer. Depending on the picker, these may be people, roles, or groups. Read any warning about steps that have no responsible person.
+5. Select **Create task**. The task and its workflow run are created; open it to follow its steps and activity.
 
-This page is a skeleton; detailed walkthroughs are being authored. Planned
-content:
+Assignment is checked against the workspace's access rules, and the workflow determines where each step goes. If the workflow is no longer published, select another or ask an administrator to publish it. If creation or assignment is denied, ask an administrator to check your permissions and the workflow configuration.
 
-- Starting a run from a published workflow definition.
-- Supplying the run's initial inputs and attachments.
-- Creating standalone tasks outside a workflow.
-- Choosing the right project for the new work.
-
-## Related
-
-- [Getting started](./getting-started.md) — the core concepts behind runs and tasks.
-- [Your first task](./getting-started/your-first-task.md) — acting on the work this creates.
-- [Workflow designer](./workflow-designer.md) — defining the workflows you run.
+See [Your first task](./getting-started/your-first-task.md) for completing assigned work, and [Workflow designer](./workflow-designer.md) for preparing a workflow.

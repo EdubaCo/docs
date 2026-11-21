@@ -36,7 +36,7 @@ permissions allow** ([policy rules](./policy.md), ADR-0005).
 
 Below the header, a compact stepper shows the whole run at a glance: which steps
 are done, which one is waiting, and how far along the run is. Expand it to see a
-vertical, per-step view with **who acted on each step and what they decided** —
+vertical, per-step view with the actor and outcome where available —
 useful when you need to know why the task reached you in its current shape, and
 which step is *your turn*.
 
@@ -65,17 +65,15 @@ box, and optional attachments.
 To complete the step:
 
 1. Read the digest of what happened last and check the files you need.
-2. Choose your decision and add a comment explaining it.
-3. Attach any files the next person will need.
+2. Complete the fields shown, including a decision or comment if the step requires them.
+3. Attach files if the step supports them and they are needed.
 4. **Submit.**
 
 Eduba records your submission to the run's audit trail and advances the run to
-its next step. The task then shows a completion banner with the outcome instead
-of the action card.
+its next step. The task may continue through additional steps; a completion banner appears when the task finishes.
 
 If the task is **not** waiting on you — someone else holds it, or the run has
-already finished — the same card is read-only. You can still read everything,
-comment, and follow the run's progress.
+already finished — the same card is read-only. You may be able to view or comment according to your access.
 
 ## Related
 
