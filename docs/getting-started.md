@@ -17,14 +17,16 @@ whole tenant, this guide gets you oriented.
 If you only read one page, read this one — it explains the handful of ideas the
 rest of the documentation builds on.
 
+## Sign in to your workspace
+
+Open your organization's workspace address, or use the workspace finder and enter your company identifier or work email. Sign in with your work email and password, or your organization's SSO if it is configured. If you received an invitation, follow its link to set your password. Use the password recovery link on the sign-in page if needed; ask your workspace administrator for a new invitation if the link has expired.
+
 ## What Eduba is for
 
 Most organizations run on a mix of forms, spreadsheets, chat threads, and
 tribal knowledge. Eduba replaces that with **workflows**: explicit, versioned
 definitions of how a piece of work moves from start to finish, who acts at each
-step, and what rules apply. When a workflow runs, Eduba creates the tasks,
-routes them to the right people, records every action, and enforces your
-policies along the way.
+step, and what rules apply. A task created from a published workflow starts a run, which routes its steps and records activity according to the configured rules.
 
 You get three things at once:
 
