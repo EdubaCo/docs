@@ -27,4 +27,9 @@ Under **Storage & backups**, an authorized administrator can configure supported
 
 **Plan & usage** shows subscription limits and usage. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, the inbound email queue provides retry and dismiss actions to authorized operators.
 
+
+## Publish a workspace article
+
+With `manageArticles`, open **Settings → Articles** and select **New article**. Enter a title, a unique slug using lowercase Latin letters, numbers and single hyphens, and the Markdown content. Choose the language and optional tags. Set visibility to all members or select the intended roles and groups. Preview the article, choose **Draft** or **Published**, and save. For a Persian title, enter the Latin slug yourself. You can later edit, publish, return an article to draft, or delete it; deletion cannot be undone.
+
 If a setting is missing or read-only, ask a workspace administrator to check your capability and plan. Save changes on each settings page and check for an error message if the save fails.
