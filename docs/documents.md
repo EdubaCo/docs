@@ -39,7 +39,7 @@ folder filter:
 | **Documents** | The default folder — project inputs and general files. |
 | **Attachments** | Supporting files attached along the way. |
 | **Deliverables** | Packaged, issued outputs — e.g. a run's transmittal package. |
-| **Shared** | Files exposed through a share link (see below). |
+| **Shared** | Documents in the shared folder category. Creating a share link is a separate action. |
 
 The screen can be scoped to one project or shown tenant-wide, and a project's
 own task-scoped documents (the working files behind each of its tasks) list
@@ -47,6 +47,10 @@ alongside its project-level inputs so issued deliverables stay visible without
 mixing working files into the project set.
 
 ## Uploading and revisions
+
+To upload a new document, choose **Upload**, enter its document path, select a file, and submit. To update an existing document, choose **New revision** on its row, select the file, and submit. Wait for the upload to finish; if it fails, retry and check your access, file size, and available storage. For an AFC-locked document, ask the responsible administrator about the customer revision reset before trying to add a revision.
+
+To share a readable document, choose **Share**, select an expiry period, create and copy the link. Use **Revoke** if it should stop working before expiry. Treat the link as access to the document and share it only with intended recipients.
 
 **+ Upload** creates a brand-new document at a chosen key; **New revision** on
 an existing row adds a new revision to it. Both use the same two-phase flow —
