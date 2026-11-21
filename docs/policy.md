@@ -45,7 +45,7 @@ Edits are staged locally as you click cells, then committed together with
 **Save changes** — the matrix batches the diff into add/remove calls against
 the live engine rather than writing on every click. Removing an existing
 *allow* is treated as a lock-out risk and asks for confirmation before it is
-sent.
+sent. Changes are sent as separate requests; if saving fails, reload the matrix and verify which changes were applied before retrying.
 
 ## Locked rows: baseline and pack-applied rules
 
@@ -61,8 +61,7 @@ Some rows carry a **lock icon** and cannot be toggled from the matrix:
   import. These came from the pack, not a manual grant, so changing them means
   updating or removing the pack rather than hand-editing a cell.
 
-You can still add your **own** rule alongside a locked one — including a
-narrower deny over the same capability, which still wins per deny-precedence.
+Locked cells cannot be changed in this matrix. Other applicable policy rules can still affect the final decision, including a matching deny.
 
 ## How deny precedence works
 
