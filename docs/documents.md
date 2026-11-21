@@ -52,12 +52,7 @@ To upload a new document, choose **Upload**, enter its document path, select a f
 
 To share a readable document, choose **Share**, select an expiry period, create and copy the link. Use **Revoke** if it should stop working before expiry. Treat the link as access to the document and share it only with intended recipients.
 
-**+ Upload** creates a brand-new document at a chosen key; **New revision** on
-an existing row adds a new revision to it. Both use the same two-phase flow —
-request an upload handle, transfer the bytes, then finalize — and both
-affordances are hidden entirely for a document you may not write to, not
-merely disabled: what you see already reflects what the policy gate will
-allow, so there is no upload-then-403 surprise.
+Upload and revision actions depend on your access. Permissions or document state can change while you work, so the server checks access again when processing a request.
 
 **Revision history** opens every finalized revision of a document, newest
 first, each tagged by its **source** — `upload` (a person uploaded it),

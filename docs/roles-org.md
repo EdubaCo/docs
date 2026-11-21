@@ -80,5 +80,5 @@ by mapping them to one you create here during pack activation.
 
 - [Policy rules](./policy.md) — the capabilities granted to roles, and how to
   read/edit the permission matrix.
-- [User groups](./groups.md) — assigning roles to many users at once.
+- [User groups](./groups.md) — managing groups for work assignment.
 - [Pack management](./packs.md) — mapping a pack's roles onto your tenant's.
