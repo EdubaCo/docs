@@ -28,6 +28,12 @@ Under **Storage & backups**, an authorized administrator can configure supported
 **Plan & usage** shows subscription limits and usage. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, the inbound email queue provides retry and dismiss actions to authorized operators.
 
 
+## Configure security
+
+With permission to manage security settings, open **Settings → Security**. Set the password rules and session lifetime, and decide whether members must use multi-factor authentication. To use single sign-on, select the configured protocol, enter the identity-provider details, and save. A saved client secret is preserved when its field is left blank. Verify sign-in and the administrator password fallback before enforcing SSO for all members; otherwise an incorrect provider configuration can prevent ordinary password sign-in.
+
+Use **Audit logs** and **Security events** to filter and review recorded events or export the list as CSV. If a setting cannot be saved, check the highlighted fields and your permissions.
+
 ## Invite and manage members
 
 1. With permission to manage users, open **Settings → Members** and choose **Invite member**.
