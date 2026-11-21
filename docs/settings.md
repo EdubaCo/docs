@@ -28,6 +28,15 @@ Under **Storage & backups**, an authorized administrator can configure supported
 **Plan & usage** shows subscription limits and usage. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, the inbound email queue provides retry and dismiss actions to authorized operators.
 
 
+## Invite and manage members
+
+1. With permission to manage users, open **Settings → Members** and choose **Invite member**.
+2. Enter an email address, choose at least one role, and enter the optional name. You may set an initial password if the member needs immediate sign-in without email.
+3. Submit the form. If an invitation link is displayed, copy it for the intended member. When email is unavailable, share the link directly; it expires at the time shown.
+4. Use the member's actions to resend an invitation, deactivate or reactivate access. Deactivation ends active sessions. Confirm the target carefully before deactivating; permanent erasure of personal data is irreversible.
+
+For multiple members, **Bulk import** accepts a CSV file or pasted CSV. Preview the rows, fix reported errors, and confirm the import. See [Roles and org chart](./roles-org.md) before choosing permissions.
+
 ## Publish a workspace article
 
 With `manageArticles`, open **Settings → Articles** and select **New article**. Enter a title, a unique slug using lowercase Latin letters, numbers and single hyphens, and the Markdown content. Choose the language and optional tags. Set visibility to all members or select the intended roles and groups. Preview the article, choose **Draft** or **Published**, and save. For a Persian title, enter the Latin slug yourself. You can later edit, publish, return an article to draft, or delete it; deletion cannot be undone.
