@@ -18,8 +18,7 @@ sourceHash: d8a962be0fe3774f03ca00adc5e97851a771b183454c25488306313ea1b29dd3
 models the reporting structure roles and routing can reference. A tenant ships
 with system roles (`tenant_admin`, `workflow_admin`, `task_worker`,
 `run_watcher`); admins create custom roles for their organization and assign
-them to users — directly, through the members picker, or through
-[user groups](./groups.md).
+them to users through the members picker. [User groups](./groups.md) are separate assignment pools; membership does not grant roles.
 
 :::info Permission
 Managing roles and the org chart is a tenant-admin task and requires the

@@ -16,8 +16,7 @@ sourceHash: caacf721b0a775357924bb62fed3030b55e81b87b6fda64622343e6a535dd671
 grants or denies a **capability** (for example `createTask` or
 `designWorkflow`) to a **role**. The policy engine that evaluates these rules
 (ADR-0005) is the single authority used everywhere — it decides your action
-buttons, your navigation, which document you may open or write to, and even
-which docs pages and search results this help site shows you.
+buttons, your navigation, which document you may open or write to. In-app help links are filtered by capability; the documentation site itself serves pages publicly.
 
 :::info Permission
 Managing policy rules is a tenant-admin task and requires the **`manageUsers`**
@@ -95,7 +94,7 @@ role's audit trail on the Roles screen, alongside role create/update events.
 
 - [Roles and org chart](./roles-org.md) — the roles these rules apply to, and
   where the matrix lives.
-- [User groups](./groups.md) — assigning roles in bulk.
+- [User groups](./groups.md) — managing assignment pools.
 - [Pack management](./packs.md) — how a pack's rules land as locked grants.
 - [Key concepts](./getting-started/key-concepts.md) — capabilities and the
   policy engine.
