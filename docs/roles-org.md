@@ -63,8 +63,8 @@ and type, and move members in and out of a unit through its manage-members
 dialog. The editor validates moves server-side so a unit can never become its
 own ancestor — the tree is always well-formed.
 
-The org chart is read-only for non-admins. Every write is gated on
-`manageUsers` the same as role management, and the structure it builds feeds
+Access to the org chart is permission-controlled, and changes require
+`manageUsers`. Its reporting structure feeds
 delegation, escalation, and a user's org tier elsewhere in the product.
 
 ## Using roles in workflow routing
