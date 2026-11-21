@@ -43,9 +43,7 @@ Eduba uses **capabilities** (for example `createTask` and `designWorkflow`) and 
 
 ## Packs and standards
 
-A **pack** bundles workflows, blocks, and standards so an organization can
-bootstrap a whole domain by importing one artifact rather than building from
-scratch. See [Pack management](../packs.md).
+A **pack** bundles reusable workflow content and can include roles and policy rules. See [Pack management](../packs.md).
 
 ## How it fits together
 
