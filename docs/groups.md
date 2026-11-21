@@ -4,30 +4,20 @@ slug: /groups
 title: User groups
 sidebar_label: User groups
 sidebar_position: 10
-description: Organize users into groups for bulk role assignment and group-based task routing.
+description: Manage groups of users for assignment and notifications.
 ---
 
 # User groups
 
-**User groups** let you manage many users together. Assign roles to a group and
-every member inherits them; route a workflow step to a group and the task is
-offered to all of its members. Groups keep role administration and routing
-manageable as the organization grows.
+A user group is a maintained set of workspace members. It can be selected for work assignment and notification targeting. Groups are distinct from roles: membership in a group does not by itself grant the role permissions described in [Roles and org chart](./roles-org.md). A group assignment is resolved against active members and access policy.
 
-:::info Permission
-Managing user groups is a tenant-admin task and requires the **`manageUsers`**
-capability.
-:::
+## Create and maintain a group
 
-## What you'll find here
+Managing groups requires the `manageUsers` capability.
 
-This page is a skeleton; detailed content is being authored. Planned content:
+1. Open **Settings → User groups** and select **Add group**.
+2. Enter a unique name and, optionally, a description. Save the group.
+3. Open the group's actions, choose **Manage members**, select its members, and save.
+4. Use the same actions menu to edit the details or delete the group. Deleting removes the group and clears its membership; it cannot be undone.
 
-- Creating a group and managing its membership.
-- Assigning roles to a group (and how inheritance resolves).
-- Routing workflow steps to a group, and how members claim those tasks.
-
-## Related
-
-- [Roles and org chart](./roles-org.md) — the roles assigned through groups.
-- [My Work](./my-work.md) — claiming tasks offered to a group.
+To route work to a group, select it in an available assignment picker or configure the workflow step accordingly. Members who can act see the work according to the applicable assignment and access rules; see [My Work](./my-work.md). If a group or action is unavailable, ask a workspace administrator to check membership and permissions.
