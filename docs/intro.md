@@ -24,16 +24,25 @@ The documentation follows the product's information architecture
 
 - **[Getting started](./getting-started.md)** — orientation and
   [key concepts](./getting-started/key-concepts.md).
-- **[My Work](./my-work.md)** — your task inbox.
+- **[My Work](./my-work.md)** and **[Task detail](./task-detail.md)** — your
+  task inbox and working a task.
+- **[Run inspector](./run-inspector.md)** — inspecting workflow runs, nodes,
+  timelines, and escalations.
+- **[Global search](./search.md)** — finding tasks, projects, documents, and
+  workflows with the command palette.
 - **[Creating work](./creating-work.md)** — starting runs and tasks.
-- **[Projects](./projects.md)** — grouping and tracking related work.
+- **[Projects](./projects.md)** and **[Documents](./documents.md)** — grouping
+  related work, managing versioned files, and applying customer revisions.
 - **[Workflow designer](./workflow-designer.md)** and
   **[Subflow library](./subflow-library.md)** — defining how work flows.
 - **[Policy rules](./policy.md)**, **[Roles and org chart](./roles-org.md)**,
-  **[User groups](./groups.md)**, and **[Pack management](./packs.md)** —
-  administering the tenant.
-- **[Chat](./chat.md)** and **[AI assistant](./ai.md)** — collaboration and
-  assistance.
+  **[User groups](./groups.md)**, **[Delegations](./delegations.md)**,
+  **[Procedures & standards library](./standards-library.md)**, and
+  **[Pack management](./packs.md)** — administering access, standards, and
+  reusable packs.
+- **[Notifications](./notifications.md)**, **[Inbound email](./inbound-email.md)**,
+  **[Chat](./chat.md)**, and **[AI assistant](./ai.md)** — alerts, email
+  ingestion, collaboration, and assistance.
 - **[Settings](./settings.md)** — tenant configuration and personal preferences.
 - **[App admin](./app-admin.md)** — operating the deployment itself.
 

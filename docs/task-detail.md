@@ -80,4 +80,6 @@ already finished — the same card is read-only. You may be able to view or comm
 - [My Work / Task inbox](./my-work.md) — the inbox this screen is opened from.
 - [Your first task](./getting-started/your-first-task.md) — a guided
   end-to-end pass.
+- [Run inspector](./run-inspector.md) — inspecting the full run, node
+  payloads, and timeline.
 - [Projects](./projects.md) — the task in the context of the whole case.
