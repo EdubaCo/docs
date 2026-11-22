@@ -13,9 +13,9 @@ description: Find, prioritize, and act on assigned work.
 
 ## Find and prioritize work
 
-Search the list, filter by workflow, SLA or context, and group by project, workflow or deadline week. Sort by SLA priority or due date. You can save a filtered view for quick access later. Rows show the task, workflow, context, deadline, current step and assignees where available.
+Search the list, filter by workflow, SLA or context, and group by project, workflow or deadline week. Sort by SLA priority or due date. You can save a filtered view for quick access later or use **Export CSV** to download the current list. Rows show the task, workflow, context, deadline, current step, assignees, and badges for reopened **rounds** or **standard updates** where applicable.
 
-Open a task to inspect its details and submit your action. See [Task detail](./task-detail.md). For shared work, available actions can include **Claim** to take a step and **Release** to return it to the pool. A watch-only task can be viewed but cannot be submitted by you while held by someone else.
+Use **Quick peek** on a row to preview progress and the latest activity without leaving the inbox, or open the task to inspect its details and submit your action; see [Task detail](./task-detail.md). Depending on your permissions and whether the step is shared, the row's actions menu can offer **Claim**, **Release**, **Assign**, or **Reassign step**. A watch-only task can be viewed but cannot be submitted by you while held by someone else.
 
 ## Arrange cover
 

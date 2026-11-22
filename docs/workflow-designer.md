@@ -10,7 +10,7 @@ sourceFiles:
   - packages/workflow-modeler/src/react/AssigneeField.tsx
   - packages/workflow-modeler/src/react/WaitTimerConfig.tsx
   - packages/workflow-modeler/src/react/PropertiesPanel.tsx
-sourceHash: 267b928a6f8db428a5cee5e9ee84a6f60acf5c4cea90c00ae0c23ffd29ac0bc4
+sourceHash: def4f1567df692c5bdbe1d64001c4f5ed54d5134b3b00225510edef82f448e04
 ---
 
 # Workflow designer
@@ -40,19 +40,31 @@ For a reusable fragment, create a published [subflow](./subflow-library.md) and 
 
 ## The canvas
 
-Drag blocks from the palette onto the canvas and connect them with sequence
-flows and gateways, exactly as in any BPMN editor. Every non-human block
-compiles to a service task backed by a TypeScript worker (`BlockRuntime`); a
-`human`-category block compiles to a real BPMN user task, so it shows up in the
-assignee's [My Work](./my-work.md) inbox with no extra wiring. Selecting an
-element opens the **properties panel**, which renders a config field per the
-block's manifest (`config.schema`) — text, numbers, booleans, enums, and a
-directory-aware assignee picker, described below.
+The designer opens in a full-screen editor layout so the canvas gets the whole
+viewport, with a minimap toggle, step configuration chips, and a validation
+status bar. Drag blocks from the palette onto the canvas and connect them with
+sequence flows and gateways, exactly as in any BPMN editor. Every non-human
+block compiles to a service task backed by a TypeScript worker (`BlockRuntime`);
+a `human`-category block compiles to a real BPMN user task, so it shows up in
+the assignee's [My Work](./my-work.md) inbox with no extra wiring. Selecting an
+element opens the **inspector panel**, which has tabs for **Properties**
+(manifest-driven inputs — text, numbers, booleans, enums, add/remove lists and
+repeating groups for array fields, and the directory-aware assignee picker),
+**Assistant** (when the [AI assistant](./ai.md) is enabled), and **Runs**
+(opening a run in the [Run inspector](./run-inspector.md)). Subflow drafts also
+open an **Interface** tab for public input/output ports.
 
 ## Assigning work to a role
 
 Any element-template field of type `assignee` — including a `human` block's
-`assignee` config — offers choices including **role**, **user**, **group**, **dynamic**, **rule**, and **advanced**. Depending on the field, task-specific choices can also route a step to the task’s responsible person, reviewer, creator, or project manager.
+`assignee` config — offers choices including **task slot**, **role**, **user**,
+**group**, **dynamic**, **rule**, and **advanced** (blocks such as the
+**Assign-team** staffing step also offer **task party**).
+
+- **Task slot** (`responsible` or `reviewer`) routes the step to whoever holds
+  that slot on the task at runtime — populated when the task is created,
+  reassigned, or staffed through an **Assign-team** step (ADR-0083). **Task
+  party** routes to the task's `creator` or `projectManager`.
 
 - **Role** searches the tenant's roles and, on selection, writes
   `{ type: 'role', roleId }`. This is the common case for a step that should be
@@ -88,10 +100,11 @@ alongside the `outcomes` the resolver chooses from:
   (the same picker described above) for who it re-resolves to. Escalation is
   only meaningful when the node also has a deadline.
 
-**As it stands today, these fields render as plain text/JSON inputs in the
-properties panel** — there is no dedicated ladder-rung editor with add/remove
-rows yet. An author sets `slaHours` as a number and, for escalation, edits the
-`steps` array as JSON. The semantics are fully implemented on the engine side
+**As it stands today, `outcomes` and `fields` use structured add/remove list
+editors in the properties panel, while `slaAt`, `slaHours`, and
+`escalation.steps` still render as plain text/JSON inputs** — there is no
+dedicated ladder-rung editor with add/remove rows yet. An author sets `slaHours`
+as a number and, for escalation, edits the `steps` array as JSON. The semantics are fully implemented on the engine side
 (the deadline compiles to a BPMN timer boundary event and escalation to a
 listener that re-resolves the `AssigneeSpec`, per ADR-0048's concept→BPMN
 mapping) — only the authoring surface is unpolished. Treat this as the current,

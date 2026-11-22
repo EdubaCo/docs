@@ -9,13 +9,13 @@ description: Operate the platform back office and manage workspaces, billing, an
 
 # App admin
 
-The back office is for platform operators, not ordinary workspace administrators. It has a separate sign-in and requires a verified platform-admin session, including multi-factor authentication. A workspace session alone does not grant access.
+The back office is for platform operators, not ordinary workspace administrators. It has a separate sign-in (`/admin/signin`) and requires a verified platform-admin session, including TOTP multi-factor authentication. On a fresh deployment, the first operator account is created once at `/setup` using the one-time setup token (`APP_ADMIN_SETUP_TOKEN` or the startup log token) and enrolling TOTP MFA. A workspace session alone does not grant access.
 
 ## Access requests and workspaces
 
 In **Access requests**, inspect pending requests and approve or reject them. Approval creates the workspace and prepares an invitation for its first administrator. If invitation email cannot be queued, share the displayed link with the requester. If provisioning fails, the workspace may already exist: use the approval retry rather than assuming nothing was created.
 
-Use **Subscriptions** to select an organization, assign or change its plan, record manual payments, and inspect its status. Operators can create, suspend, and unsuspend organizations. Suspension immediately removes user access until it is lifted. Re-running provisioning can roll back and drop the organization's database if a step fails; use it only to finish a failed setup, not as routine maintenance for an active organization.
+Use **Subscriptions** to select an organization, assign or change its plan, record manual payments, add users directly to the organization, configure its database connector, or enable bring-your-own storage and database access on smaller plans. Operators can create, suspend, and unsuspend organizations. Suspension immediately removes user access until it is lifted. Re-running provisioning can roll back and drop the organization's database if a step fails; use it only to finish a failed setup, not as routine maintenance for an active organization.
 
 ## Billing and platform configuration
 

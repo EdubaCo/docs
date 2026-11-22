@@ -9,7 +9,7 @@ sourceFiles:
   - apps/web/src/features/documents/DocumentsPage.tsx
   - apps/api/src/routes/documents.ts
   - apps/api/src/routes/task-documents.ts
-sourceHash: 2b9b2c8dc482c8c1d2a8c0251932060fb62c4ee55d5ea541ee017fc2ef2b4fa2
+sourceHash: c6673951263185705796e688bb6abf60a5b322133777d379ddb76a3f7c54dacd
 ---
 
 # Documents
@@ -48,7 +48,20 @@ mixing working files into the project set.
 
 ## Uploading and revisions
 
-To upload a new document, choose **Upload**, enter its document path, select a file, and submit. To update an existing document, choose **New revision** on its row, select the file, and submit. Wait for the upload to finish; if it fails, retry and check your access, file size, and available storage. For an AFC-locked document, ask the responsible administrator about the customer revision reset before trying to add a revision.
+To upload a new document, choose **Upload**, enter its document path, select a file, and submit. To update an existing document, choose **New revision** on its row, select the file, and submit. Individual files are capped at 100 MB, and uploads are checked against your workspace's managed storage and database plan quotas. Wait for the upload to finish; if it fails, retry and check your access, file size, and available quota. For an AFC-locked document, ask the responsible administrator about the customer revision reset before trying to add a revision.
+
+Documents issued through a project's revision series display their issued revision label alongside the numeric revision. When a project input receives a newer revision while tasks are still working off an earlier one, its row shows a stale-input hint and offers **Apply customer revision** directly (see [Projects](./projects.md)).
+
+## Viewing files in the browser
+
+Select **View** on any readable document to open it in Eduba's built-in viewer without downloading:
+
+- **PDF** (`.pdf`) — page navigation, outline, zoom, rotation, and in-document search.
+- **Office documents** (`.docx`, `.xlsx`, `.csv`, `.pptx`).
+- **Text and code** (`.txt`, `.log`, `.md`, `.json`, `.xml`).
+- **Images** (`.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`).
+
+In-browser preview supports files up to 50 MB; larger files or unsupported file types remain available via **Download**.
 
 To share a readable document, choose **Share**, select an expiry period, create and copy the link. Use **Revoke** if it should stop working before expiry. Treat the link as access to the document and share it only with intended recipients.
 

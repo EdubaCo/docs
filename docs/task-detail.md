@@ -50,9 +50,10 @@ The body of the screen has four tabs:
   system events, comments, and file changes, newest first. Filter it by
   *Steps*, *Comments*, or *Files* when the feed gets long.
 - **Files** — every document on the task with its full version history:
-  who uploaded each revision and when. Documents handed off from the project
-  carry a lineage badge; documents revised during the run are marked as
-  modified.
+  who uploaded each revision and when, plus in-browser preview for supported
+  file types. Documents handed off from the project carry a lineage badge,
+  documents revised during the run are marked as modified, and AFC-locked
+  documents display an **AFC** lock indicator.
 - **Comments** — the discussion thread for this task.
 
 ## Your turn — filling in and submitting the step
@@ -61,6 +62,13 @@ When the task is waiting on **you**, Overview leads with the *Your turn* action
 card. It contains the form the workflow's step defines — typically a decision
 (for example *approve*, *approve with minor comments*, or *reject*), a comment
 box, and optional attachments.
+
+- **Assign-team (staffing) steps** — when a workflow reaches a staffing step,
+  the card asks you to pick the task's **Responsible** person, **Reviewer**,
+  **Due date**, and — for workflows that include a review subflow — optional
+  review gate actors (**Supervisor**, **Checker**, **Approver**, chosen as a
+  person, a user group, or *Same as reviewer*). Later workflow steps route to
+  the people you pick here.
 
 To complete the step:
 
@@ -74,6 +82,18 @@ its next step. The task may continue through additional steps; a completion bann
 
 If the task is **not** waiting on you — someone else holds it, or the run has
 already finished — the same card is read-only. You may be able to view or comment according to your access.
+
+## Banners and operational notices
+
+Task detail surfaces status notices directly above the form when a task needs
+special attention:
+
+- **Input superseded** — appears after a [customer revision reset](./projects.md)
+  replaces a project input this task used, showing the old and new revision
+  numbers, who applied the reset, and the recorded reason.
+- **Step failed / Unassignable step** — explains why the run cannot advance on
+  its own and lets a blocked participant choose **Ask admin to look** to
+  escalate the failure with an optional note (see [Run inspector](./run-inspector.md)).
 
 ## Related
 

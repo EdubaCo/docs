@@ -22,7 +22,8 @@ through completing [your first task](./getting-started/your-first-task.md).
 The documentation follows the product's information architecture
 (ADR-0014 §2). Each area maps to part of the app:
 
-- **[Getting started](./getting-started.md)** — orientation and
+- **[Getting started](./getting-started.md)** — orientation,
+  [sign-in and workspace access](./sign-in-and-access.md), and
   [key concepts](./getting-started/key-concepts.md).
 - **[My Work](./my-work.md)** and **[Task detail](./task-detail.md)** — your
   task inbox and working a task.
@@ -43,7 +44,12 @@ The documentation follows the product's information architecture
 - **[Notifications](./notifications.md)**, **[Inbound email](./inbound-email.md)**,
   **[Chat](./chat.md)**, and **[AI assistant](./ai.md)** — alerts, email
   ingestion, collaboration, and assistance.
-- **[Settings](./settings.md)** — tenant configuration and personal preferences.
+- **[Settings](./settings.md)**, **[Security & audit](./security.md)**,
+  **[Storage & connectors](./storage-and-connectors.md)**,
+  **[Plan & referrals](./subscription-and-referrals.md)**, and
+  **[Workspace articles](./workspace-articles.md)** — workspace configuration,
+  security, infrastructure connectors, subscription, internal knowledge base,
+  and personal preferences.
 - **[App admin](./app-admin.md)** — operating the deployment itself.
 
 :::note Documentation and access
