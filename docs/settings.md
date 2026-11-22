@@ -14,18 +14,18 @@ description: Personal preferences and workspace administration.
 ## Personal preferences
 
 - Under **Display**, choose a theme, density, accent color, and font for your view. Under **Language & region**, choose the interface language; its reading direction follows the language.
-- Under **Notifications**, choose how each event reaches you: in the app, in the app and by email, or muted.
-- Under **Away & delegation**, choose a colleague, the roles to delegate, and a start and end time. During that period the delegate receives the permissions granted by those roles. Revoke a delegation early if needed.
+- Under **Notifications**, choose how each event reaches you: in the app, in the app and by email, or muted. See [Notifications](./notifications.md).
+- Under **Away & delegation**, choose a colleague, the roles to delegate, and a start and end time. During that period the delegate receives the permissions granted by those roles. Revoke a delegation early if needed. See [Delegations](./delegations.md).
 
 ## Workspace administration
 
-Administrators can update the workspace name and branding, invite and manage members, configure roles, groups and the org chart, and administer delegations. See [Roles and org chart](./roles-org.md) and [User groups](./groups.md). Managing other people's delegations requires `manageDelegations`; self-service delegation is available for your own roles.
+Administrators can update the workspace name and branding, invite and manage members, configure roles, groups and the org chart, and administer delegations. See [Roles and org chart](./roles-org.md), [User groups](./groups.md), and [Delegations](./delegations.md). Managing other people's delegations requires `manageDelegations`; self-service delegation is available for your own roles.
 
 Under **Security**, authorized administrators can configure password and session policy, multi-factor authentication, and SSO; audit and security-event pages provide event lists and export. Check the SSO configuration and administrator fallback before enforcing SSO for everyone.
 
 Under **Storage & backups**, an authorized administrator can configure supported object storage. **Database connector** manages a supported external PostgreSQL connection and requires `manageDbConnector`. Availability depends on the plan and workspace configuration. Back up before changing databases; follow the on-screen connection validation and resolve any error before relying on a new connector.
 
-**Plan & usage** shows subscription limits and usage. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, the inbound email queue provides retry and dismiss actions to authorized operators.
+**Plan & usage** shows subscription limits and usage, and **Referral & credits** lets administrators share their workspace referral code and review earned credits. Eligible workspaces can configure an AI provider under **AI assistant**; see [AI assistant](./ai.md). Administrators with `manageArticles` can create and publish workspace knowledge articles in **Articles**. For inbound messages that could not be routed, **Email & inbox** provides retry and dismiss actions to authorized operators; see [Inbound email](./inbound-email.md).
 
 
 ## Configure security

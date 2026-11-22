@@ -105,5 +105,7 @@ access rules that govern them.
   open and change here.
 - [Task detail](./task-detail.md) — the Files tab, where a task's own
   documents are worked day to day.
-- [Projects](./projects.md) — the project a document's inputs and
-  deliverables belong to.
+- [Projects](./projects.md) — the project a document's inputs, deliverables, and
+  customer revision resets belong to.
+- [Inbound email](./inbound-email.md) — how emailed attachments arrive as
+  `email` revisions and how parked messages are handled.

@@ -32,8 +32,26 @@ Where available and permitted, select tasks and use the bulk assignment action t
 
 For workflows that support project rounds, eligible tasks can be selected for reopening. A reopened task retains its identity and documents and starts a new run in a new round. A task whose current round is still running cannot be reopened yet. If the action is unavailable or rejected, check the task state and your permissions with an administrator.
 
+## Customer revision reset
+
+When a customer issues a newer revision of a project input document, upload the new revision on the project's **Documents** tab first. Documents whose earlier revision is still used by tasks display a stale-input indicator.
+
+To bring affected work onto the new input:
+
+1. Open **Apply customer revision** from the project page or the updated document's row.
+2. Select the changed project inputs. Eduba computes and pre-selects the tasks still working off an earlier revision of those inputs; you can add other project tasks or uncheck tasks that do not need rework.
+3. Review the previewed effects before confirming:
+   - Affected tasks receive the latest revision of each selected input.
+   - Any in-flight work on those tasks is cancelled; already completed work stays in the project history.
+   - **AFC** (Approved For Construction) locks on the affected tasks' documents are lifted so new revisions can be uploaded, while unaffected tasks remain locked.
+   - Previously issued transmittals remain unchanged in history; revised deliverables go out on the next transmittal.
+   - Depending on the project's workflow state, Eduba either starts a fresh delivery run (if the previous run finished) or reopens the tasks in the current round; projects without a workflow record the change without starting a run.
+4. Enter a required **Reason** and select **Apply**. The reason is recorded in the project history and shown on each affected task's **Input superseded** notice.
+
 ## Related
 
 - [My Work](./my-work.md) — find tasks assigned to you.
 - [Task detail](./task-detail.md) — inspect a task and its progress.
+- [Documents](./documents.md) — upload inputs, manage revisions, and review AFC locks.
+- [Run inspector](./run-inspector.md) — inspect project runs and stalled rounds.
 - [Getting started](./getting-started.md) — learn the main concepts.

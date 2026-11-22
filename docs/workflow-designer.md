@@ -129,4 +129,5 @@ per subflow instance.
 - [Subflow library](./subflow-library.md) — reusable fragments for your definitions.
 - [Key concepts](./getting-started/key-concepts.md) — definitions, versions, and runs.
 - [Creating work](./creating-work.md) — starting runs from what you publish.
+- [Run inspector](./run-inspector.md) — inspecting runs launched from your definitions.
 - [Roles and org chart](./roles-org.md) — the roles an assignee picker searches.

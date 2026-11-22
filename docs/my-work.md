@@ -19,6 +19,6 @@ Open a task to inspect its details and submit your action. See [Task detail](./t
 
 ## Arrange cover
 
-Under **Settings → Away & delegation**, you can delegate your own roles to a colleague for a selected period. The delegate receives the permissions granted by those roles during that period. Administrators need `manageDelegations` to manage delegations for other members. See [Settings](./settings.md).
+Under **Settings → Away & delegation**, you can delegate your own roles to a colleague for a selected period. The delegate receives the permissions granted by those roles during that period. Administrators need `manageDelegations` to manage delegations for other members. See [Delegations](./delegations.md) and [Settings](./settings.md).
 
 If an expected task is missing, clear the filters and check whether the workflow has reached your step. Ask an administrator to check assignment and access if needed.
