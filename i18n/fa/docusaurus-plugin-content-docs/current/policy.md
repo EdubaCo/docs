@@ -7,7 +7,7 @@ sidebar_position: 8
 description: قواعد مجوزها را تنظیم کنید؛ همان‌ها که تعیین می‌کنند در کل فضای کاری چه کسی چه کاری بکند.
 sourceFiles:
   - apps/web/src/features/settings/roles/PermissionMatrix.tsx
-sourceHash: caacf721b0a775357924bb62fed3030b55e81b87b6fda64622343e6a535dd671
+sourceHash: 18733bc9a890129ab0e4c12d0b893f342a4b95595871de2b9a803846f44b4a87
 ---
 
 # قوانین دسترسی

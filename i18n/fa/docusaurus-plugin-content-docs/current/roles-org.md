@@ -9,7 +9,7 @@ sourceFiles:
   - apps/web/src/features/settings/roles/RolesPage.tsx
   - apps/web/src/features/settings/org-chart/OrgChartPage.tsx
   - apps/web/src/features/settings/members/RoleMultiSelect.tsx
-sourceHash: d8a962be0fe3774f03ca00adc5e97851a771b183454c25488306313ea1b29dd3
+sourceHash: c1b81fc441f11e95560e91137166435ee5e934b6c4ab4d8c765683260f732c57
 ---
 
 # نقش‌ها و چارت سازمانی

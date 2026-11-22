@@ -32,6 +32,10 @@ Where available and permitted, select tasks and use the bulk assignment action t
 
 For workflows that support project rounds, eligible tasks can be selected for reopening. A reopened task retains its identity and documents and starts a new run in a new round. A task whose current round is still running cannot be reopened yet. If the action is unavailable or rejected, check the task state and your permissions with an administrator.
 
+## Inquiry deadline and extension requests
+
+When a project tracks an inquiry stage and deadline, the project page shows an **Inquiry deadline** card with the current stage and due date. Authorized participants can request a deadline extension by picking a requested date and submitting; an authorized reviewer can then **Grant requested date**, **Decline**, or **Grant other date** with an alternative deadline.
+
 ## Customer revision reset
 
 When a customer issues a newer revision of a project input document, upload the new revision on the project's **Documents** tab first. Documents whose earlier revision is still used by tasks display a stale-input indicator.
