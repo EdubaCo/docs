@@ -11,6 +11,10 @@
     "message": "مستندات",
     "description": "Navbar item with label Docs"
   },
+  "item.label.Release Notes": {
+    "message": "یادداشت‌های انتشار",
+    "description": "Navbar item with label Release Notes"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"
