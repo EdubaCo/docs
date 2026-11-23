@@ -31,6 +31,10 @@ turn it into a document revision, for example:
 - **No attachment** — the message arrived without a file to ingest.
 - **Policy denied** — the storage policy gate rejected the write (for example
   because the target document is AFC-locked or lacks an eligible scope).
+- **Unknown address** — the message went to a `+tag` of a connector's mailbox
+  address that matches no machine user, such as a mistyped tag.
+- **Bounce or automatic reply** — a delivery failure notice or an out-of-office
+  reply. Eduba never answers these.
 
 ## Reviewing the parked queue
 
@@ -41,7 +45,7 @@ workspace, newest first. Each row displays:
 | --- | --- |
 | **From** | The sender address (or *Unknown sender* if missing). |
 | **Subject** | The email subject and its unique message ID. |
-| **Mailbox** | The inbound mailbox that received the message. |
+| **Connector** | The [connector](./storage-and-connectors.md#email-connectors) that received the message, or *Default mailbox* for the mailbox in Email settings. |
 | **Received** | Timestamp when the message arrived. |
 | **Park reason** | Why automatic ingestion could not complete. |
 
@@ -51,7 +55,9 @@ workspace, newest first. Each row displays:
   after fixing the routing rule, project setup, or document state. If ingestion
   succeeds, the attachments are written as `email` revisions and the row leaves
   the parked list. If the original message bytes are no longer available from
-  the mail server, the retry fails and the row stays parked.
+  the mail server, the retry fails and the row stays parked. A message from a
+  connector is read again from that connector's mailbox, so it cannot be retried
+  while the connector is paused or after it is deleted.
 - **Dismiss** — marks the parked row as acknowledged so it drops off the queue
   without ingesting anything. Use this for noise, duplicates, or messages that
   were already handled manually.
