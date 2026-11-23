@@ -65,7 +65,7 @@ blank only when editing an already-configured BYO connector whose host, port,
 database, and user have not changed; switching from managed to BYO or changing
 the target host requires entering the password.
 
-## Connector secrets (Settings → Secrets)
+## Connector secrets (Settings → Secrets) {#connector-secrets}
 
 Connectors that collect files from, or deliver to, another company's system need
 that system's login: a password, token or API key. Store it once as a **secret**
@@ -90,6 +90,56 @@ an admin. It is stored encrypted, and Eduba sends it only to its allowed hosts;
 an attempt to use it anywhere else is refused before the value is decrypted.
 Every use and every refused use is recorded as a security event, without the
 value.
+
+## Email connectors (Settings → Connectors) {#email-connectors}
+
+An email connector collects mail from one mailbox and files the attachments as
+document revisions. Each connector runs as a **machine user** (Settings →
+Members), so its work is attributed and permissioned like any other member, and
+signs in with a [connector secret](#connector-secrets) that
+holds the mailbox password. The mailbox in **Settings → Email & inbox** stays the
+default connector and is listed here read-only.
+
+:::info Permission
+Managing connectors requires the **`manageConnectors`** capability. It is granted
+to `tenant_admin` and cannot be granted to a custom role.
+:::
+
+**Give each connector its own mailbox or folder that no person reads.** Eduba
+marks mail as read when it collects it, so a mailbox people also read would lose
+messages for them, and two connectors on one folder are refused. To use an
+address people read, have your mail server redirect or copy its mail into the
+connector's mailbox.
+
+When you add a connector you set:
+
+- **Mailbox** — the IMAP server, port and TLS, the username, the folder, and the
+  mailbox's own address.
+- **Password secret** — its allowed hosts must include the IMAP server.
+- **Runs as** — the machine user that files mail addressed to no machine user.
+- **Filing rules** — each rule matches text in the sender or subject and names
+  the document key to file into; `{date}` becomes the date received. Mail that
+  matches no rule is parked.
+- **Advanced** (optional) — the delivery headers read as recipients, allowed
+  hosts that narrow the secret's, and how often to check (default every 5
+  minutes).
+
+**Which machine user a message belongs to.** Eduba reads the recipients in To,
+Cc and the delivery headers (`Delivered-To`, `X-Original-To`, `Envelope-to` by
+default) and matches each one exactly against the machine users' addresses.
+Plus-addresses (`intake+drawings@customer.com`), aliases and server-side
+redirects all work this way.
+
+- Each machine user named gets its own copy, filed as that user.
+- Mail that names no machine user (BCC, mailing lists, the bare mailbox address)
+  is filed as the connector's **Runs as** user.
+- Mail to a `+tag` of the mailbox address that matches no machine user is
+  [parked](./inbound-email.md) as *Unknown address*.
+- Bounces and automatic replies are parked; Eduba never answers them. The sender
+  address only helps filing rules; it never decides who the mail belongs to.
+
+**Pause** stops a connector from checking its mailbox until you resume it.
+**Delete** stops it for good; documents already filed are kept.
 
 ## Related
 
