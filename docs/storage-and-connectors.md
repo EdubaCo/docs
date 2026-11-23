@@ -114,7 +114,9 @@ connector's mailbox.
 When you add a connector you set:
 
 - **Mailbox** — the IMAP server, port and TLS, the username, the folder, and the
-  mailbox's own address.
+  mailbox's own address. A server on a private network (such as `10.0.0.25`)
+  is refused until an app admin lists it under
+  [Connector network](./app-admin.md#billing-and-platform-configuration).
 - **Password secret** — its allowed hosts must include the IMAP server.
 - **Runs as** — the machine user that files mail addressed to no machine user.
 - **Filing rules** — each rule matches text in the sender or subject and names
