@@ -65,6 +65,32 @@ blank only when editing an already-configured BYO connector whose host, port,
 database, and user have not changed; switching from managed to BYO or changing
 the target host requires entering the password.
 
+## Connector secrets (Settings → Secrets)
+
+Connectors that collect files from, or deliver to, another company's system need
+that system's login: a password, token or API key. Store it once as a **secret**
+and every connector that needs it refers to it by name, so a changed password is
+updated in one place.
+
+:::info Permission
+Managing secrets requires the **`manageSecrets`** capability. It is granted to
+`tenant_admin` and, unlike most capabilities, cannot be granted to a custom role.
+:::
+
+- **Add secret** — give it a name (for example `customer-erp`), the value, and
+  the **allowed hosts**: one per line, such as `erp.customer.com`,
+  `erp.customer.com:8443`, or `*.customer.com` for every subdomain.
+- **Replace value** — enter a new value when the password changes. The list
+  shows when the value was last replaced.
+- **Edit** — change the description or the allowed hosts.
+- **Delete** — refused while a connector still uses the secret.
+
+A secret is **write-only**: once saved, nobody can read the value back, not even
+an admin. It is stored encrypted, and Eduba sends it only to its allowed hosts;
+an attempt to use it anywhere else is refused before the value is decrypted.
+Every use and every refused use is recorded as a security event, without the
+value.
+
 ## Related
 
 - [Documents](./documents.md) — how document revisions and storage quotas work.
