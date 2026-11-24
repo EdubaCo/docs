@@ -21,10 +21,6 @@ Open `/signin` (or your organization's direct sign-in link):
   locate your workspace and continue to its branded sign-in page.
 - Workspaces you recently signed into on this device appear under **Recent on
   this device** for one-click access (you can remove an entry at any time).
-- **Self-hosted server** — if your organization runs Eduba on its own domain,
-  select **Use a self-hosted server**, enter your server address (for example
-  `https://erp.acme.internal`), and continue. Saved server addresses remain
-  available for later visits.
 
 ## Signing in
 
