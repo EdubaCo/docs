@@ -17,11 +17,13 @@ In **Access requests**, inspect pending requests and approve or reject them. App
 
 Use **Subscriptions** to select an organization, assign or change its plan, record manual payments, add users directly to the organization, configure its database connector, or enable bring-your-own storage and database access on smaller plans. Operators can create, suspend, and unsuspend organizations. Suspension immediately removes user access until it is lifted. Re-running provisioning can roll back and drop the organization's database if a step fails; use it only to finish a failed setup, not as routine maintenance for an active organization.
 
-## Billing and platform configuration
+## Billing and platform configuration {#billing-and-platform-configuration}
 
 **Plans** manages the plan catalog, limits, prices and availability. **Wallets** shows account credit and allows reasoned adjustments. **Invoices** records and tracks manual invoices. Referral and affiliate screens manage rewards, commissions, and items held for review. Check the applicable plan and financial records before making changes.
 
 **AI default** sets the provider configuration used by eligible workspaces without their own model. Each workspace still enables AI in its own settings.
+
+**Connector network** lists the servers on private networks that [connectors](./storage-and-connectors.md#email-connectors) may reach. Connectors never connect to a private, loopback or link-local address, such as a mail server on an office network, unless its host is listed here, one per line (`mail.lan.example.com`, `10.0.0.25`, `host:port` or `*.lan.example.com`). The host must also be in the allowed hosts of the connector's secret. Changes reach every connector within 5 minutes.
 
 ## Review submissions
 
