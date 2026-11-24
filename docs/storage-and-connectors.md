@@ -140,6 +140,15 @@ redirects all work this way.
 - Bounces and automatic replies are parked; Eduba never answers them. The sender
   address only helps filing rules; it never decides who the mail belongs to.
 
+**File it with AI** handles mail that matches no filing rule. AI picks one of
+your active projects or tasks, and the attachments go to that task's or
+project's `attachments/inbound/<date>` document. AI can only choose from that
+list; it never adds a recipient, a link or a new place. When its confidence is
+below the connector's **minimum confidence** (80% unless you change it), the
+mail is parked for review instead. If the AI service is down, the mail waits
+for the next check. This needs AI in your plan and a model in **Settings → AI**;
+without them, unmatched mail is parked as before.
+
 **Pause** stops a connector from checking its mailbox until you resume it.
 **Delete** stops it for good; documents already filed are kept.
 
