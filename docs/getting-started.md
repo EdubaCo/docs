@@ -9,7 +9,7 @@ description: A first walkthrough of Eduba — what it is, how work flows through
 
 # Getting started
 
-Welcome to **Eduba**, a self-hosted platform for running your organization's
+Welcome to **Eduba**, a platform for running your organization's
 work as governed, repeatable processes. Whether you are completing a task that
 landed in your inbox, designing the workflow behind it, or administering the
 whole tenant, this guide gets you oriented.

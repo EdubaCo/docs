@@ -9,7 +9,7 @@ description: Welcome to the Eduba platform documentation — what's here and whe
 # Eduba documentation
 
 Welcome to the Eduba platform documentation. This site is the platform-wide
-product reference (ADR-0014): a self-hosted [Docusaurus](https://docusaurus.io)
+product reference (ADR-0014): a [Docusaurus](https://docusaurus.io)
 site authored in Markdown, available in English and Persian (with RTL),
 and rebuilt on every release.
 

@@ -39,7 +39,7 @@ To configure a BYO S3-compatible endpoint:
 1. Enter the **Endpoint** URL, **Region** (defaults to `us-east-1`), and
    **Bucket** name.
 2. Enter the **Access key** and **Secret key**, and choose whether to use
-   path-style URLs (**Force path-style**, common for MinIO and self-hosted S3
+   path-style URLs (**Force path-style**, common for MinIO and other S3-compatible
    gateways).
 3. Save your changes. Stored credentials are write-only and encrypted at rest;
    leaving the key fields blank on later edits preserves the existing key pair.

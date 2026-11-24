@@ -13,7 +13,7 @@ The workflow designer's AI assistant can draft a workflow from a process descrip
 
 ## Configure AI
 
-An authorized workspace administrator opens **Settings → AI assistant**, enables the assistant, selects a model or the platform default, supplies the provider settings required for that model, and saves. A self-hosted Ollama configuration requires its base URL. Saved API keys are not shown again; leave a saved key field blank to keep it. For platform defaults, see [App admin](./app-admin.md).
+An authorized workspace administrator opens **Settings → AI assistant**, enables the assistant, selects a model or the platform default, supplies the provider settings required for that model, and saves. An Ollama configuration (your own model server) requires its base URL. Saved API keys are not shown again; leave a saved key field blank to keep it. For platform defaults, see [App admin](./app-admin.md).
 
 ## Draft a workflow
 
