@@ -15,8 +15,8 @@ description: Design, version, and publish the workflow definitions that runs are
 
 The **workflow designer** is where workflow admins build the definitions that
 drive every run. Eduba compiles what you author to real BPMN 2.0 and runs it on
-an embedded Flowable engine — the canvas is a fork of the bpmn.io
-modeler with a Eduba block palette and a manifest-driven properties panel. You
+an embedded Flowable engine. The canvas includes an Eduba block palette and a
+manifest-driven properties panel. You
 lay out steps, configure each step's form, assignee, and rules, then **publish**
 a version that new runs are created from.
 
