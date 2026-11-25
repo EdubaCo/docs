@@ -1,0 +1,40 @@
+---
+id: licenses
+slug: /licenses
+title: Licenses and third-party notices
+sidebar_label: Licenses
+sidebar_position: 3
+description: Eduba's own licence, the open-source software it ships, and where to find the full notices and the corresponding source.
+---
+
+import AppLink from '@site/src/components/AppLink';
+
+# Licenses and third-party notices
+
+## Eduba's licence
+
+Eduba is licensed under the GNU Affero General Public License 3.0 (AGPL-3.0) or, by agreement, a commercial licence.
+
+Eduba's source code: [Where Eduba's source code is published — to be completed]
+
+## Third-party notices
+
+Eduba includes open-source software from other authors. The full list, with each package's version, licence and copyright notices, is generated with every build of the app and served by the app itself, so it always matches the version you are using:
+
+<AppLink path="/third-party-notices.txt" />
+
+Every Eduba workspace serves the same file at `/third-party-notices.txt` on its own address.
+
+## Libraries under LGPL and MPL
+
+Almost everything Eduba ships is under permissive licences such as MIT, BSD, ISC and Apache-2.0. Two libraries, used for viewing 3D and CAD files, have other licences:
+
+- **Open CASCADE Technology (OCCT) 7.6.1, through occt-import-js 0.0.23**, under the GNU Lesser General Public License 2.1 (LGPL-2.1). Both ship unmodified, as separate files under `/vendor/occt/0.0.23/`, and you may replace them with your own build. The notices file carries the LGPL-2.1 text. The app publishes the corresponding source (occt-import-js 0.0.23 and OCCT 7.6.1, with their build scripts) at:
+
+  <AppLink path="/vendor/occt/0.0.23/occt-import-js-0.0.23-source.tar.xz" />
+
+- **web-ifc 0.0.77**, under the Mozilla Public License 2.0 (MPL-2.0), for IFC models. It ships unmodified, as separate files under `/vendor/web-ifc/0.0.77/`. Its source is at [github.com/ThatOpen/engine_web-ifc](https://github.com/ThatOpen/engine_web-ifc) (tag 0.77).
+
+## Questions
+
+Write to [support@eduba.ir](mailto:support@eduba.ir).

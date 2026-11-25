@@ -15,6 +15,22 @@
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/0xMaxyz/Eduba"
   },
+  "link.title.Legal": {
+    "message": "حقوقی",
+    "description": "The title of the footer links column with title=Legal in the footer"
+  },
+  "link.item.label.Privacy policy": {
+    "message": "سیاست حریم خصوصی",
+    "description": "The label of footer link with label=Privacy policy linking to /legal/privacy"
+  },
+  "link.item.label.Terms of service": {
+    "message": "شرایط استفاده",
+    "description": "The label of footer link with label=Terms of service linking to /legal/terms"
+  },
+  "link.item.label.Licenses": {
+    "message": "پروانه‌ها",
+    "description": "The label of footer link with label=Licenses linking to /legal/licenses"
+  },
   "copyright": {
     "message": "کپی‌رایت © ۲۰۲۶ Eduba.",
     "description": "The footer copyright"
