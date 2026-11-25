@@ -37,6 +37,10 @@ Your name and work e-mail, and if you give them, your company, team size and mes
 - **Audit log:** a record of actions in the workspace (who did what, and when), including successful and failed sign-ins.
 - **Workspace content:** what your company puts in Eduba, such as tasks, workflows and their runs, documents, uploaded files and comments.
 
+### On this documentation site
+
+If you use the "Request a change" form at the end of a page, we store your message, the page and its language, and any contact details you choose to give.
+
 ### Server logs
 
 Our servers log each request with its time, the address requested and your IP address. We use these logs to keep the service secure, to limit abuse (for example, too many sign-in attempts) and to fix problems.
@@ -54,7 +58,7 @@ On Eduba's own service we ask signed-in users whether we may collect usage analy
 If you say yes:
 
 - We record which screens you open (as page types, never real addresses or IDs) and a few actions, such as raising a task or finishing a step, and errors you run into.
-- Events are sent to PostHog (PostHog Inc., EU region) through our own server, so PostHog does not see your IP address. They carry a pseudonymous ID that only we can link to your account. They never include your name, e-mail, file names or anything you type. PostHog keeps them for up to one year.
+- Events are sent to PostHog (PostHog Inc., EU region) through our own server, so PostHog does not see your IP address. They carry a pseudonymous ID that only we can link to your account. They never include your name, e-mail, file names or what you type, with one exception: an error report keeps the error message, which can occasionally repeat a value shown on screen. PostHog keeps them for up to one year.
 - Session recordings are a separate opt-in, off by default. They hide all text and everything you type.
 
 You can change both choices at any time in **Settings → Privacy**.
@@ -69,7 +73,7 @@ We send e-mail from our own mail server: invitations, sign-in and password-reset
 
 ## Where your data is kept
 
-Workspace data, files, logs and e-mail stay on servers we operate ourselves: [Data location: country and hosting provider — to be completed]. Each workspace has its own database and its own file storage.
+Workspace data, files, logs and e-mail are kept on servers and machines we operate ourselves: [Data location, including where backup copies are kept: country and hosting provider — to be completed]. Each workspace has its own database and its own file storage.
 
 If your company connects its own database, file storage or mailbox to its workspace, the data in them stays under your company's control.
 
@@ -95,8 +99,8 @@ We may also disclose data when the law requires it.
 
 ## How long we keep data
 
-- **Workspace data** is kept as long as the workspace is active, then deleted on request or at contract end. Before deletion, your company can receive an export of its data.
-- **A deleted user:** when a workspace admin deletes a user, we erase their name, e-mail, password and authenticator secret and end their sessions. The audit log keeps the record of their actions, but it no longer names them.
+- **Workspace data** is kept as long as the workspace is active, then deleted on request or at contract end. Before deletion, your company can receive an export of its data. Our security log keeps a record that the workspace was closed.
+- **A deleted user:** when a workspace admin deletes a user, we erase their name, e-mail, password and authenticator secret and end their sessions. The audit log keeps the record of their actions, but it no longer names them. Comments and other text people wrote stay as your company's records.
 - **Access requests** that no one answers expire after 30 days. Ninety days after a request is decided or expires, we erase the name, e-mail and other details in it.
 - **Usage analytics:** up to one year at PostHog.
 - **Backups and server logs:** [Backup and server-log retention periods — to be completed]. Deleted data leaves our backups when they expire.
