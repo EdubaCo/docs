@@ -8,7 +8,7 @@ description: Conversations alongside your work — channels, direct messages, an
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Chat
@@ -19,7 +19,7 @@ Eduba or losing the link back to what you were doing.
 
 :::note Availability
 Chat is a module that a tenant's plan enables. If you don't see Chat in your
-navigation, your tenant's tier doesn't include it (ADR-0059). When enabled, Chat
+navigation, your tenant's tier doesn't include it. When enabled, Chat
 is available to all users in the tenant.
 :::
 

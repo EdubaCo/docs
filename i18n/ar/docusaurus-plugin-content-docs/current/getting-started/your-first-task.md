@@ -7,7 +7,7 @@ description: A step-by-step walkthrough of finding, opening, and completing your
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Your first task
@@ -40,7 +40,7 @@ Click the task to open it. A task screen has three parts:
 - **Context** — attachments, prior steps, and the run history so you can see how
   the case got here.
 - **Actions** — the buttons you may use. *You only see the actions your
-  permissions allow* (ADR-0005), so two people can open the same task and see
+  permissions allow*, so two people can open the same task and see
   different buttons.
 
 ## 3. Act

@@ -1,7 +1,6 @@
 # edubaco/docs
 
-Public documentation repository for **Eduba**. Authors and translators contribute here;
-the content is consumed back by the Eduba monorepo as a git submodule at `apps/docs/content/`.
+Public documentation repository for **Eduba**. Authors and translators contribute here.
 
 ## Structure
 
@@ -19,4 +18,4 @@ i18n/fa/            # Persian translations
 
 ## License
 
-[MIT](LICENSE) — contributions are inbound MIT (ADR-0073).
+[MIT](LICENSE) — contributions are inbound MIT.

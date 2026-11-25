@@ -8,7 +8,7 @@ description: Define roles, assign them to people, and model your organization st
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Roles and org chart
@@ -30,7 +30,7 @@ Managing roles and the org chart is a tenant-admin task and requires the
 **Settings → Roles** is a single two-panel screen: the role list on the left,
 and the selected role's **permission matrix and audit trail** on the right —
 so a role and the capabilities it grants are edited in one place rather than
-two. Everything you see here is a live read of the policy engine (ADR-0005):
+two. Everything you see here is a live read of the policy engine:
 the matrix never computes permissions client-side, it renders what the engine
 actually stores, and every write is re-authorized and audited server-side.
 

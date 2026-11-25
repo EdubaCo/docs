@@ -14,8 +14,7 @@ sourceHash: 18733bc9a890129ab0e4c12d0b893f342a4b95595871de2b9a803846f44b4a87
 
 **Policy rules** are how a tenant admin decides who may do what. Each rule
 grants or denies a **capability** (for example `createTask` or
-`designWorkflow`) to a **role**. The policy engine that evaluates these rules
-(ADR-0005) is the single authority used everywhere — it decides your action
+`designWorkflow`) to a **role**. The policy engine that evaluates these rules is the single authority used everywhere — it decides your action
 buttons, your navigation, which document you may open or write to. In-app help links are filtered by capability; the documentation site itself serves pages publicly.
 
 :::info Permission
@@ -55,8 +54,7 @@ Some rows carry a **lock icon** and cannot be toggled from the matrix:
   provisioned with out of the box (for example `tenant_admin` holding
   `manageUsers`/`manageTenantSettings`, `workflow_admin` holding
   `designWorkflow`/`createTask`/`startRun` and the rest of the design-time
-  workflow set — the two are a deliberate, disjoint split; see ADR-0005 §1's
-  2026-07-28 amendment for why).
+  workflow set — the two are a deliberate, disjoint split).
 - **Pack-applied rules** — the `defaultRules` a [pack](./packs.md) added on
   import. These came from the pack, not a manual grant, so changing them means
   updating or removing the pack rather than hand-editing a cell.
@@ -78,8 +76,7 @@ Beyond role-scoped rules, the engine also seeds narrower **resource-** and
 example, a task's own responsible may write that task's own documents only
 while their step is open, independent of any role they hold. These exist so a
 structural fact ("this is *your* task, right now") can authorize an action
-without widening a role grant that would apply everywhere. See ADR-0005 for
-the full model.
+without widening a role grant that would apply everywhere.
 
 ## The audit trail
 

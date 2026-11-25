@@ -8,14 +8,14 @@ description: Design, version, and publish the workflow definitions that runs are
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Workflow designer
 
 The **workflow designer** is where workflow admins build the definitions that
 drive every run. Eduba compiles what you author to real BPMN 2.0 and runs it on
-an embedded Flowable engine (ADR-0048) — the canvas is a fork of the bpmn.io
+an embedded Flowable engine — the canvas is a fork of the bpmn.io
 modeler with a Eduba block palette and a manifest-driven properties panel. You
 lay out steps, configure each step's form, assignee, and rules, then **publish**
 a version that new runs are created from.
@@ -47,7 +47,7 @@ Any element-template field of type `assignee` — including a `human` block's
   `{ type: 'role', roleId }`. This is the common case for a step that should be
   offered to *whoever holds a role* (for example every `checker`) rather than a
   specific person — the engine resolves the role to candidate users through the
-  policy engine at wait-token creation (ADR-0005 §3).
+  policy engine at wait-token creation.
 - **User** and **group** work the same way, writing `{ type: 'user', userId }`
   or `{ type: 'group', groupId }` from a searchable directory.
 - **Dynamic** takes a source path (for example `n3.outputs.reviewerUserId`) so
@@ -58,9 +58,9 @@ Any element-template field of type `assignee` — including a `human` block's
   and picking a tab from any other tab upgrades the stored value to the
   canonical object shape the moment you touch it.
 
-The chosen spec is an `AssigneeSpec` (ADR-0002 §1b), the same shape every
+The chosen spec is an `AssigneeSpec`, the same shape every
 human-wait block accepts, so it behaves identically whether the step sits in a
-parent workflow or inside a certified subflow's body (ADR-0076).
+parent workflow or inside a certified subflow's body.
 
 ## SLA and escalation on a decision step
 
@@ -82,8 +82,7 @@ properties panel** — there is no dedicated ladder-rung editor with add/remove
 rows yet. An author sets `slaHours` as a number and, for escalation, edits the
 `steps` array as JSON. The semantics are fully implemented on the engine side
 (the deadline compiles to a BPMN timer boundary event and escalation to a
-listener that re-resolves the `AssigneeSpec`, per ADR-0048's concept→BPMN
-mapping) — only the authoring surface is unpolished. Treat this as the current,
+listener that re-resolves the `AssigneeSpec`) — only the authoring surface is unpolished. Treat this as the current,
 real behavior rather than a preview of a future ladder UI.
 
 **Do not confuse this with two similarly-named but unrelated controls:**
@@ -91,7 +90,7 @@ real behavior rather than a preview of a future ladder UI.
 - The **Wait control**'s single "hours" field (a plain BPMN `timeDuration`) is
   an unconditional delay with no assignee and no ladder — it is not an SLA.
 - **Escalate** on a *failed* step (the run inspector / Task Detail's failed-step
-  banner, ADR-0078) is a blocked person's hand-off to an administrator after
+  banner) is a blocked person's hand-off to an administrator after
   something has already gone wrong. It has nothing to do with designer-authored
   SLA config and cannot be set from the designer.
 
@@ -109,7 +108,7 @@ A step you expect to repeat across definitions — an approval chain, a
 notification pattern — belongs in the [Subflow library](./subflow-library.md)
 as a reusable fragment instead of being redrawn on every canvas. A certified
 subflow's body may itself contain `human` blocks; the designer and the engine
-handle that the same way as a parent-graph human step (ADR-0076), with the
+handle that the same way as a parent-graph human step, with the
 one current limitation that a body supports at most one in-flight human wait
 per subflow instance.
 

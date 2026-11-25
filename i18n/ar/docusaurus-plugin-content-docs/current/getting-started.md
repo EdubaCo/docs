@@ -8,7 +8,7 @@ description: A first walkthrough of Eduba — what it is, how work flows through
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Getting started
@@ -81,7 +81,7 @@ When you are ready to go end-to-end, follow
 
 :::note Documentation is filtered to you
 You only see documentation for features you have access to. The same policy
-engine that decides what you can do in the app (ADR-0005) decides which docs
+engine that decides what you can do in the app decides which docs
 pages and search results you see — so this site looks different depending on
 your role.
 :::

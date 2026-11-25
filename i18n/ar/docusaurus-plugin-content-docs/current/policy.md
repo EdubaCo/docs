@@ -8,15 +8,14 @@ description: Configure the capability rules that decide who may do what across t
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Policy rules
 
 **Policy rules** are how a tenant admin decides who may do what. Each rule
 grants or denies a **capability** (for example `createTask` or
-`designWorkflow`) to a **role**. The policy engine that evaluates these rules
-(ADR-0005) is the single authority used everywhere — it decides your action
+`designWorkflow`) to a **role**. The policy engine that evaluates these rules is the single authority used everywhere — it decides your action
 buttons, your navigation, which document you may open or write to, and even
 which docs pages and search results this help site shows you.
 
@@ -57,8 +56,7 @@ Some rows carry a **lock icon** and cannot be toggled from the matrix:
   provisioned with out of the box (for example `tenant_admin` holding
   `manageUsers`/`manageTenantSettings`, `workflow_admin` holding
   `designWorkflow`/`createTask`/`startRun` and the rest of the design-time
-  workflow set — the two are a deliberate, disjoint split; see ADR-0005 §1's
-  2026-07-28 amendment for why).
+  workflow set — the two are a deliberate, disjoint split).
 - **Pack-applied rules** — the `defaultRules` a [pack](./packs.md) added on
   import. These came from the pack, not a manual grant, so changing them means
   updating or removing the pack rather than hand-editing a cell.
@@ -81,8 +79,7 @@ Beyond role-scoped rules, the engine also seeds narrower **resource-** and
 example, a task's own responsible may write that task's own documents only
 while their step is open, independent of any role they hold. These exist so a
 structural fact ("this is *your* task, right now") can authorize an action
-without widening a role grant that would apply everywhere. See ADR-0005 for
-the full model.
+without widening a role grant that would apply everywhere.
 
 ## The audit trail
 

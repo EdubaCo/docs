@@ -8,12 +8,12 @@ description: Import and manage packs — bundles of workflows, blocks, and stand
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Pack management
 
-A **pack** (ADR-0006) is a versioned, signed bundle that ships subflow
+A **pack** is a versioned, signed bundle that ships subflow
 definitions, block manifests, role definitions, and default policy rules
 together, so a tenant can bootstrap a whole domain by importing one artifact
 instead of building everything from scratch. `engmanager-parity-v0` — the
@@ -75,7 +75,7 @@ those rows appear in [Policy rules](./policy.md)'s permission matrix with a
 lock icon and cannot be toggled from there — they came from the pack, not from
 a manual grant, so editing them means updating or removing the pack rather
 than hand-editing a cell. A tenant remains free to add its *own* rules
-alongside a pack's, including a narrower deny (ADR-0005's deny-wins).
+alongside a pack's, including a narrower deny (deny takes precedence).
 
 ## Updating and removing packs
 
@@ -89,7 +89,7 @@ time rather than at run time.
 
 ## Commercial tiers
 
-A pack import also interacts with the tenant's commercial tier (ADR-0006 §4):
+A pack import also interacts with the tenant's commercial tier:
 Starter tenants may import from the pack library but not fork or author custom
 subflows; Professional adds the full library, tenant subflows, and forking;
 Enterprise removes the published-workflow cap and allows custom SDK blocks. A
