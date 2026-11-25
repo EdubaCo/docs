@@ -8,7 +8,7 @@ description: Your personal task inbox — how tasks arrive, how to filter and pr
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # My Work / Task inbox
@@ -47,7 +47,7 @@ Sort by due date or SLA to work the most urgent items first.
 
 Open a task to see its form, its context (attachments and run history), and the
 actions available to you. As everywhere in Eduba, **you only see the action
-buttons your permissions allow** (ADR-0005). Complete the form, choose an action,
+buttons your permissions allow**. Complete the form, choose an action,
 and Eduba records it to the run's audit trail and advances the run to its next
 step.
 

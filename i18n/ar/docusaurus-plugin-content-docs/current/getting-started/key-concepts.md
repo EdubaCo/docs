@@ -7,7 +7,7 @@ description: The vocabulary Eduba uses everywhere — tasks, runs, definitions, 
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Key concepts
@@ -52,7 +52,7 @@ without opening every run. See [Projects](../projects.md).
 
 ## Roles, policy, and capabilities
 
-Eduba's **policy engine** (ADR-0005) is the single authority for *who may do
+Eduba's **policy engine** is the single authority for *who may do
 what*. Permissions are expressed as **capabilities** (for example
 `createTask`, `designWorkflow`) granted to **roles**, which are assigned to
 users — directly or through [user groups](../groups.md). The same engine:

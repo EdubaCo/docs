@@ -8,10 +8,7 @@ description: Welcome to the Eduba platform documentation — what's here and whe
 
 # Eduba documentation
 
-Welcome to the Eduba platform documentation. This site is the platform-wide
-product reference (ADR-0014): a [Docusaurus](https://docusaurus.io)
-site authored in Markdown, available in English and Persian (with RTL),
-and rebuilt on every release.
+Welcome to the Eduba platform documentation. This site is the product reference for the platform, available in English and Persian.
 
 **New here? Start with [Getting started](./getting-started.md).** It explains
 what Eduba is, the handful of core ideas everything else builds on, and walks you
@@ -19,8 +16,7 @@ through completing [your first task](./getting-started/your-first-task.md).
 
 ## How this documentation is organized
 
-The documentation follows the product's information architecture
-(ADR-0014 §2). Each area maps to part of the app:
+The documentation follows the product's information architecture. Each area maps to part of the app:
 
 - **[Getting started](./getting-started.md)** — orientation,
   [sign-in and workspace access](./sign-in-and-access.md), and

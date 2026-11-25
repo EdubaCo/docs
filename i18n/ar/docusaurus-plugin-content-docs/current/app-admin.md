@@ -8,7 +8,7 @@ description: The back-office for the people who operate the Eduba deployment its
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # App admin
@@ -20,10 +20,9 @@ admin configures one organization, while an app admin runs the whole
 installation.
 
 :::note Separate audience
-App admin lives in a separate back-office with its own sign-in (ADR-0058,
-ADR-0069). It is not part of any single tenant's navigation. The "request a
+App admin lives in a separate back-office with its own sign-in. It is not part of any single tenant's navigation. The "request a
 change / report a mistake" control on every docs page feeds the app-admin
-feedback inbox described here (ADR-0014 Amendment C).
+feedback inbox described here.
 :::
 
 ## What you'll find here

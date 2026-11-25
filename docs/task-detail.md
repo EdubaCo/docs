@@ -30,7 +30,7 @@ The top of the screen tells you which task you are on and where it sits:
 
 You can copy a direct link to the task, or open the underlying run, from the
 header's actions. As everywhere in Eduba, **you only see the actions your
-permissions allow** ([policy rules](./policy.md), ADR-0005).
+permissions allow** ([policy rules](./policy.md)).
 
 ## The workflow stepper
 

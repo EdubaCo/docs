@@ -8,7 +8,7 @@ description: Group related runs and tasks into projects and see status across a 
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Projects and portfolio

@@ -8,7 +8,7 @@ description: Upload, share, and track the files attached to your projects and ta
 ---
 
 :::note ترجمة قيد التنفيذ
-هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة (ADR-0014 §6).
+هذه الصفحة غير مترجمة بعد، لذا يظهر محتواها بالإنجليزية. تُضاف الترجمة الكاملة في مرحلة لاحقة.
 :::
 
 # Documents
@@ -17,7 +17,7 @@ The **Documents** screen is where a project's files live: specs and drawings
 handed in as project inputs, the working files a task produces, and the
 packaged deliverables a run hands off. Every write creates a new, immutable
 **revision** — nothing is ever overwritten — and every read and write is
-gated by the [policy engine](./policy.md) (ADR-0005 §4), so what you can see
+gated by the [policy engine](./policy.md), so what you can see
 and touch here always matches what you can see and touch from a task.
 
 :::info Permission
