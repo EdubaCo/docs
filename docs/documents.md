@@ -54,14 +54,20 @@ Documents issued through a project's revision series display their issued revisi
 
 ## Viewing files in the browser
 
-Select **View** on any readable document to open it in Eduba's built-in viewer without downloading:
+Select **View** next to **Download** on any document you can read (on Documents, in a task's files, in revision history and on attachments) to open it in Eduba's built-in viewer without downloading it. Viewing counts as a download: the same access rules apply, and it is recorded the same way.
 
-- **PDF** (`.pdf`) — page navigation, outline, zoom, rotation, and in-document search.
-- **Office documents** (`.docx`, `.xlsx`, `.csv`, `.pptx`).
-- **Text and code** (`.txt`, `.log`, `.md`, `.json`, `.xml`).
-- **Images** (`.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`).
+| Kind | Formats | In the viewer | Largest file |
+|---|---|---|---|
+| PDF | `.pdf` | Pages, outline, zoom, rotation, search | 50 MB |
+| Office | `.docx`, `.xlsx`, `.csv`, `.pptx` | Read only | 50 MB |
+| Text and code | `.txt`, `.log`, `.md`, `.json`, `.xml` | Read only | 50 MB |
+| Images | `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg` | The image | 50 MB |
+| 3D CAD | `.step`, `.stp`, `.iges`, `.igs`, `.brep` | Rotate, zoom, fit, wireframe | 20 MB |
+| 3D meshes | `.stl`, `.obj`, `.glb`, `.3mf`, `.ply` | Rotate, zoom, fit, wireframe | 50 MB |
+| BIM models | `.ifc` | Rotate, zoom, fit | 20 MB |
+| 2D drawings | `.dxf` | Pan, zoom, fit, layers on and off; Persian text reads right to left | 50 MB |
 
-In-browser preview supports files up to 50 MB; larger files or unsupported file types remain available via **Download**.
+Files over the limit, and formats the browser cannot show, stay available through **Download**. That includes native CAD files (`.dwg`, SolidWorks, CATIA, NX, Inventor): upload a STEP, PDF or DXF export next to the native file so the next person can view it. Upload glTF models as `.glb`; a `.gltf` file keeps its data in separate files the viewer does not fetch.
 
 To share a readable document, choose **Share**, select an expiry period, create and copy the link. Use **Revoke** if it should stop working before expiry. Treat the link as access to the document and share it only with intended recipients.
 
